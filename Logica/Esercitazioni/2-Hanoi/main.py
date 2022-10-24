@@ -1,4 +1,4 @@
 from hanoi import *;
  
 
-HanoiTower(3)
+HanoiTower(7)
