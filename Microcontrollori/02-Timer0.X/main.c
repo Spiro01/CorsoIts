@@ -18,33 +18,61 @@
 // Use project enums instead of #define for ON and OFF. 
 
 #define _XTAL_FREQ 8000000
-#define BIT 0x01
+#define BIT 0x00
 #include <xc.h>
+#include "7seg.h"
 
-char tempi[] = {15, 30, 45, 60};
+char tempi[] = {15, 30, 60, 120}; //0.5,1,2,4 secondi
 char InterruptCounter;
 char TempoSelezionato;
 
 void main(void) {
-    TRISA = 0xFF;
+    TRISA = 0xFE;
     TRISB = 0x00;
     INTCON = 0xA0; // GIE = 1; T0IE = 1;
-    OPTION_REG = 0x86; // PS2 = 1; PS1 = 1; PS0 = 0;
+    OPTION_REG = 0x85; // PS2 = 1; PS1 = 1; PS0 = 0;
 
     char button, old_button;
     char selezione = 0x00;
 
+
+    //sevenSegment(0x00,&PORTB);
     while (1) {
-        button = PORTA & 0x02;
+        button = PORTAbits.RA1;
+
+
         if (!button && old_button) {
-            selezione++;
+            __delay_ms(200);
+            if (!button && old_button) {
+                selezione++;
+                if (selezione >= 4)selezione = 0x00;
+            } else {
+                selezione--;
+                if (selezione < 0)selezione = 0x03;
+            }
         }
 
-        if (selezione >= 4)selezione = 0;
+        old_button = button;
 
         TempoSelezionato = tempi[selezione];
-        old_button = button;
-        __delay_ms(100);
+
+
+
+        switch (selezione) {
+            case 0:
+                PORTB = sevenSegment(0x00, 0);
+                PORTB = sevenSegment(selezione + 0x05, 1);
+                break;
+            case 1:
+                PORTB = sevenSegment(0x01, 0);
+                break;
+            case 2:
+                PORTB = sevenSegment(0x02, 0);
+                break;
+            case 3:
+                PORTB = sevenSegment(0x04, 0);
+                break;
+        }
 
     }
     return;
@@ -55,12 +83,13 @@ void __interrupt() ISR(void) {
         INTCONbits.T0IF = 0;
 
         InterruptCounter++;
-        if (InterruptCounter >= TempoSelezionato) {
-            if (PORTB & (1 << BIT)) PORTB &= ~(1 << BIT);
-            else PORTB |= (1 << BIT);
+        if (InterruptCounter >= TempoSelezionato / 10) {
+            if (PORTA & (1 << BIT)) PORTA &= ~(1 << BIT);
+            else PORTA |= (1 << BIT);
             InterruptCounter = 0;
-            //TMR0 = 0;
+
         }
+        
     }
 
     return;
