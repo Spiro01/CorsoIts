@@ -37,7 +37,7 @@ def HanoiTower(n: int):
     for move in moves:
         print(
             f"Sorgente: {ord(move.from_rod)-64}a pila; Destinazione: {ord(move.to_rod)-64}a pila")
-        print(f"L'elemento che sposto è il disco {move.disk}")
+        print(f"L'elemento che sposto e' il disco {move.disk}")
         htBoard.exec_move(move)
         htBoard.print()
     print(f"Il processo termina in {len(moves)} passi")
