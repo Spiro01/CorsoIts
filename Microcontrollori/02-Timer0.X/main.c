@@ -80,10 +80,10 @@ void main(void) {
 
 void __interrupt() ISR(void) {
     if (INTCONbits.T0IF) {
-        INTCONbits.T0IF = 0;
+        INTCONbits
 
         InterruptCounter++;
-        if (InterruptCounter >= TempoSelezionato / 10) {
+        if (InterruptCounter >= TempoSelezionato) {
             if (PORTA & (1 << BIT)) PORTA &= ~(1 << BIT);
             else PORTA |= (1 << BIT);
             InterruptCounter = 0;

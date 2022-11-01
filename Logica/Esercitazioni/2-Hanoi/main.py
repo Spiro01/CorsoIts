@@ -1,4 +1,4 @@
-from hanoi import *;
- 
+from hanoi import *
 
-HanoiTower(7)
+n = int(input("Inserisci il numero di dischi "))
+HanoiTower(n)
