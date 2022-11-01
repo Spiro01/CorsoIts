@@ -13,7 +13,7 @@ namespace TemperatureChecker_REDUCE
             //Read from STDIN
 
 
-            while ((line = Console.ReadLine()) != null)
+            while (!string.IsNullOrWhiteSpace((line = Console.ReadLine())))
             {
                 // Data from Hadoop is tab-delimited key/value pairs
                 var sArr = line.Split('\t');
@@ -21,22 +21,23 @@ namespace TemperatureChecker_REDUCE
                 // Get the word
                 string sensorId = sArr[0];
                 // Get the count
-                int count = Convert.ToInt32(sArr[1]);
+
+                int value = Convert.ToInt32(sArr[1]);
 
                 //Do we already have a count for the word?
                 if (measures.ContainsKey(sensorId))
                 {
                     //If so, increment the count
-                    if (count >= 50)
+                    if (value >= 50)
                     {
-                        measures[sensorId] += count;
+                        measures[sensorId] ++;
                     }
 
                 }
                 else
                 {
                     //Add the key to the collection
-                    measures.Add(sensorId, count);
+                    measures.Add(sensorId, 0);
                 }
             }
             //Finally, emit each word and count
