@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32317.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Read_file_MAP", "Read_file_MAP\Read_file_MAP.csproj", "{2AF29932-9ECF-44D2-B23B-DB7F9183F9A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Read_file_MAP", "Read_file_MAP\Read_file_MAP.csproj", "{2AF29932-9ECF-44D2-B23B-DB7F9183F9A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Count_words_file_REDUCE", "Count_words_file_REDUCE\Count_words_file_REDUCE.csproj", "{A9353F8F-812C-48C0-BD01-7E5CD75E31E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Count_words_file_REDUCE", "Count_words_file_REDUCE\Count_words_file_REDUCE.csproj", "{A9353F8F-812C-48C0-BD01-7E5CD75E31E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WordCounter", "WordCounter", "{06AD822F-7E8B-46F0-A60B-64EDDB2A3C47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TemperatureChecker", "TemperatureChecker", "{D17F6C57-5A83-448A-B1D7-BC8DC6BAEA20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperatureChecker_MAP", "TemperatureChecker_MAP\TemperatureChecker_MAP.csproj", "{6E58F6AE-4985-420E-B013-FC4B8B27EF01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperatureChecker_REDUCE", "TemperatureChecker_REDUCE\TemperatureChecker_REDUCE.csproj", "{96591A8D-3201-4CCB-8352-25CA2288EDDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +29,23 @@ Global
 		{A9353F8F-812C-48C0-BD01-7E5CD75E31E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9353F8F-812C-48C0-BD01-7E5CD75E31E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9353F8F-812C-48C0-BD01-7E5CD75E31E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E58F6AE-4985-420E-B013-FC4B8B27EF01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E58F6AE-4985-420E-B013-FC4B8B27EF01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E58F6AE-4985-420E-B013-FC4B8B27EF01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E58F6AE-4985-420E-B013-FC4B8B27EF01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96591A8D-3201-4CCB-8352-25CA2288EDDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96591A8D-3201-4CCB-8352-25CA2288EDDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96591A8D-3201-4CCB-8352-25CA2288EDDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96591A8D-3201-4CCB-8352-25CA2288EDDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2AF29932-9ECF-44D2-B23B-DB7F9183F9A7} = {06AD822F-7E8B-46F0-A60B-64EDDB2A3C47}
+		{A9353F8F-812C-48C0-BD01-7E5CD75E31E8} = {06AD822F-7E8B-46F0-A60B-64EDDB2A3C47}
+		{6E58F6AE-4985-420E-B013-FC4B8B27EF01} = {D17F6C57-5A83-448A-B1D7-BC8DC6BAEA20}
+		{96591A8D-3201-4CCB-8352-25CA2288EDDF} = {D17F6C57-5A83-448A-B1D7-BC8DC6BAEA20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9B3BC547-78D7-4983-BE03-340285C9CCE5}
