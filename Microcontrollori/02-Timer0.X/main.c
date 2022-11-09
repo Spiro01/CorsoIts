@@ -60,17 +60,17 @@ void main(void) {
 
         switch (selezione) {
             case 0:
-                PORTB = sevenSegment(0x00, 0);
-                PORTB = sevenSegment(selezione + 0x05, 1);
+                PORTB = sevenSegment(0, 0);
+                PORTB = sevenSegment(5, 1);
                 break;
             case 1:
-                PORTB = sevenSegment(0x01, 0);
+                PORTB = sevenSegment(1, 0);
                 break;
             case 2:
-                PORTB = sevenSegment(0x02, 0);
+                PORTB = sevenSegment(2, 0);
                 break;
             case 3:
-                PORTB = sevenSegment(0x04, 0);
+                PORTB = sevenSegment(4, 0);
                 break;
         }
 
