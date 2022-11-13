@@ -22,7 +22,7 @@
 #include <xc.h>
 #include "7seg.h"
 
-char tempi[] = {15, 30, 60, 120}; //0.5,1,2,4 secondi
+char tempi[] = {16, 32, 64, 128}; //0.5,1,2,4 secondi
 char InterruptCounter;
 char TempoSelezionato;
 

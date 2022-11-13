@@ -3,12 +3,12 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>02-Timer0</name>
-            <creation-uuid>f1fc032e-10ed-4023-bd91-3eb979b46892</creation-uuid>
+            <name>03-Contatore99</name>
+            <creation-uuid>e242db7b-2bd9-42ae-b2cf-5680869475f7</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>
-            <header-extensions/>
+            <header-extensions>h</header-extensions>
             <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
