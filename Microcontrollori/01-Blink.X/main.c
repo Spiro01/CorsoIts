@@ -35,6 +35,9 @@ void main(void) {
         if (!button && old_button) {
             stato ^= 1;
         }
+        
+        
+        
         PORTB = stato;
         old_button = button;
         __delay_ms(100);

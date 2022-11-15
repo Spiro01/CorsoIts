@@ -20,59 +20,37 @@
 #define _XTAL_FREQ 8000000
 #define BIT 0x00
 #include <xc.h>
-#include "7seg.h"
+#include <pic16f628a.h>
 
-char tempi[] = {16, 32, 64, 128}; //0.5,1,2,4 secondi
-char InterruptCounter;
+const int tempi[] = {16, 32, 64, 128}; //0.5,1,2,4 secondi
+int InterruptCounter;
 char TempoSelezionato;
 
 void main(void) {
     TRISA = 0xFE;
     TRISB = 0x00;
     INTCON = 0xA0; // GIE = 1; T0IE = 1;
-    OPTION_REG = 0x85; // PS2 = 1; PS1 = 1; PS0 = 0;
+    OPTION_REG = 0x86; // PS2 = 1; PS1 = 1; PS0 = 0;
 
     char button, old_button;
-    char selezione = 0x00;
 
 
-    //sevenSegment(0x00,&PORTB);
     while (1) {
         button = PORTAbits.RA1;
-
-
+        
         if (!button && old_button) {
             __delay_ms(200);
             if (!button && old_button) {
-                selezione++;
-                if (selezione >= 4)selezione = 0x00;
+                TempoSelezionato++;
+                if (TempoSelezionato >= 4)TempoSelezionato = 0x00;
             } else {
-                selezione--;
-                if (selezione < 0)selezione = 0x03;
+                TempoSelezionato--;
+                if (TempoSelezionato < 0)TempoSelezionato = 0x03;
             }
         }
 
         old_button = button;
 
-        TempoSelezionato = tempi[selezione];
-
-
-
-        switch (selezione) {
-            case 0:
-                PORTB = sevenSegment(0, 0);
-                PORTB = sevenSegment(5, 1);
-                break;
-            case 1:
-                PORTB = sevenSegment(1, 0);
-                break;
-            case 2:
-                PORTB = sevenSegment(2, 0);
-                break;
-            case 3:
-                PORTB = sevenSegment(4, 0);
-                break;
-        }
 
     }
     return;
@@ -80,17 +58,17 @@ void main(void) {
 
 void __interrupt() ISR(void) {
     if (INTCONbits.T0IF) {
-        INTCONbits
+        INTCONbits.T0IF = 0;
+
+        TMR0 = 4;
 
         InterruptCounter++;
-        if (InterruptCounter >= TempoSelezionato) {
+        if (InterruptCounter >= tempi[TempoSelezionato]) {
             if (PORTA & (1 << BIT)) PORTA &= ~(1 << BIT);
             else PORTA |= (1 << BIT);
             InterruptCounter = 0;
 
         }
-        
     }
 
-    return;
 }

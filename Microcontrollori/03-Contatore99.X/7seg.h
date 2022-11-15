@@ -5,25 +5,39 @@
  * Created on 25 ottobre 2022, 15.31
  */
 
-char sevenSegment(char value, char display) {
+#define SEGA 1 << 2 
+#define SEGB 1 << 3
+#define SEGC 1 << 5
+#define SEGD 1 << 6
+#define SEGE 1 << 7
+#define SEGF 1 << 1
+#define SEGG 1 << 0
 
-    if (value < 0xFF) {
-        char A = (value >> 3) & 1;
-        char B = (value >> 2) & 1;
-        char C = (value >> 1) & 1;
-        char D = (value >> 0) & 1;
 
-        char result = 0;
-        result |= (A || C || B && D || !B&&!D) << 2; //a
-        result |= (!B || !C&&!D || C && D) << 3; //b
-        result |= (B || !C || D) << 5; //c
-        result |= (!B&&!D || C&&!D || B&&!C && D || !B && C || A) << 6; //d
-        result |= (!B && !D || C &&!D) << 7; //e
-        result |= (A || !C&&!D || B && !C || B&&!D) << 1; //f
-        result |= (A || B&&!C || !B && C || C&&!D) << 0; //g
-        result |= display << 4; //switch
-        return result;
+#define N0 SEGA | SEGB | SEGC | SEGD | SEGE | SEGF
+#define N1 SEGB | SEGC
+#define N2 SEGA | SEGB | SEGD | SEGE | SEGG
+#define N3 SEGA | SEGB | SEGC | SEGD | SEGG
+#define N4 SEGB | SEGC | SEGF | SEGG 
+#define N5 SEGA | SEGC | SEGD | SEGF | SEGG
+#define N6 SEGA | SEGC | SEGD | SEGE | SEGF | SEGG
+#define N7 SEGA | SEGB | SEGC
+#define N8 SEGA | SEGB | SEGC | SEGD | SEGE | SEGF | SEGG
+#define N9 SEGA | SEGB | SEGC | SEGD | SEGF | SEGG
 
-    }
+
+
+
+#define PORT PORTB
+#define SELECTORBIT 4
+
+void writeDisplay(char value,char display) {
+
+    const char displayPattern[] = {N0, N1, N2, N3, N4, N5, N6, N7, N8, N9};
+
+
+    PORT = displayPattern[value];
+    PORT |= display << SELECTORBIT;
+
 }
 
