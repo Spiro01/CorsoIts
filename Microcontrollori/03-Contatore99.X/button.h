@@ -6,23 +6,20 @@
  */
 
 
-void readButton(){
+void checkButton(char* PORT,char button, void *function()) {
     static char button, old_button;
-    
-if (!button && old_button) {
-            __delay_ms(200);
-            if (!button && old_button) {
-                TempoSelezionato++;
-                if (TempoSelezionato >= 4)TempoSelezionato = 0x00;
-            } else {
-                TempoSelezionato--;
-                if (TempoSelezionato < 0)TempoSelezionato = 0x03;
-            }
+    button = &PORT & button;
+    if (!button && old_button) {
+        __delay_ms(20);
+        button = PORT & button;
+        if (!button && old_button) {
+            function();
         }
-
-        old_button = button;
-
-
     }
+
+    old_button = button;
+
+
 }
+
 
