@@ -1,0 +1,65 @@
+//bonifica voti
+
+// use("bigdata");
+// var bulkOps = [];
+// db.IMDB.find({ imdb: { $exists: true } }).forEach((doc) => {
+//   var dec_value;
+//   try {
+//     dec_value = new NumberDecimal(doc.imdb.rating);
+//   } catch (ex) {
+//     bulkOps.push({
+//       deleteOne: {
+//         filter: { _id: doc._id },
+//       },
+//     });
+//   }
+
+//   var imdb = { ...doc.imdb, rating: dec_value };
+
+//   bulkOps.push({
+//     updateOne: {
+//       filter: { _id: doc._id },
+//       update: { $set: { imdb: imdb } },
+//     },
+//   });
+// });
+
+db.IMDB.bulkWrite(bulkOps, { ordered: true });
+
+//bonifica anno
+
+use("bigdata");
+var bulkOps = [];
+db.IMDB.find({ year: { $exists: true } }).forEach(function (doc) {
+  var int_value = new NumberInt(doc.year);
+  bulkOps.push({
+    updateOne: {
+      filter: { _id: doc._id },
+      update: { $set: { year: int_value } },
+    },
+  });
+});
+db.IMDB.bulkWrite(bulkOps, { ordered: true });
+
+//Trovare tutti i film con rating maggiore o uguale a 9,5 su IMDB
+
+// Mostrare anno, titolo e rating
+
+// Ordinare i risultati per data, dal più recente al più vecchio
+
+use("bigdata");
+db.IMDB.find({ "imdb.rating": { $gte: 9.5 } }, { year: 1, title: 1, "imdb.rating": 1, _id: 0 }).sort({ year: -1 });
+
+//Elencare titolo e autori dei film in linguaitaliana di genere animazione del 2006
+
+use("bigdata");
+db.IMDB.find({ genres: "Animation", languages: "Italian", year: { $eq: 2006 } }, { title: 1, writers: 1, _id: 0 }).pretty();
+
+// • Trovare il voto medio su IMDB dei film per ciascun anno di pubblicazione
+
+// • Non considerare i film con rating non valido
+
+use("bigdata");
+db.IMDB.aggregate({
+  $group: { "_id": "$year", "votomedio": { "$avg": "$imdb.rating" } },
+},{"$sort":{_id:-1}});
