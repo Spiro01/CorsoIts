@@ -18,16 +18,26 @@
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 
+#define _XTAL_FREQ 20000000
+
 #include <xc.h>
 #include "numpad.h"
+
 void main(void) {
+    char numero;
     NumPad_Init();
     TRISD = 0x0f;
     TRISB = 0x00;
     char test = 0;
-    while(1){
+    while (1) {
         test = Numpad_Read();
-        
+        if (test<0xfe) {
+            numero = test;
+
+        }
+       // TRISB &= ~(0xf << 4);
+        //TRISB |= numero << 4;
+
     }
-    
+
 }

@@ -1,0 +1,41 @@
+use('verifica')
+var bulkOps = [];
+db.automobili.find({ odometer: { $exists: true } }).forEach(function (doc) {
+  var int_value = new NumberInt(doc.odometer);
+  bulkOps.push({
+    updateOne: {
+      filter: { _id: doc._id },
+      update: { $set: { odometer: int_value } },
+    },
+  });
+});
+db.automobili.bulkWrite(bulkOps, { ordered: true });
+
+
+use('verifica')
+db.automobili.aggregate( 
+    {$group: {_id: {manufacturer:'$manufacturer',model:"$model"}, count: {$sum: 1}}}, 
+    {$sort: {"count": -1}})
+
+    use('verifica')
+db.automobili.aggregate( 
+     {$match:{price:{$gt:0}}},
+    {$group: {_id: null, avg: {$avg: "$price"}}}
+   )
+
+    use('verifica')
+db.automobili.aggregate( 
+    {$group: {_id: '$manufacturer', avg: {$avg: "$price"}}}, 
+    {$sort: {"_id": 1}})
+
+    use('verifica')
+db.automobili.aggregate( 
+  {$match:{manufacturer:"ferrari"}},
+    {$group: {_id: '$paint_color', count: {$sum:1}}}, 
+    {$sort: {"count": -1}})
+
+
+        use('verifica')
+db.automobili.find(
+    {manufacturer:"ferrari", condition:"like new", paint_color:"red", price:{$lt:100000}},
+    {_id:0,state:1, region:1})
