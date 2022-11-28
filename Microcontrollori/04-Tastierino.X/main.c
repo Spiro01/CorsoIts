@@ -16,27 +16,44 @@
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
 
 // #pragma config statements should precede project file includes.
-// Use project enums instead of #define for ON and OFF.
+// Use project enums- instead of #define for ON and OFF.
 
-#define _XTAL_FREQ 20000000
+#define _XTAL_FREQ 8*1000000
 
 #include <xc.h>
 #include "numpad.h"
+#include "ledpint.h"
 
 void main(void) {
-    char numero;
     NumPad_Init();
-    TRISD = 0x0f;
-    TRISB = 0x00;
-    char test = 0;
-    while (1) {
-        test = Numpad_Read();
-        if (test<0xfe) {
-            numero = test;
 
+
+    unsigned char operatore [2];
+    char selettore, risultato;
+    char read = 0xff;
+    while (1) {
+        read = Numpad_Read();
+
+        if (read >= 0 && read <= 9) {
+            operatore[selettore] = read ;
+        } else if (read == '*') {
+            if (selettore < 1)selettore++;
+        } else if (read == '#') {
+            risultato = operatore[0] + operatore[1];
+            selettore = 0;
+            __debug_break();
+            Print_Led(risultato);
+            
         }
-       // TRISB &= ~(0xf << 4);
-        //TRISB |= numero << 4;
+
+
+        //        if (value == '*') {
+        //            PORTB &= 0x0f;
+        //        } else if (test < 0xfe) {
+        //           
+        //            __debug_break();
+        //        }
+
 
     }
 
