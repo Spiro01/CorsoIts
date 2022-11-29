@@ -11,7 +11,6 @@
 #define Y_2    RB1
 #define Y_3    RB2
 
-
 void NumPad_Init() {
     TRISD = 0x0f;
     TRISB = 0x00;
@@ -24,15 +23,14 @@ char Numpad_Read() {
     static char oldKeyVal;
     for (colScan = 0; colScan < 3; colScan++) {
         COLPORT |= 0x07;
-        COLPORT &=~(1UL << colScan);
-
+        COLPORT &= ~(1UL << colScan);
+        __delay_ms(15);
         for (rowScan = 0; rowScan < 4; rowScan++) {
             currentKeyVal = (ROWPORT & (1 << rowScan));
 
             if (!currentKeyVal && oldKeyVal) {
-                curre  ntKey = keypad[rowScan + (4 * colScan)];
-                oldKeyVal = 0 ;
-                 __debug_break();
+                currentKey = keypad[rowScan + (4 * colScan)];
+                oldKeyVal = 0;
                 return currentKey;
             }
 
