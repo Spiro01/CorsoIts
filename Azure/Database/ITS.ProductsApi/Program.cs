@@ -11,17 +11,17 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IDataAccess, SqlDataAccess>();
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.MapGet("/", () =>
+{
+    return "ciao";
+});
 app.MapControllers();
 
 app.Run();
