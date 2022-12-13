@@ -20,7 +20,7 @@ namespace ITS.SendTelemetry
 
             using var deviceClient = DeviceClient.CreateFromConnectionString(_configuration.GetConnectionString("Device"));
             while (!stoppingToken.IsCancellationRequested)
-            {
+            { 
                 decimal temperatura;
                 Console.WriteLine("Inserisci la temperatura");
                 while (!decimal.TryParse(Console.ReadLine(), out temperatura) && !stoppingToken.IsCancellationRequested)
@@ -35,9 +35,7 @@ namespace ITS.SendTelemetry
                     ContentEncoding = "utf-8",
                 };
 
-                
-                await deviceClient.OpenAsync(stoppingToken);
-
+   
                 await deviceClient.SendEventAsync(message, stoppingToken);
 
 
