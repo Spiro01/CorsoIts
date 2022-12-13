@@ -3,8 +3,10 @@ using System.Diagnostics.Contracts;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Domain;
 using Microsoft.Azure.Devices.Client;
 using Newtonsoft.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace PerformanceMonitor
 {
@@ -24,14 +26,16 @@ namespace PerformanceMonitor
             var cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             var memorycounter = new PerformanceCounter("Memory", "Available MBytes", null);
 
-            using var deviceClient = DeviceClient.CreateFromConnectionString("HostName=qzer3.azure-devices.net;DeviceId=spironelli;SharedAccessKey=slXAiPefx2BGGGeqeb71hEBBBVtzXiYhin00ReWBEWw=");
+            
 
             while (!stoppingToken.IsCancellationRequested)
             {
+                using var deviceClient = DeviceClient.CreateFromConnectionString(_configuration.GetConnectionString("Device"));
+
                 var cpuUsage = cpuCounter.NextValue();
                 var ramUsage = memorycounter.NextValue();
 
-                var messageBody =   JsonConvert.SerializeObject(new { Cpu = cpuUsage, Ram = ramUsage });
+                var messageBody = JsonSerializer.Serialize(new PerformanceData("Pc1",DateTime.Now, cpuCounter.NextValue(), memorycounter.NextValue()));
 
                 using var message = new Message(Encoding.ASCII.GetBytes(messageBody))
                 {
@@ -41,7 +45,7 @@ namespace PerformanceMonitor
 
 
                 await deviceClient.SendEventAsync(message, stoppingToken);
-                _logger.LogInformation("Logged {ram} {cpu}", cpuUsage,ramUsage);
+                _logger.LogInformation("Logged {cpu} {ram}", cpuUsage,ramUsage);
                 await Task.Delay(10000, stoppingToken);
             }
         }
