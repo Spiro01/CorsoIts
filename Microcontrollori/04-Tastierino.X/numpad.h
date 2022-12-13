@@ -36,10 +36,7 @@ char Numpad_Read() {
 
             oldKeyVal = 1;
         }
-
-
     }
-
     return 0xff;
 
 }

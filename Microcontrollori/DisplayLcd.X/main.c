@@ -2,7 +2,7 @@
  * File:   main.c
  * Author: User
  *
- * Created on 18 novembre 2022, 9.53
+ * Created on 9 dicembre 2022, 10.01
  */
 
 // CONFIG
@@ -15,32 +15,26 @@
 #pragma config WRT = OFF       // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
 #pragma config CP = OFF        // Flash Program Memory Code Protection bit (Code protection off)
 
-// #pragma config statements should precede project file includes.
-// Use project enums- instead of #define for ON and OFF.
-
 #define _XTAL_FREQ 20*1000000
-
 #include <xc.h>
-#include "numpad.h"
-#include "ledpint.h"
+#include "lcd.h"
 
 void main(void) {
-    NumPad_Init();
+    TRISD = 0x00;
+    TRISE = 0x00;
 
-    unsigned char operatore [2];
-    char selettore, risultato;
-    char read = 0xff;
+    Lcd_Init();
+
+    Lcd_Set_Cursor(0, 3);
+    Lcd_Write_String("Benvenuti");
+    Lcd_Set_Cursor(1, 3);
+    Lcd_Write_String("al circo");
+
     while (1) {
-        read = Numpad_Read();
 
-        if (read >= 0 && read <= 9) {
-            operatore[selettore] = read;
-        } else if (read == '*') {
-            if (selettore < 1)selettore++;
-        } else if (read == '#') {
-            risultato = operatore[0] + operatore[1];
-            selettore = 0;
-            Print_Led(risultato);
-        }
+        //Lcd_Shift_Right();
+
+
+        __delay_ms(1000);
     }
 }

@@ -33,7 +33,7 @@ void main(void) {
     OPTION_REG = 0x86; // PS2 = 1; PS1 = 1; PS0 = 0;
 
     char button, old_button;
-
+    
 
     while (1) {
         button = PORTAbits.RA1;
