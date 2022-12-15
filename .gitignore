@@ -609,3 +609,5 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 vehicles.csv
+/Azure/PerformanceMonitor/SendToDb/local.settings.json
+/Azure/PerformanceMonitor/SendToDbFunciton/local.settings.json

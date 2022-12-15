@@ -1,6 +1,6 @@
 ﻿namespace Domain;
 
-public record PerformanceData
+public class PerformanceData
 {
     public PerformanceData(string deviceName,DateTime acquisitionDateTime, float cpuUsage, float ramUsage)
     {

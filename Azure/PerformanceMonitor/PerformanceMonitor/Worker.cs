@@ -24,7 +24,7 @@ namespace PerformanceMonitor
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             var cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
-            var memorycounter = new PerformanceCounter("Memory", "Available MBytes", null);
+            var memorycounter = new PerformanceCounter("Memory", "Available MBytes");
 
             
 
@@ -35,7 +35,7 @@ namespace PerformanceMonitor
                 var cpuUsage = cpuCounter.NextValue();
                 var ramUsage = memorycounter.NextValue();
 
-                var messageBody = JsonSerializer.Serialize(new PerformanceData("Pc1",DateTime.Now, cpuCounter.NextValue(), memorycounter.NextValue()));
+                var messageBody = JsonSerializer.Serialize(new PerformanceData("Spiro",DateTime.Now, cpuCounter.NextValue(), memorycounter.NextValue()));
 
                 using var message = new Message(Encoding.ASCII.GetBytes(messageBody))
                 {
@@ -46,7 +46,7 @@ namespace PerformanceMonitor
 
                 await deviceClient.SendEventAsync(message, stoppingToken);
                 _logger.LogInformation("Logged {cpu} {ram}", cpuUsage,ramUsage);
-                await Task.Delay(10000, stoppingToken);
+                await Task.Delay(1000, stoppingToken);
             }
         }
     }

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Dapper;
 using Domain;
-using Microsoft.Azure.Amqp.Framing;
+
 using Microsoft.Extensions.Configuration;
 using SendToDb.Interfaces;
 
@@ -11,26 +12,26 @@ namespace SendToDb.Services;
 
 public class PerformanceSqlDataStorage : IPerformanceDataStorage
 {
-    private readonly string _connString;
+    private readonly string _connectionString;
 
-    PerformanceSqlDataStorage(IConfiguration configuration) => _connString = configuration.GetConnectionString("db");
+    public PerformanceSqlDataStorage(IConfiguration configuration)
+    {
+        _connectionString = configuration.GetConnectionString("db");
+    }
+
 
     public async Task<IEnumerable<PerformanceData>> GetPerformanceData()
     {
-        using var connection = new SqlConnection(_connString);
+        using var connection = new SqlConnection(_connectionString);
 
 
         const string query = @"
-INSERT INTO [dbo].[spironelli]
-           ([DeviceName]
-           ,[AcquisitionDate]
-           ,[CpuUsage]
-           ,[RamUsage])
-     VALUES
-           (@DeviceName
-           ,@AcquisitionDateTime
-           ,@CpuUsage
-           ,@RamUsage
+        SELECT [Id]
+              ,[DeviceName]
+              ,[AcquisitionDate]
+              ,[CpuUsage]
+              ,[RamUsage]
+          FROM [dbo].[spironelli]
 "
         ;
 
@@ -40,8 +41,7 @@ INSERT INTO [dbo].[spironelli]
 
     public async Task InsertPerformanceData(PerformanceData data)
     {
-        using var connection = new SqlConnection(_connString);
-        
+        using var connection = new SqlConnection(_connectionString);
 
         const string query = @"
 INSERT INTO [dbo].[spironelli]
@@ -53,13 +53,13 @@ INSERT INTO [dbo].[spironelli]
            (@DeviceName
            ,@AcquisitionDateTime
            ,@CpuUsage
-           ,@RamUsage
+           ,@RamUsage)
 ";
 
 
         await connection.ExecuteAsync(query, data);
-
     }
 
-    
 }
+
+
