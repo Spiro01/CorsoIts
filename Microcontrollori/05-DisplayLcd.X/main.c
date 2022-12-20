@@ -18,23 +18,23 @@
 #define _XTAL_FREQ 20*1000000
 #include <xc.h>
 #include "lcd.h"
-
+#include "numpad.h"
 void main(void) {
-    TRISD = 0x00;
-    TRISE = 0x00;
+    
 
     Lcd_Init();
 
     Lcd_Set_Cursor(0, 3);
-    Lcd_Write_String("Benvenuti");
-    Lcd_Set_Cursor(1, 3);
-    Lcd_Write_String("al circo");
+    Lcd_Write_String("Benvenuto");
+ 
 
     while (1) {
 
-        //Lcd_Shift_Right();
+        char read = Numpad_Read();
+        if(read <0xff){
+            Lcd_Clear();
+            Lcd_Write_Int(20);
+        }
 
-
-        __delay_ms(1000);
     }
 }

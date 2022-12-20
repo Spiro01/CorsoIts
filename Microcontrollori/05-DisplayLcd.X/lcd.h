@@ -32,7 +32,7 @@ void Lcd_Cmd(char a) {
 
     TRISD &= 0x0f;
     TRISE &= 0x06;
-    
+
     RS = 0; // Invio comando
     Lcd_Port(a);
     EN = 1;
@@ -87,8 +87,8 @@ void Lcd_Set_Cursor(char a, char b) // Posiziona cursore
 
 void Lcd_Write_Char(char a) {
     char temp, y;
-    temp = a & 0x0F; // temp = 4 bit meno significativi
-    y = a & 0xF0; // y = 4 bit piu' significativi
+    temp = a & 0x0F;
+    y = a & 0xF0;
 
     RS = 1; // Invio a
 
@@ -104,7 +104,7 @@ void Lcd_Write_Char(char a) {
 
 void Lcd_Write_String(char *a) {
     int i;
-    for (i = 0; a[i] != '\0'; i++)//\0 terminatore di stringa
+    for (i = 0; a[i] != '\0'; i++)//
         Lcd_Write_Char(a[i]);
 }
 
@@ -118,19 +118,37 @@ void Lcd_Shift_Left() {
     Lcd_Cmd(0x08);
 }
 
-int potenza(int b,int e){
-    int res = 0;
-    
-    while (e != 0) {
-        res *= b;
-        --e;
-    }
-    return res;
-}
+void Lcd_Write_Int(int val) {
 
-void intToString(int n, char *str){
-    char cifre = 1;
-    while (n/potenza(10,cifre))cifre++;
-    
-    
+    int n = val;
+    char buffer[50];
+    int i = 0;
+
+    char isNeg = n < 0;
+
+    unsigned int n1 = isNeg ? -n : n;
+
+    while (n1 != 0) {
+        buffer[i++] = n1 % 10 + '0';
+        n1 = n1 / 10;
+    }
+
+    if (isNeg)
+        buffer[i++] = '-';
+
+    buffer[i] = '\0';
+
+    for (int t = 0; t < i / 2; t++) {
+        buffer[t] ^= buffer[i - t - 1];
+        buffer[i - t - 1] ^= buffer[t];
+        buffer[t] ^= buffer[i - t - 1];
+    }
+
+    if (n == 0) {
+        buffer[0] = '0';
+        buffer[1] = '\0';
+    }
+
+    Lcd_Write_String(buffer);
+
 }
