@@ -33,7 +33,8 @@ void main(void) {
         char read = Numpad_Read();
         if(read <0xff){
             Lcd_Clear();
-            Lcd_Write_Int(20);
+            Lcd_Set_Cursor(0, 3);
+            Lcd_Write_Int(read);
         }
 
     }

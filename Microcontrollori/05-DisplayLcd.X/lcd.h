@@ -15,6 +15,7 @@
 //LCD Header per indirizzamento a 4 bit 
 
 void Lcd_Port(char a) {
+
     if (a & 1) D4 = 1;
     else D4 = 0;
 
@@ -29,9 +30,9 @@ void Lcd_Port(char a) {
 }
 
 void Lcd_Cmd(char a) {
+    TRISD &= ~0xff;
+    TRISE &= ~0x06;
 
-    TRISD &= 0x0f;
-    TRISE &= 0x06;
 
     RS = 0; // Invio comando
     Lcd_Port(a);
@@ -41,6 +42,8 @@ void Lcd_Cmd(char a) {
 }
 
 void Lcd_Init() {
+    TRISD &= ~0xff;
+    TRISE &= ~0x06;
     Lcd_Port(0x00);
     __delay_ms(20);
     Lcd_Cmd(0x03);
