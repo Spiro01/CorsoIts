@@ -22,7 +22,7 @@ char Numpad_Read() {
     static char oldKeyVal;
     for (colScan = 0; colScan < 3; colScan++) {
         COLPORT |= 0x07;
-        COLPORT &= ~(1UL << colScan);
+        COLPORT &= ~(1 << colScan);
         __delay_ms(15);
         for (rowScan = 0; rowScan < 4; rowScan++) {
             currentKeyVal = (ROWPORT & (1 << rowScan));
@@ -30,6 +30,10 @@ char Numpad_Read() {
             if (!currentKeyVal && oldKeyVal) {
                 currentKey = keypad[rowScan + (4 * colScan)];
                 oldKeyVal = 0;
+                while (!currentKeyVal) {
+                    currentKeyVal = (ROWPORT & (1 << rowScan));
+                    __delay_ms(20);
+                }
                 return currentKey;
             }
 

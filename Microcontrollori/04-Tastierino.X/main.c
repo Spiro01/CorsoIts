@@ -32,7 +32,7 @@ void main(void) {
     char read = 0xff;
     while (1) {
         read = Numpad_Read();
-
+        
         if (read >= 0 && read <= 9) {
             operatore[selettore] = read;
         } else if (read == '*') {

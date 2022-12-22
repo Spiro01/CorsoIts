@@ -19,22 +19,37 @@
 #include <xc.h>
 #include "lcd.h"
 #include "numpad.h"
+
 void main(void) {
-    
+
 
     Lcd_Init();
 
     Lcd_Set_Cursor(0, 3);
     Lcd_Write_String("Benvenuto");
- 
+
+    unsigned char operatore [2];
+    char selettore, risultato;
+    char read = 0xff;
 
     while (1) {
-
-        char read = Numpad_Read();
-        if(read <0xff){
-            Lcd_Clear();
-            Lcd_Set_Cursor(0, 3);
-            Lcd_Write_Int(read);
+        read = Numpad_Read();
+        if (read >= 0 && read <= 9) {
+            if (!selettore) Lcd_Clear();
+            if (selettore) Lcd_Set_Cursor(0, 2);
+            operatore[selettore] = read;
+            Lcd_Write_Int(operatore[selettore]);
+        } else if (read == '*') {
+            if (selettore < 1) {
+                selettore++;
+                Lcd_Write_Char('+');
+            }
+        } else if (read == '#') {
+            if (selettore < 1) continue;
+            risultato = operatore[0] + operatore[1];
+            selettore = 0;
+            Lcd_Write_Char('=');
+            Lcd_Write_Int(risultato);
         }
 
     }

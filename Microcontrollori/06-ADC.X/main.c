@@ -15,9 +15,35 @@
 #pragma config CP = OFF        // Flash Program Memory Code Protection bit (Code protection off)
 
 #define _XTAL_FREQ 20*1000000
-
 #include <xc.h>
+#include "Adc.h"
+#include "lcd.h"
+#include "7seg.h"
+
+char DisplayOn;
 
 void main(void) {
-    return;
+    Adc_Init();
+    Lcd_Init();
+    INTCON = 0xA0;
+    OPTION_REG = 0x80;
+    int val;
+
+    while (1) {
+
+        //val = Adc_Read(0x00);
+
+        Display_Write(3, DisplayOn);
+
+    }
+
+}
+
+void __interrupt() ISR(void) {
+
+    if (INTCON & 0x04) {
+        INTCON &= ~0x04;
+        DisplayOn++;
+        if (DisplayOn > 3) DisplayOn = 0;
+    }
 }

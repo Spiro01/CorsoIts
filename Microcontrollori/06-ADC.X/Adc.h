@@ -1,54 +1,25 @@
-/* 
- * File:   Adc.h
- * Author: User
- *
- * Created on 16 dicembre 2022, 12.49
- */
-
-#include <xc.h>
-
-void ADC_Init() {
-
-    // FOSC/32; canale AN0=> RA0; GO_DONE stop; ADON abilitato;  
-    ADCON0 = 0B10000101;
-    __delay_ms(5);
-    
-    // ADFM giust. sinistra; ADPREF VDD; ADNREF VSS;
-    ADCON1 = 0B10000000;
-    __delay_ms(5);
 
 
-    ADRESL = 0x00;
 
-
-    ADRESH = 0x00;
-
+void Adc_Init(){
+    ADCON0 = 0x81;
+    ADCON1 = 0x80;
 }
 
-void ADC_Conv() {
- 
-    ADCON0bits.GO_nDONE = 1; // Inizio conversione
-    
-    while (ADCON0bits.GO_nDONE) {  // Attendi fine conversione
-    }
+int Adc_Read(char channel){
+    TRISA |= 0x01;
    
-}
-int ADC_ConvTemp() {
-    
+    ADCON0 &= ~0x38;
 
-    ADCON0 = 0B10000111;
-   // ADCON0bits.GO_nDONE = 1; // Inizio conversione
-    
-    while (ADCON0bits.GO_nDONE) {  // Attendi fine conversione
-        return((ADRESH<<8) + ADRESL);
-    }
-}
-
-   void ADC_ConvTrim() {
-       
-    ADCON0 = 0B10000011;
-    //ADCON0bits.GO_nDONE = 1; // Inizio conversione
-    
-    while (ADCON0bits.GO_nDONE) {  // Attendi fine conversione
-    }
+    ADCON0 |= channel << 3;
+   
+    __delay_ms(1);
+   
+    ADCON0 |= 1 << 2;  
+   
+    while(ADCON0 & 0x04) { }
+   
+    ADCON0 |= 0x04;
+   
+    return ADRESL + (ADRESH << 8);
 }
