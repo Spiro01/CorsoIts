@@ -3,20 +3,16 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>06-ADC</name>
-            <creation-uuid>f0f7aba7-937f-4c95-b678-898070f3e753</creation-uuid>
+            <name>07-Temperatura</name>
+            <creation-uuid>4f417d3a-08a0-469f-bae3-98307a7ad66c</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>
             <header-extensions>h</header-extensions>
             <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
-            <make-dep-projects>
-                <make-dep-project>../00-Librerie.X</make-dep-project>
-            </make-dep-projects>
-            <sourceRootList>
-                <sourceRootElem>.</sourceRootElem>
-            </sourceRootList>
+            <make-dep-projects/>
+            <sourceRootList/>
             <confList>
                 <confElem>
                     <name>default</name>
