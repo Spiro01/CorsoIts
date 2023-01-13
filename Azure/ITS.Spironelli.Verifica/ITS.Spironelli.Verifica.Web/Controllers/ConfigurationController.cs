@@ -9,9 +9,9 @@ namespace ITS.Spironelli.Verifica.Web.Controllers
     [ApiController]
     public class ConfigurationController : ControllerBase
     {
-        private readonly IConfigurationService _configurationService;
+        private readonly IPanelAdsService _configurationService;
 
-        public ConfigurationController(IConfigurationService configurationService) => _configurationService = configurationService;
+        public ConfigurationController(IPanelAdsService configurationService) => _configurationService = configurationService;
 
         [HttpPost("{id}")]
         public async Task<IActionResult> Post([FromRoute] int id, [FromBody] PanelConfiguration panelConfiguration)
