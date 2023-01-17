@@ -611,3 +611,4 @@ cython_debug/
 vehicles.csv
 /Azure/PerformanceMonitor/SendToDb/local.settings.json
 /Azure/PerformanceMonitor/SendToDbFunciton/local.settings.json
+!Microcontrollori/**/dist
