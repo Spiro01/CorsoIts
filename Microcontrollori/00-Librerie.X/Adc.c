@@ -1,5 +1,6 @@
+#include <xc.h>
 
-
+#define _XTAL_FREQ 20*10000000
 
 void Adc_Init(){
     ADCON0 = 0x81;

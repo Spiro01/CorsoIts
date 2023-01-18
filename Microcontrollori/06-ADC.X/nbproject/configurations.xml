@@ -4,13 +4,24 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>7seg.h</itemPath>
-      <itemPath>Adc.h</itemPath>
-      <itemPath>lcd.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
+      <logicalFolder name="00-Librerie.X"
+                     displayName="00-Librerie.X"
+                     projectFiles="true">
+        <logicalFolder name="dist" displayName="dist" projectFiles="true">
+          <logicalFolder name="default" displayName="default" projectFiles="true">
+            <logicalFolder name="production" displayName="production" projectFiles="true">
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>../00-Librerie.X/7seg.c</itemPath>
+        <itemPath>../00-Librerie.X/Adc.c</itemPath>
+        <itemPath>../00-Librerie.X/lcd.c</itemPath>
+        <itemPath>../00-Librerie.X/numpad.c</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -25,6 +36,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
+    <Elem>../00-Librerie.X</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

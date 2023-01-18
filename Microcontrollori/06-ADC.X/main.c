@@ -16,9 +16,9 @@
 
 #define _XTAL_FREQ 20*1000000
 #include <xc.h>
-#include "Adc.h"
-#include "lcd.h"
-#include "7seg.h"
+#include "./../00-Librerie.X/Adc.h"
+#include "./../00-Librerie.X/lcd.h"
+#include "./../00-Librerie.X/7seg.h"
 
 char DisplayOn;
 
@@ -30,11 +30,8 @@ void main(void) {
     int val;
 
     while (1) {
-
         //val = Adc_Read(0x00);
-
-        Display_Write(3, DisplayOn);
-
+        SevenSeg_Write(3, DisplayOn);
     }
 
 }

@@ -3,28 +3,28 @@
 [d edition pro ]
 [d chip 16F877A ]
 [d frameptr 0 ]
-"4 C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\07-Temperatura.X/Adc.h
+"5 C:\Users\User\Desktop\CorsoIts\Microcontrollori/00-Librerie.X/Adc.c
 [v _Adc_Init Adc_Init `(v  1 e 1 0 ]
-"9
+"10
 [v _Adc_Read Adc_Read `(i  1 e 2 0 ]
-"17 C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\07-Temperatura.X/lcd.h
+"14 C:\Users\User\Desktop\CorsoIts\Microcontrollori/00-Librerie.X/lcd.c
 [v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
-"32
+"29
 [v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
-"44
+"41
 [v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
-"67
+"64
 [v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
-"73
-[v _Lcd_Set_Cursor Lcd_Set_Cursor `(v  1 e 1 0 ]
-"91
+"88
 [v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
-"108
+"105
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
-"124
+"121
 [v _Lcd_Write_Int Lcd_Write_Int `(*.1uc  1 e 1 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
 "43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
@@ -45,15 +45,19 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"29 C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\07-Temperatura.X\main.c
+"27 C:\Users\User\Desktop\CorsoIts\Microcontrollori\07-Temperatura.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"59
-[v _ISR ISR `II(v  1 e 1 0 ]
-"60 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f877a.h
-[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"4 PID.c
+[v _pid_controller pid_controller `(d  1 e 4 0 ]
+"19 C:\Users\User\Desktop\CorsoIts\Microcontrollori/00-Librerie.X/numpad.c
+[v _keypad keypad `DC[12]uc  1 e 12 0 ]
+"217 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f877a.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "279
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
-[s S33 . 1 `uc 1 RD0 1 0 :1:0 
+"341
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+[s S95 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -63,23 +67,19 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "358
-[u S42 . 1 `S33 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES42  1 e 1 @8 ]
-[s S56 . 1 `uc 1 RE0 1 0 :1:0 
+[u S104 . 1 `S95 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES104  1 e 1 @8 ]
+[s S118 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 ]
 "415
-[u S60 . 1 `S56 1 . 1 0 ]
-[v _PORTEbits PORTEbits `VES60  1 e 1 @9 ]
-"455
-[v _INTCON INTCON `VEuc  1 e 1 @11 ]
-"533
-[v _PIR1 PIR1 `VEuc  1 e 1 @12 ]
-"595
-[v _PIR2 PIR2 `VEuc  1 e 1 @13 ]
-"738
-[v _T2CON T2CON `VEuc  1 e 1 @18 ]
+[u S122 . 1 `S118 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES122  1 e 1 @9 ]
+"635
+[v _TMR1 TMR1 `VEus  1 e 2 @14 ]
+"656
+[v _T1CON T1CON `VEuc  1 e 1 @16 ]
 "893
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
 "907
@@ -88,110 +88,100 @@
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
 "1160
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
-"1256
-[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
 "1326
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1376
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1438
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1500
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1562
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-"1619
-[v _PIE1 PIE1 `VEuc  1 e 1 @140 ]
-"1681
-[v _PIE2 PIE2 `VEuc  1 e 1 @141 ]
+"1817
+[v _PR2 PR2 `VEuc  1 e 1 @146 ]
 "2223
 [v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
 "2230
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
-"27 C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\07-Temperatura.X\main.c
-[v _Duty_cycle Duty_cycle `uc  1 e 1 0 ]
-"29
+"27 C:\Users\User\Desktop\CorsoIts\Microcontrollori\07-Temperatura.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"39
-[v main@val val `i  1 a 2 76 ]
-"38
-[v main@err err `ui  1 a 2 74 ]
-"45
-[v main@temperatura temperatura `uc  1 a 1 73 ]
-"36
-[v main@old_val old_val `i  1 a 2 71 ]
-"57
-} 0
-"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-{
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-"13
-[v ___xxtofl@arg arg `ul  1 a 4 6 ]
-"12
-[v ___xxtofl@exp exp `uc  1 a 1 5 ]
-"10
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 3 ]
-"15
-[v ___xxtofl@sign sign `uc  1 a 1 4 ]
-"44
-} 0
-"43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
-{
-"45
-[v ___fltol@exp1 exp1 `uc  1 a 1 8 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 7 ]
+"47
+[v main@val val `i  1 a 2 72 ]
 "43
-[v ___fltol@f1 f1 `d  1 p 4 50 ]
-"70
+[v main@old_val old_val `i  1 a 2 70 ]
+"58
+} 0
+"4 PID.c
+[v _pid_controller pid_controller `(d  1 e 4 0 ]
+{
+"7
+[v pid_controller@error error `d  1 a 4 66 ]
+"10
+[v pid_controller@control control `d  1 a 4 62 ]
+"9
+[v pid_controller@derivative derivative `d  1 a 4 54 ]
+"4
+[v pid_controller@setpoint setpoint `d  1 p 4 0 ]
+[v pid_controller@process_variable process_variable `d  1 p 4 4 ]
+[v pid_controller@kp kp `d  1 p 4 8 ]
+[v pid_controller@ki ki `d  1 p 4 12 ]
+[v pid_controller@kd kd `d  1 p 4 16 ]
+[v pid_controller@control_min control_min `d  1 p 4 20 ]
+[v pid_controller@control_max control_max `d  1 p 4 24 ]
+"5
+[v pid_controller@previous_error previous_error `d  1 s 4 previous_error ]
+"6
+[v pid_controller@integral integral `d  1 s 4 integral ]
+"21
 } 0
 "242 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcadd.c
 [v ___flsub __flsub `(d  1 e 4 0 ]
 {
-[v ___flsub@a a `d  1 p 4 16 ]
-[v ___flsub@b b `d  1 p 4 20 ]
+[v ___flsub@a a `d  1 p 4 46 ]
+[v ___flsub@b b `d  1 p 4 50 ]
 "250
 } 0
 "10
 [v ___fladd __fladd `(d  1 e 4 0 ]
 {
 "17
-[v ___fladd@grs grs `uc  1 a 1 6 ]
+[v ___fladd@grs grs `uc  1 a 1 45 ]
 "15
-[v ___fladd@bexp bexp `uc  1 a 1 5 ]
+[v ___fladd@bexp bexp `uc  1 a 1 44 ]
 "16
-[v ___fladd@aexp aexp `uc  1 a 1 4 ]
+[v ___fladd@aexp aexp `uc  1 a 1 43 ]
 "13
-[v ___fladd@signs signs `uc  1 a 1 3 ]
+[v ___fladd@signs signs `uc  1 a 1 42 ]
 "10
-[v ___fladd@b b `d  1 p 4 0 ]
-[v ___fladd@a a `d  1 p 4 4 ]
+[v ___fladd@b b `d  1 p 4 26 ]
+[v ___fladd@a a `d  1 p 4 30 ]
 "237
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S446 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S494 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S451 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S454 . 4 `l 1 i 4 0 `d 1 f 4 0 `S446 1 fAsBytes 4 0 `S451 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S454  1 a 4 44 ]
+[s S499 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S502 . 4 `l 1 i 4 0 `d 1 f 4 0 `S494 1 fAsBytes 4 0 `S499 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S502  1 a 4 20 ]
 "12
-[v ___flmul@grs grs `ul  1 a 4 38 ]
-[s S523 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[v ___flmul@grs grs `ul  1 a 4 14 ]
+[s S571 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S526 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S523 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S526  1 a 2 48 ]
+[u S574 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S571 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S574  1 a 2 24 ]
 "10
-[v ___flmul@bexp bexp `uc  1 a 1 43 ]
+[v ___flmul@bexp bexp `uc  1 a 1 19 ]
 "11
-[v ___flmul@aexp aexp `uc  1 a 1 42 ]
+[v ___flmul@aexp aexp `uc  1 a 1 18 ]
 "9
-[v ___flmul@sign sign `uc  1 a 1 37 ]
+[v ___flmul@sign sign `uc  1 a 1 13 ]
 "8
-[v ___flmul@b b `d  1 p 4 24 ]
-[v ___flmul@a a `d  1 p 4 28 ]
+[v ___flmul@b b `d  1 p 4 0 ]
+[v ___flmul@a a `d  1 p 4 4 ]
 "205
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c
@@ -199,150 +189,160 @@
 {
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
 "6
-[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 2 ]
+[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 6 ]
 "5
-[v __Umul8_16@product product `ui  1 a 2 0 ]
+[v __Umul8_16@product product `ui  1 a 2 4 ]
 "4
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
-[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 3 ]
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 4 ]
+[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
 "60
 } 0
-"124 C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\07-Temperatura.X/lcd.h
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+{
+[v ___flge@ff1 ff1 `d  1 p 4 0 ]
+[v ___flge@ff2 ff2 `d  1 p 4 4 ]
+"19
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 35 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 34 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 26 ]
+"70
+} 0
+"121 C:\Users\User\Desktop\CorsoIts\Microcontrollori/00-Librerie.X/lcd.c
 [v _Lcd_Write_Int Lcd_Write_Int `(*.1uc  1 e 1 0 ]
 {
-"143
-[v Lcd_Write_Int@t t `i  1 a 2 65 ]
-"127
-[v Lcd_Write_Int@buffer buffer `[50]uc  1 a 50 10 ]
-"128
-[v Lcd_Write_Int@i i `i  1 a 2 67 ]
-"126
-[v Lcd_Write_Int@n n `i  1 a 2 63 ]
-"131
-[v Lcd_Write_Int@n1 n1 `ui  1 a 2 61 ]
-"129
-[v Lcd_Write_Int@isNeg isNeg `uc  1 a 1 60 ]
+"140
+[v Lcd_Write_Int@t t `i  1 a 2 55 ]
 "124
-[v Lcd_Write_Int@val val `i  1 p 2 5 ]
-"156
+[v Lcd_Write_Int@buffer buffer `[50]uc  1 a 50 0 ]
+"125
+[v Lcd_Write_Int@i i `i  1 a 2 57 ]
+"123
+[v Lcd_Write_Int@n n `i  1 a 2 53 ]
+"128
+[v Lcd_Write_Int@n1 n1 `ui  1 a 2 51 ]
+"126
+[v Lcd_Write_Int@isNeg isNeg `uc  1 a 1 50 ]
+"121
+[v Lcd_Write_Int@val val `i  1 p 2 36 ]
+"153
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwmod@counter counter `uc  1 a 1 8 ]
+[v ___lwmod@counter counter `uc  1 a 1 5 ]
 "5
-[v ___lwmod@divisor divisor `ui  1 p 2 3 ]
-[v ___lwmod@dividend dividend `ui  1 p 2 5 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 0 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
 "25
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwdiv@quotient quotient `ui  1 a 2 1 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 5 ]
 "11
-[v ___lwdiv@counter counter `uc  1 a 1 0 ]
+[v ___lwdiv@counter counter `uc  1 a 1 7 ]
 "5
-[v ___lwdiv@divisor divisor `ui  1 p 2 3 ]
-[v ___lwdiv@dividend dividend `ui  1 p 2 5 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "10
-[v ___awdiv@quotient quotient `i  1 a 2 2 ]
+[v ___awdiv@quotient quotient `i  1 a 2 7 ]
 "11
-[v ___awdiv@sign sign `uc  1 a 1 1 ]
-[v ___awdiv@counter counter `uc  1 a 1 0 ]
+[v ___awdiv@sign sign `uc  1 a 1 6 ]
+[v ___awdiv@counter counter `uc  1 a 1 5 ]
 "5
-[v ___awdiv@divisor divisor `i  1 p 2 3 ]
-[v ___awdiv@dividend dividend `i  1 p 2 5 ]
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
 "41
 } 0
-"108 C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\07-Temperatura.X/lcd.h
+"105 C:\Users\User\Desktop\CorsoIts\Microcontrollori/00-Librerie.X/lcd.c
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
 {
+"106
+[v Lcd_Write_String@i i `i  1 a 2 10 ]
+"105
+[v Lcd_Write_String@a a `*.26uc  1 p 2 5 ]
 "109
-[v Lcd_Write_String@i i `i  1 a 2 3 ]
-"108
-[v Lcd_Write_String@a a `*.26uc  1 p 2 8 ]
-"112
 } 0
-"91
+"88
 [v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
 {
 [v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
-"92
-[v Lcd_Write_Char@y y `uc  1 a 1 6 ]
-[v Lcd_Write_Char@temp temp `uc  1 a 1 5 ]
-"91
-[v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
-"93
-[v Lcd_Write_Char@a a `uc  1 a 1 7 ]
-"106
-} 0
-"73
-[v _Lcd_Set_Cursor Lcd_Set_Cursor `(v  1 e 1 0 ]
-{
-[v Lcd_Set_Cursor@riga riga `uc  1 a 1 wreg ]
-"75
-[v Lcd_Set_Cursor@temp temp `uc  1 a 1 3 ]
-[v Lcd_Set_Cursor@y y `uc  1 a 1 2 ]
-[v Lcd_Set_Cursor@z z `uc  1 a 1 1 ]
-"73
-[v Lcd_Set_Cursor@riga riga `uc  1 a 1 wreg ]
-[v Lcd_Set_Cursor@colonna colonna `uc  1 p 1 7 ]
-"76
-[v Lcd_Set_Cursor@riga riga `uc  1 a 1 0 ]
 "89
+[v Lcd_Write_Char@y y `uc  1 a 1 3 ]
+[v Lcd_Write_Char@temp temp `uc  1 a 1 2 ]
+"88
+[v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
+"90
+[v Lcd_Write_Char@a a `uc  1 a 1 4 ]
+"103
 } 0
-"44
+"41
 [v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
 {
-"65
+"62
 } 0
-"67
+"64
 [v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
 {
-"71
+"68
 } 0
-"32
+"29
 [v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
 {
 [v Lcd_Cmd@a a `uc  1 a 1 wreg ]
 [v Lcd_Cmd@a a `uc  1 a 1 wreg ]
-[v Lcd_Cmd@a a `uc  1 a 1 6 ]
-"42
+[v Lcd_Cmd@a a `uc  1 a 1 3 ]
+"39
 } 0
-"17
+"14
 [v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
 {
 [v Lcd_Port@a a `uc  1 a 1 wreg ]
 [v Lcd_Port@a a `uc  1 a 1 wreg ]
-"19
-[v Lcd_Port@a a `uc  1 a 1 3 ]
-"30
+"16
+[v Lcd_Port@a a `uc  1 a 1 0 ]
+"27
 } 0
-"9 C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\07-Temperatura.X/Adc.h
+"10 C:\Users\User\Desktop\CorsoIts\Microcontrollori/00-Librerie.X/Adc.c
 [v _Adc_Read Adc_Read `(i  1 e 2 0 ]
 {
 [v Adc_Read@channel channel `uc  1 a 1 wreg ]
 [v Adc_Read@channel channel `uc  1 a 1 wreg ]
-[v Adc_Read@channel channel `uc  1 a 1 7 ]
-"25
+[v Adc_Read@channel channel `uc  1 a 1 4 ]
+"26
 } 0
-"4
+"5
 [v _Adc_Init Adc_Init `(v  1 e 1 0 ]
 {
-"7
-} 0
-"59 C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\07-Temperatura.X\main.c
-[v _ISR ISR `II(v  1 e 1 0 ]
-{
-"64
-[v ISR@counter counter `uc  1 s 1 counter ]
-"81
+"8
 } 0

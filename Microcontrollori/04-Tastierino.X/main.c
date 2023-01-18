@@ -21,11 +21,10 @@
 #define _XTAL_FREQ 20*1000000
 
 #include <xc.h>
-#include "numpad.h"
+#include "./../00-Librerie.X/numpad.h"
 #include "ledpint.h"
 
 void main(void) {
-    NumPad_Init();
 
     unsigned char operatore [2];
     char selettore, risultato;

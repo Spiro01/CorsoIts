@@ -12,26 +12,24 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\03-Contatore99.X.production.o
-cinit CODE 0 B B A 2 1
+cinit CODE 0 C C A 2 1
 idloc IDLOC 5 2000 2000 4 2 1
-text1 CODE 0 122 122 16 2 1
-text2 CODE 0 7E 7E 5B 2 1
-text3 CODE 0 15 15 69 2 1
-text4 CODE 0 D9 D9 49 2 1
-idataCOMMON CODE 0 155 155 1 2 1
-maintext CODE 0 148 148 D 2 1
+text1 CODE 0 14D 14D 5B 2 1
+text2 CODE 0 E4 E4 69 2 1
+text3 CODE 0 1A8 1A8 49 2 1
+maintext CODE 0 16 16 CE 2 1
 cstackCOMMON COMMON 1 70 70 8 1 1
 cstackBANK0 BANK0 1 20 20 8 1 1
 intentry CODE 0 4 4 6 2 1
-bssBANK0 BANK0 1 28 28 4 1 1
-strings STRING 0 138 138 10 2 1
-dataCOMMON COMMON 1 7A 7A 1 1 1
-bssCOMMON COMMON 1 78 78 2 1 1
+bssBANK0 BANK0 1 28 28 3 1 1
+idataBANK0 CODE 0 1F1 1F1 1 2 1
+dataBANK0 BANK0 1 2B 2B 1 1 1
+bssCOMMON COMMON 1 78 78 3 1 1
 config CONFIG 4 2007 2007 1 2 1
-$C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
+$C:\Users\User\AppData\Local\Temp\xcAsbhg.o
 idloc IDLOC 5 2000 2000 4 2 1
 reset_vec CODE 0 0 0 1 2 1
-end_init CODE 0 A A 1 2 1
+end_init CODE 0 A A 2 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -46,11 +44,11 @@ BANK0 2C-6F 1
 BANK1 A0-EF 1
 BANK2 120-14F 1
 CONST 1-3 2
-CONST 156-7FF 2
+CONST 1F2-7FF 2
 ENTRY 1-3 2
-ENTRY 156-7FF 2
+ENTRY 1F2-7FF 2
 CODE 1-3 2
-CODE 156-7FF 2
+CODE 1F2-7FF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -58,9 +56,9 @@ SFR3 180-1EF 1
 COMMON 7B-7D 1
 EEDATA 2100-217F 2
 STRCODE 1-3 2
-STRCODE 156-7FF 2
+STRCODE 1F2-7FF 2
 STRING 1-3 2
-STRING 156-7FF 2
+STRING 1F2-7FF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -75,127 +73,149 @@ STRING 156-7FF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\03-Contatore99.X.production.o
-B cinit CODE >330:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-B cinit CODE >333:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-B cinit CODE >368:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-C cinit CODE >369:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-D cinit CODE >373:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-E cinit CODE >374:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-F cinit CODE >375:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-10 cinit CODE >376:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-11 cinit CODE >379:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-12 cinit CODE >380:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-13 cinit CODE >386:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-13 cinit CODE >388:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-14 cinit CODE >389:C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.s
-4 intentry CODE >90:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-D9 text4 CODE >90:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-D9 text4 CODE >91:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-DD text4 CODE >92:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-DE text4 CODE >93:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-E2 text4 CODE >94:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-E6 text4 CODE >97:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-EA text4 CODE >99:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-EC text4 CODE >99:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-F0 text4 CODE >101:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-F1 text4 CODE >103:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-F8 text4 CODE >104:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-FD text4 CODE >105:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-FE text4 CODE >106:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-100 text4 CODE >110:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-105 text4 CODE >111:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-107 text4 CODE >111:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-10B text4 CODE >112:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-10C text4 CODE >113:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-10F text4 CODE >113:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-111 text4 CODE >113:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-115 text4 CODE >114:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-117 text4 CODE >115:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-118 text4 CODE >116:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-119 text4 CODE >117:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-11B text4 CODE >121:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-15 text3 CODE >5:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-15 text3 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-18 text3 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-1C text3 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-1F text3 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-21 text3 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-23 text3 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-27 text3 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-2A text3 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-2C text3 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-30 text3 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-32 text3 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-38 text3 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-3A text3 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-3B text3 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-3C text3 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-40 text3 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-42 text3 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-46 text3 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-4A text3 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-4B text3 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-4F text3 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-51 text3 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-53 text3 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-57 text3 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-5B text3 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-5E text3 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-61 text3 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-62 text3 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-63 text3 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-67 text3 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-69 text3 CODE >36:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-6F text3 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-74 text3 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-77 text3 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-79 text3 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-7D text3 CODE >41:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
-7E text2 CODE >5:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-7E text2 CODE >12:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-81 text2 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-85 text2 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-88 text2 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-8A text2 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-8C text2 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-90 text2 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-93 text2 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-95 text2 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-9B text2 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-9D text2 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-9E text2 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-9F text2 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-A3 text2 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-A5 text2 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-A9 text2 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-AD text2 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-AF text2 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-B3 text2 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-B7 text2 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-BA text2 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-BD text2 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-BE text2 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-C2 text2 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-C4 text2 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-CA text2 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-CF text2 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D2 text2 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D4 text2 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-D8 text2 CODE >34:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
-122 text1 CODE >34:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X/7seg.h
-125 text1 CODE >39:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X/7seg.h
-12A text1 CODE >40:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X/7seg.h
-12D text1 CODE >40:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X/7seg.h
-130 text1 CODE >40:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X/7seg.h
-132 text1 CODE >40:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X/7seg.h
-137 text1 CODE >42:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X/7seg.h
-148 maintext CODE >26:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-148 maintext CODE >27:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-14A maintext CODE >28:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-14E maintext CODE >29:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-14F maintext CODE >30:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-151 maintext CODE >35:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
-153 maintext CODE >36:C:\Users\Spiro\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+C cinit CODE >293:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+C cinit CODE >296:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+C cinit CODE >331:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+D cinit CODE >332:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+E cinit CODE >336:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+F cinit CODE >337:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+10 cinit CODE >338:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+11 cinit CODE >341:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+12 cinit CODE >342:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+13 cinit CODE >343:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+14 cinit CODE >349:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+14 cinit CODE >351:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+15 cinit CODE >352:C:\Users\User\AppData\Local\Temp\xcAsbhg.s
+4 intentry CODE >88:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1A8 text3 CODE >88:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1A8 text3 CODE >89:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1AC text3 CODE >90:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1AD text3 CODE >91:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1B1 text3 CODE >92:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1B5 text3 CODE >95:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1B9 text3 CODE >97:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1BB text3 CODE >97:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1BF text3 CODE >99:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1C0 text3 CODE >101:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1C7 text3 CODE >102:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1CC text3 CODE >103:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1CD text3 CODE >104:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1CF text3 CODE >108:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1D4 text3 CODE >109:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1D6 text3 CODE >109:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1DA text3 CODE >110:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1DB text3 CODE >111:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1DE text3 CODE >111:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1E0 text3 CODE >111:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1E4 text3 CODE >112:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1E6 text3 CODE >113:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1E7 text3 CODE >114:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1E8 text3 CODE >115:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1EA text3 CODE >119:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+E4 text2 CODE >5:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E4 text2 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E7 text2 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+EB text2 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+EE text2 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+F0 text2 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+F2 text2 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+F6 text2 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+F9 text2 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+FB text2 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+FF text2 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+101 text2 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+107 text2 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+109 text2 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+10A text2 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+10B text2 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+10F text2 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+111 text2 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+115 text2 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+119 text2 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+11A text2 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+11E text2 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+120 text2 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+122 text2 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+126 text2 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+12A text2 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+12D text2 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+130 text2 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+131 text2 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+132 text2 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+136 text2 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+138 text2 CODE >36:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+13E text2 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+143 text2 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+146 text2 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+148 text2 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+14C text2 CODE >41:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+14D text1 CODE >5:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+14D text1 CODE >12:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+150 text1 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+154 text1 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+157 text1 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+159 text1 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+15B text1 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+15F text1 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+162 text1 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+164 text1 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+16A text1 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+16C text1 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+16D text1 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+16E text1 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+172 text1 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+174 text1 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+178 text1 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+17C text1 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+17E text1 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+182 text1 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+186 text1 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+189 text1 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+18C text1 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+18D text1 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+191 text1 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+193 text1 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+199 text1 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+19E text1 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+1A1 text1 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+1A3 text1 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+1A7 text1 CODE >34:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+16 maintext CODE >26:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+16 maintext CODE >27:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+18 maintext CODE >28:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1C maintext CODE >29:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1D maintext CODE >30:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+1F maintext CODE >35:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+25 maintext CODE >36:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+34 maintext CODE >38:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+35 maintext CODE >39:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+4A maintext CODE >42:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+52 maintext CODE >44:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+55 maintext CODE >45:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+5A maintext CODE >46:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+65 maintext CODE >47:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+6A maintext CODE >48:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+74 maintext CODE >49:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+78 maintext CODE >51:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+79 maintext CODE >52:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+7A maintext CODE >55:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+7D maintext CODE >56:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+82 maintext CODE >57:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+8D maintext CODE >58:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+92 maintext CODE >59:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+A1 maintext CODE >60:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+A3 maintext CODE >60:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+A9 maintext CODE >61:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+AE maintext CODE >69:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+B1 maintext CODE >70:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+B6 maintext CODE >71:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+C1 maintext CODE >72:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+C6 maintext CODE >73:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+D5 maintext CODE >74:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+D7 maintext CODE >75:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+D9 maintext CODE >75:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+E0 maintext CODE >79:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
+E0 maintext CODE >81:C:\Users\User\Desktop\CorsoIts\Microcontrollori\03-Contatore99.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -210,65 +230,60 @@ D8 text2 CODE >34:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\aw
 %SYMTAB
 ___latbits 0 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
 ___awdiv@counter 20 0 BANK0 1 cstackBANK0 dist/default/production\03-Contatore99.X.production.o
-__Hspace_0 156 0 ABS 0 - -
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
+__Hspace_0 1F2 0 ABS 0 - -
 __Hspace_1 7B 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 400F 0 ABS 0 - -
-writeDisplay@display 24 0 BANK0 1 cstackBANK0 dist/default/production\03-Contatore99.X.production.o
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _TMR0 1 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
-_main 290 0 CODE 0 maintext dist/default/production\03-Contatore99.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\User\AppData\Local\Temp\xcAsbhg.o
+_main 2C 0 CODE 0 maintext dist/default/production\03-Contatore99.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
-start 14 0 CODE 0 init C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
+start 14 0 CODE 0 init C:\Users\User\AppData\Local\Temp\xcAsbhg.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
-_writeDisplay 244 0 CODE 0 text1 dist/default/production\03-Contatore99.X.production.o
 ___awmod@sign 21 0 BANK0 1 cstackBANK0 dist/default/production\03-Contatore99.X.production.o
-__HdataCOMMON 0 0 ABS 0 dataCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
+?_SevenSeg_Write_Write 70 0 COMMON 1 cstackCOMMON dist/default/production\03-Contatore99.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\User\AppData\Local\Temp\xcAsbhg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\User\AppData\Local\Temp\xcAsbhg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\User\AppData\Local\Temp\xcAsbhg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\User\AppData\Local\Temp\xcAsbhg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\User\AppData\Local\Temp\xcAsbhg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\User\AppData\Local\Temp\xcAsbhg.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 ___awdiv@sign 21 0 BANK0 1 cstackBANK0 dist/default/production\03-Contatore99.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
-__pidataCOMMON 2AA 0 CODE 0 idataCOMMON dist/default/production\03-Contatore99.X.production.o
+main@old_button 26 0 BANK0 1 cstackBANK0 dist/default/production\03-Contatore99.X.production.o
 ___awdiv@dividend 75 0 COMMON 1 cstackCOMMON dist/default/production\03-Contatore99.X.production.o
-__LdataCOMMON 0 0 ABS 0 dataCOMMON -
-_display 2B 0 BANK0 1 bssBANK0 dist/default/production\03-Contatore99.X.production.o
-ISR@InterruptCounter 2A 0 BANK0 1 bssBANK0 dist/default/production\03-Contatore99.X.production.o
+_display 2A 0 BANK0 1 bssBANK0 dist/default/production\03-Contatore99.X.production.o
+ISR@InterruptCounter 7A 0 COMMON 1 bssCOMMON dist/default/production\03-Contatore99.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 ___awdiv@divisor 73 0 COMMON 1 cstackCOMMON dist/default/production\03-Contatore99.X.production.o
-__end_of___awdiv FC 0 CODE 0 text3 dist/default/production\03-Contatore99.X.production.o
-__end_of___awmod 1B2 0 CODE 0 text2 dist/default/production\03-Contatore99.X.production.o
+__end_of___awdiv 29A 0 CODE 0 text2 dist/default/production\03-Contatore99.X.production.o
+__end_of___awmod 350 0 CODE 0 text1 dist/default/production\03-Contatore99.X.production.o
 _INTCON B 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
-__end_of_writeDisplay 270 0 CODE 0 text1 dist/default/production\03-Contatore99.X.production.o
 _OPTION_REG 81 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
-___stacklo 0 0 ABS 0 - C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
-ISR@InterruptCounter2 28 0 BANK0 1 bssBANK0 dist/default/production\03-Contatore99.X.production.o
-__LidataCOMMON 0 0 ABS 0 idataCOMMON -
-writeDisplay@value 27 0 BANK0 1 cstackBANK0 dist/default/production\03-Contatore99.X.production.o
-start_initialization 16 0 CODE 0 cinit dist/default/production\03-Contatore99.X.production.o
-__end_ofwriteDisplay@displayPattern 290 0 STRING 0 strings dist/default/production\03-Contatore99.X.production.o
-_conteggio 7A 0 COMMON 1 dataCOMMON dist/default/production\03-Contatore99.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\User\AppData\Local\Temp\xcAsbhg.o
+___stacklo 0 0 ABS 0 - C:\Users\User\AppData\Local\Temp\xcAsbhg.o
+ISR@InterruptCounter2 78 0 COMMON 1 bssCOMMON dist/default/production\03-Contatore99.X.production.o
+start_initialization 18 0 CODE 0 cinit dist/default/production\03-Contatore99.X.production.o
+_conteggio 2B 0 BANK0 1 dataBANK0 dist/default/production\03-Contatore99.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\03-Contatore99.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
+___int_sp 0 0 STACK 2 stack C:\Users\User\AppData\Local\Temp\xcAsbhg.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 BANK3 1 bank3 -
-__Hcinit 2A 0 CODE 0 cinit -
+__Hcinit 2C 0 CODE 0 cinit -
 __Hidloc 4008 0 IDLOC 5 idloc -
 __Hstack 0 0 STACK 2 stack -
-__stringbase 27A 0 STRING 0 strings dist/default/production\03-Contatore99.X.production.o
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4010 0 CONFIG 4 config -
@@ -276,9 +291,9 @@ __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Lbank3 0 0 BANK3 1 bank3 -
-__Lcinit 16 0 CODE 0 cinit -
+__Lcinit 18 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 5 idloc -
-_conteggioFinito 78 0 COMMON 1 bssCOMMON dist/default/production\03-Contatore99.X.production.o
+_conteggioFinito 28 0 BANK0 1 bssBANK0 dist/default/production\03-Contatore99.X.production.o
 __Lstack 0 0 STACK 2 stack -
 _PORTAbits 5 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
 _INTCONbits B 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
@@ -298,28 +313,28 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
+_SevenSeg_Write 0 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_ISR 1B2 0 CODE 0 text4 dist/default/production\03-Contatore99.X.production.o
-__S0 156 0 ABS 0 - -
+_ISR 350 0 CODE 0 text3 dist/default/production\03-Contatore99.X.production.o
+__S0 1F2 0 ABS 0 - -
 __S1 7B 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 saved_w 7E 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
-__HidataCOMMON 0 0 ABS 0 idataCOMMON -
-__end_of_ISR 244 0 CODE 0 text4 dist/default/production\03-Contatore99.X.production.o
+__end_of_ISR 3E2 0 CODE 0 text3 dist/default/production\03-Contatore99.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-__stringtab 270 0 STRING 0 strings dist/default/production\03-Contatore99.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Spiro\AppData\Local\Temp\xcAsr5o.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\User\AppData\Local\Temp\xcAsbhg.o
+__pdataBANK0 2B 0 BANK0 1 dataBANK0 dist/default/production\03-Contatore99.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-_statoConteggio 79 0 COMMON 1 bssCOMMON dist/default/production\03-Contatore99.X.production.o
+_statoConteggio 29 0 BANK0 1 bssBANK0 dist/default/production\03-Contatore99.X.production.o
 ___awmod@counter 20 0 BANK0 1 cstackBANK0 dist/default/production\03-Contatore99.X.production.o
-___awdiv 2A 0 CODE 0 text3 dist/default/production\03-Contatore99.X.production.o
-___awmod FC 0 CODE 0 text2 dist/default/production\03-Contatore99.X.production.o
-__pmaintext 290 0 CODE 0 maintext dist/default/production\03-Contatore99.X.production.o
+_SevenSeg_Write$1 70 0 COMMON 1 cstackCOMMON dist/default/production\03-Contatore99.X.production.o
+___awdiv 1C8 0 CODE 0 text2 dist/default/production\03-Contatore99.X.production.o
+___awmod 29A 0 CODE 0 text1 dist/default/production\03-Contatore99.X.production.o
+__pmaintext 2C 0 CODE 0 maintext dist/default/production\03-Contatore99.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-__end_of__stringtab 27C 0 STRING 0 strings dist/default/production\03-Contatore99.X.production.o
-writeDisplay@displayPattern 27C 0 STRING 0 strings dist/default/production\03-Contatore99.X.production.o
+main@button 27 0 BANK0 1 cstackBANK0 dist/default/production\03-Contatore99.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -329,7 +344,7 @@ __pbssCOMMON 78 0 COMMON 1 bssCOMMON dist/default/production\03-Contatore99.X.pr
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __Lend_init 14 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-end_of_initialization 26 0 CODE 0 cinit dist/default/production\03-Contatore99.X.production.o
+end_of_initialization 28 0 CODE 0 cinit dist/default/production\03-Contatore99.X.production.o
 __Hintentry 14 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 ___awdiv@quotient 22 0 BANK0 1 cstackBANK0 dist/default/production\03-Contatore99.X.production.o
@@ -338,32 +353,31 @@ ___awdiv@quotient 22 0 BANK0 1 cstackBANK0 dist/default/production\03-Contatore9
 __Hreset_vec 2 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 ___awmod@dividend 75 0 COMMON 1 cstackCOMMON dist/default/production\03-Contatore99.X.production.o
-__ptext1 244 0 CODE 0 text1 dist/default/production\03-Contatore99.X.production.o
-__ptext2 FC 0 CODE 0 text2 dist/default/production\03-Contatore99.X.production.o
-__ptext3 2A 0 CODE 0 text3 dist/default/production\03-Contatore99.X.production.o
-__ptext4 1B2 0 CODE 0 text4 dist/default/production\03-Contatore99.X.production.o
+__ptext1 29A 0 CODE 0 text1 dist/default/production\03-Contatore99.X.production.o
+__ptext2 1C8 0 CODE 0 text2 dist/default/production\03-Contatore99.X.production.o
+__ptext3 350 0 CODE 0 text3 dist/default/production\03-Contatore99.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-__end_of__initialization 26 0 CODE 0 cinit dist/default/production\03-Contatore99.X.production.o
+__end_of__initialization 28 0 CODE 0 cinit dist/default/production\03-Contatore99.X.production.o
 ___awmod@divisor 73 0 COMMON 1 cstackCOMMON dist/default/production\03-Contatore99.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
+__pidataBANK0 3E2 0 CODE 0 idataBANK0 dist/default/production\03-Contatore99.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\03-Contatore99.X.production.o
-__Hend_init 16 0 CODE 0 end_init -
-__end_of_main 2AA 0 CODE 0 maintext dist/default/production\03-Contatore99.X.production.o
+__Hend_init 18 0 CODE 0 end_init -
+__end_of_main 1C8 0 CODE 0 maintext dist/default/production\03-Contatore99.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
-_PORTB 6 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
 _TRISA 85 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
 _TRISB 86 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\03-Contatore99.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\03-Contatore99.X.production.o
-__initialization 16 0 CODE 0 cinit dist/default/production\03-Contatore99.X.production.o
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
+__initialization 18 0 CODE 0 cinit dist/default/production\03-Contatore99.X.production.o
 __pbssBANK0 28 0 BANK0 1 bssBANK0 dist/default/production\03-Contatore99.X.production.o
-__pdataCOMMON 7A 0 COMMON 1 dataCOMMON dist/default/production\03-Contatore99.X.production.o
-__pstrings 270 0 STRING 0 strings dist/default/production\03-Contatore99.X.production.o
+_SevenSeg_Write_Write 0 0 ABS 0 - dist/default/production\03-Contatore99.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -389,12 +403,10 @@ __pstrings 270 0 STRING 0 strings dist/default/production\03-Contatore99.X.produ
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-maintext 0 148 290 E 2
 cstackCOMMON 1 70 70 B 1
 cstackBANK0 1 20 20 C 1
-intentry 0 4 8 134 2
+intentry 0 4 8 1EE 2
 reset_vec 0 0 0 1 2
-strings 0 138 270 10 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

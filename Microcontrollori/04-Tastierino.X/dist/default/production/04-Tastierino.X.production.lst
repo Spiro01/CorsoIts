@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.40 build 20220703182018 
-                                                                                               Mon Dec 19 13:06:13 2022
+                                                                                               Wed Jan 18 21:58:53 2023
 
 Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1 
      1                           	processor	16F877A
@@ -14,1254 +14,1308 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
      8                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
      9                           	psect	maintext,global,class=CODE,split=1,delta=2
     10                           	psect	text1,local,class=CODE,merge=1,delta=2
-    11                           	psect	text2,local,class=CODE,merge=1,delta=2,group=1
-    12                           	psect	text3,local,class=CODE,merge=1,delta=2,group=1
-    13                           	psect	text4,local,class=CODE,merge=1,delta=2
-    14                           	psect	text5,local,class=CODE,merge=1,delta=2
-    15                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=2,noexec
-    16                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
-    17                           	dabs	1,0x7E,2
-    18     0000                     
-    19                           ; Version 2.40
-    20                           ; Generated 17/11/2021 GMT
-    21                           ; 
-    22                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    23                           ; All rights reserved.
-    24                           ; 
-    25                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+    11                           	psect	text2,local,class=CODE,merge=1,delta=2,group=2
+    12                           	psect	text3,local,class=CODE,merge=1,delta=2,group=2
+    13                           	psect	text4,local,class=CODE,merge=1,delta=2,group=1
+    14                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=2,noexec
+    15                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    16                           	dabs	1,0x7E,2
+    17     0000                     
+    18                           ; Version 2.40
+    19                           ; Generated 17/11/2021 GMT
+    20                           ; 
+    21                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    22                           ; All rights reserved.
+    23                           ; 
+    24                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    26                           ; 
-    27                           ; Redistribution and use in source and binary forms, with or without modification, are
-    28                           ; permitted provided that the following conditions are met:
-    29                           ; 
-    30                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    25                           ; 
+    26                           ; Redistribution and use in source and binary forms, with or without modification, are
+    27                           ; permitted provided that the following conditions are met:
+    28                           ; 
+    29                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    31                           ;        conditions and the following disclaimer.
-    32                           ; 
-    33                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    30                           ;        conditions and the following disclaimer.
+    31                           ; 
+    32                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    34                           ;        of conditions and the following disclaimer in the documentation and/or other
-    35                           ;        materials provided with the distribution. Publication is not required when
-    36                           ;        this file is used in an embedded application.
-    37                           ; 
-    38                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    33                           ;        of conditions and the following disclaimer in the documentation and/or other
+    34                           ;        materials provided with the distribution. Publication is not required when
+    35                           ;        this file is used in an embedded application.
+    36                           ; 
+    37                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    39                           ;        software without specific prior written permission.
-    40                           ; 
-    41                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    42                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    38                           ;        software without specific prior written permission.
+    39                           ; 
+    40                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    41                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    43                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    42                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    44                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    45                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    46                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    43                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    44                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    45                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    47                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    46                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    48                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    47                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    48                           ; 
     49                           ; 
-    50                           ; 
-    51                           ; Code-generator required, PIC16F877A Definitions
-    52                           ; 
-    53                           ; SFR Addresses
-    54     0000                     	;# 
-    55     0001                     	;# 
-    56     0002                     	;# 
-    57     0003                     	;# 
-    58     0004                     	;# 
-    59     0005                     	;# 
-    60     0006                     	;# 
-    61     0007                     	;# 
-    62     0008                     	;# 
-    63     0009                     	;# 
-    64     000A                     	;# 
-    65     000B                     	;# 
-    66     000C                     	;# 
-    67     000D                     	;# 
+    50                           ; Code-generator required, PIC16F877A Definitions
+    51                           ; 
+    52                           ; SFR Addresses
+    53     0000                     	;# 
+    54     0001                     	;# 
+    55     0002                     	;# 
+    56     0003                     	;# 
+    57     0004                     	;# 
+    58     0005                     	;# 
+    59     0006                     	;# 
+    60     0007                     	;# 
+    61     0008                     	;# 
+    62     0009                     	;# 
+    63     000A                     	;# 
+    64     000B                     	;# 
+    65     000C                     	;# 
+    66     000D                     	;# 
+    67     000E                     	;# 
     68     000E                     	;# 
-    69     000E                     	;# 
-    70     000F                     	;# 
-    71     0010                     	;# 
-    72     0011                     	;# 
-    73     0012                     	;# 
-    74     0013                     	;# 
-    75     0014                     	;# 
+    69     000F                     	;# 
+    70     0010                     	;# 
+    71     0011                     	;# 
+    72     0012                     	;# 
+    73     0013                     	;# 
+    74     0014                     	;# 
+    75     0015                     	;# 
     76     0015                     	;# 
-    77     0015                     	;# 
-    78     0016                     	;# 
-    79     0017                     	;# 
-    80     0018                     	;# 
-    81     0019                     	;# 
-    82     001A                     	;# 
+    77     0016                     	;# 
+    78     0017                     	;# 
+    79     0018                     	;# 
+    80     0019                     	;# 
+    81     001A                     	;# 
+    82     001B                     	;# 
     83     001B                     	;# 
-    84     001B                     	;# 
-    85     001C                     	;# 
-    86     001D                     	;# 
-    87     001E                     	;# 
-    88     001F                     	;# 
-    89     0081                     	;# 
-    90     0085                     	;# 
-    91     0086                     	;# 
-    92     0087                     	;# 
-    93     0088                     	;# 
-    94     0089                     	;# 
-    95     008C                     	;# 
-    96     008D                     	;# 
-    97     008E                     	;# 
-    98     0091                     	;# 
-    99     0092                     	;# 
-   100     0093                     	;# 
-   101     0094                     	;# 
-   102     0098                     	;# 
-   103     0099                     	;# 
-   104     009C                     	;# 
-   105     009D                     	;# 
-   106     009E                     	;# 
-   107     009F                     	;# 
-   108     010C                     	;# 
-   109     010D                     	;# 
-   110     010E                     	;# 
-   111     010F                     	;# 
-   112     018C                     	;# 
-   113     018D                     	;# 
-   114     0000                     	;# 
-   115     0001                     	;# 
-   116     0002                     	;# 
-   117     0003                     	;# 
-   118     0004                     	;# 
-   119     0005                     	;# 
-   120     0006                     	;# 
-   121     0007                     	;# 
-   122     0008                     	;# 
-   123     0009                     	;# 
-   124     000A                     	;# 
-   125     000B                     	;# 
-   126     000C                     	;# 
-   127     000D                     	;# 
+    84     001C                     	;# 
+    85     001D                     	;# 
+    86     001E                     	;# 
+    87     001F                     	;# 
+    88     0081                     	;# 
+    89     0085                     	;# 
+    90     0086                     	;# 
+    91     0087                     	;# 
+    92     0088                     	;# 
+    93     0089                     	;# 
+    94     008C                     	;# 
+    95     008D                     	;# 
+    96     008E                     	;# 
+    97     0091                     	;# 
+    98     0092                     	;# 
+    99     0093                     	;# 
+   100     0094                     	;# 
+   101     0098                     	;# 
+   102     0099                     	;# 
+   103     009C                     	;# 
+   104     009D                     	;# 
+   105     009E                     	;# 
+   106     009F                     	;# 
+   107     010C                     	;# 
+   108     010D                     	;# 
+   109     010E                     	;# 
+   110     010F                     	;# 
+   111     018C                     	;# 
+   112     018D                     	;# 
+   113     0000                     	;# 
+   114     0001                     	;# 
+   115     0002                     	;# 
+   116     0003                     	;# 
+   117     0004                     	;# 
+   118     0005                     	;# 
+   119     0006                     	;# 
+   120     0007                     	;# 
+   121     0008                     	;# 
+   122     0009                     	;# 
+   123     000A                     	;# 
+   124     000B                     	;# 
+   125     000C                     	;# 
+   126     000D                     	;# 
+   127     000E                     	;# 
    128     000E                     	;# 
-   129     000E                     	;# 
-   130     000F                     	;# 
-   131     0010                     	;# 
-   132     0011                     	;# 
-   133     0012                     	;# 
-   134     0013                     	;# 
-   135     0014                     	;# 
+   129     000F                     	;# 
+   130     0010                     	;# 
+   131     0011                     	;# 
+   132     0012                     	;# 
+   133     0013                     	;# 
+   134     0014                     	;# 
+   135     0015                     	;# 
    136     0015                     	;# 
-   137     0015                     	;# 
-   138     0016                     	;# 
-   139     0017                     	;# 
-   140     0018                     	;# 
-   141     0019                     	;# 
-   142     001A                     	;# 
+   137     0016                     	;# 
+   138     0017                     	;# 
+   139     0018                     	;# 
+   140     0019                     	;# 
+   141     001A                     	;# 
+   142     001B                     	;# 
    143     001B                     	;# 
-   144     001B                     	;# 
-   145     001C                     	;# 
-   146     001D                     	;# 
-   147     001E                     	;# 
-   148     001F                     	;# 
-   149     0081                     	;# 
-   150     0085                     	;# 
-   151     0086                     	;# 
-   152     0087                     	;# 
-   153     0088                     	;# 
-   154     0089                     	;# 
-   155     008C                     	;# 
-   156     008D                     	;# 
-   157     008E                     	;# 
-   158     0091                     	;# 
-   159     0092                     	;# 
-   160     0093                     	;# 
-   161     0094                     	;# 
-   162     0098                     	;# 
-   163     0099                     	;# 
-   164     009C                     	;# 
-   165     009D                     	;# 
-   166     009E                     	;# 
-   167     009F                     	;# 
-   168     010C                     	;# 
-   169     010D                     	;# 
-   170     010E                     	;# 
-   171     010F                     	;# 
-   172     018C                     	;# 
-   173     018D                     	;# 
-   174                           
-   175                           	psect	strings
-   176     0003                     __pstrings:
-   177     0003                     stringtab:
-   178     0003                     __stringtab:
-   179     0003                     stringcode:	
-   180                           ;	String table - string pointers are 1 byte each
-   181                           
-   182     0003                     stringdir:
-   183     0003  3000               	movlw	high stringdir
-   184     0004  008A               	movwf	10
-   185     0005  0804               	movf	4,w
-   186     0006  0A84               	incf	4,f
-   187     0007  0782               	addwf	2,f
-   188     0008                     __stringbase:
-   189     0008  3400               	retlw	0
-   190     0009                     __end_of__stringtab:
-   191     0009                     _keypad:
-   192     0009  342A               	retlw	42
-   193     000A  3407               	retlw	7
-   194     000B  3404               	retlw	4
-   195     000C  3401               	retlw	1
-   196     000D  3400               	retlw	0
-   197     000E  3408               	retlw	8
-   198     000F  3405               	retlw	5
-   199     0010  3402               	retlw	2
-   200     0011  3423               	retlw	35
-   201     0012  3409               	retlw	9
-   202     0013  3406               	retlw	6
-   203     0014  3403               	retlw	3
-   204     0015                     __end_of_keypad:
-   205     0008                     _PORTD	set	8
-   206     0006                     _PORTB	set	6
-   207     0086                     _TRISB	set	134
-   208     0088                     _TRISD	set	136
-   209                           
-   210                           	psect	cinit
-   211     07F9                     start_initialization:	
-   212                           ; #config settings
-   213                           
-   214     07F9                     __initialization:
-   215                           
-   216                           ; Clear objects allocated to BANK0
-   217     07F9  1283               	bcf	3,5	;RP0=0, select bank0
-   218     07FA  1303               	bcf	3,6	;RP1=0, select bank0
-   219     07FB  01A6               	clrf	__pbssBANK0& (0+127)
-   220     07FC                     end_of_initialization:	
-   221                           ;End of C runtime variable initialization code
-   222                           
-   223     07FC                     __end_of__initialization:
-   224     07FC  0183               	clrf	3
-   225     07FD  120A  118A  2E4A   	ljmp	_main	;jump to C main() function
-   226                           
-   227                           	psect	bssBANK0
-   228     0026                     __pbssBANK0:
-   229     0026                     Numpad_Read@oldKeyVal:
-   230     0026                     	ds	1
-   231                           
-   232                           	psect	cstackCOMMON
-   233     0070                     __pcstackCOMMON:
-   234     0070                     ?_NumPad_Init:
-   235     0070                     ??_NumPad_Init:	
-   236                           ; 1 bytes @ 0x0
-   237                           
-   238     0070                     ?_Numpad_Read:	
-   239                           ; 1 bytes @ 0x0
+   144     001C                     	;# 
+   145     001D                     	;# 
+   146     001E                     	;# 
+   147     001F                     	;# 
+   148     0081                     	;# 
+   149     0085                     	;# 
+   150     0086                     	;# 
+   151     0087                     	;# 
+   152     0088                     	;# 
+   153     0089                     	;# 
+   154     008C                     	;# 
+   155     008D                     	;# 
+   156     008E                     	;# 
+   157     0091                     	;# 
+   158     0092                     	;# 
+   159     0093                     	;# 
+   160     0094                     	;# 
+   161     0098                     	;# 
+   162     0099                     	;# 
+   163     009C                     	;# 
+   164     009D                     	;# 
+   165     009E                     	;# 
+   166     009F                     	;# 
+   167     010C                     	;# 
+   168     010D                     	;# 
+   169     010E                     	;# 
+   170     010F                     	;# 
+   171     018C                     	;# 
+   172     018D                     	;# 
+   173     0000                     	;# 
+   174     0001                     	;# 
+   175     0002                     	;# 
+   176     0003                     	;# 
+   177     0004                     	;# 
+   178     0005                     	;# 
+   179     0006                     	;# 
+   180     0007                     	;# 
+   181     0008                     	;# 
+   182     0009                     	;# 
+   183     000A                     	;# 
+   184     000B                     	;# 
+   185     000C                     	;# 
+   186     000D                     	;# 
+   187     000E                     	;# 
+   188     000E                     	;# 
+   189     000F                     	;# 
+   190     0010                     	;# 
+   191     0011                     	;# 
+   192     0012                     	;# 
+   193     0013                     	;# 
+   194     0014                     	;# 
+   195     0015                     	;# 
+   196     0015                     	;# 
+   197     0016                     	;# 
+   198     0017                     	;# 
+   199     0018                     	;# 
+   200     0019                     	;# 
+   201     001A                     	;# 
+   202     001B                     	;# 
+   203     001B                     	;# 
+   204     001C                     	;# 
+   205     001D                     	;# 
+   206     001E                     	;# 
+   207     001F                     	;# 
+   208     0081                     	;# 
+   209     0085                     	;# 
+   210     0086                     	;# 
+   211     0087                     	;# 
+   212     0088                     	;# 
+   213     0089                     	;# 
+   214     008C                     	;# 
+   215     008D                     	;# 
+   216     008E                     	;# 
+   217     0091                     	;# 
+   218     0092                     	;# 
+   219     0093                     	;# 
+   220     0094                     	;# 
+   221     0098                     	;# 
+   222     0099                     	;# 
+   223     009C                     	;# 
+   224     009D                     	;# 
+   225     009E                     	;# 
+   226     009F                     	;# 
+   227     010C                     	;# 
+   228     010D                     	;# 
+   229     010E                     	;# 
+   230     010F                     	;# 
+   231     018C                     	;# 
+   232     018D                     	;# 
+   233                           
+   234                           	psect	strings
+   235     0003                     __pstrings:
+   236     0003                     stringtab:
+   237     0003                     __stringtab:
+   238     0003                     stringcode:	
+   239                           ;	String table - string pointers are 1 byte each
    240                           
-   241     0070                     ??_Numpad_Read:	
-   242                           ; 1 bytes @ 0x0
-   243                           
-   244     0070                     ?_Print_Led:	
-   245                           ; 1 bytes @ 0x0
-   246                           
-   247     0070                     ?_main:	
-   248                           ; 1 bytes @ 0x0
-   249                           
-   250     0070                     ?___awdiv:	
-   251                           ; 1 bytes @ 0x0
-   252                           
-   253     0070                     ?___awmod:	
-   254                           ; 2 bytes @ 0x0
-   255                           
-   256     0070                     ___awdiv@divisor:	
-   257                           ; 2 bytes @ 0x0
-   258                           
-   259     0070                     ___awmod@divisor:	
-   260                           ; 2 bytes @ 0x0
-   261                           
-   262                           
-   263                           ; 2 bytes @ 0x0
-   264     0070                     	ds	2
-   265     0072                     Numpad_Read@currentKeyVal:
-   266     0072                     ___awdiv@dividend:	
-   267                           ; 1 bytes @ 0x2
+   241     0003                     stringdir:
+   242     0003  3000               	movlw	high stringdir
+   243     0004  008A               	movwf	10
+   244     0005  0804               	movf	4,w
+   245     0006  0A84               	incf	4,f
+   246     0007  0782               	addwf	2,f
+   247     0008                     __stringbase:
+   248     0008  3400               	retlw	0
+   249     0009                     __end_of__stringtab:
+   250     0009                     _keypad:
+   251     0009  342A               	retlw	42
+   252     000A  3407               	retlw	7
+   253     000B  3404               	retlw	4
+   254     000C  3401               	retlw	1
+   255     000D  3400               	retlw	0
+   256     000E  3408               	retlw	8
+   257     000F  3405               	retlw	5
+   258     0010  3402               	retlw	2
+   259     0011  3423               	retlw	35
+   260     0012  3409               	retlw	9
+   261     0013  3406               	retlw	6
+   262     0014  3403               	retlw	3
+   263     0015                     __end_of_keypad:
+   264     0006                     _PORTB	set	6
+   265     0008                     _PORTD	set	8
+   266     0086                     _TRISB	set	134
+   267     0088                     _TRISD	set	136
    268                           
-   269     0072                     ___awmod@dividend:	
-   270                           ; 2 bytes @ 0x2
-   271                           
+   269                           	psect	cinit
+   270     07F9                     start_initialization:	
+   271                           ; #config settings
    272                           
-   273                           ; 2 bytes @ 0x2
-   274     0072                     	ds	1
-   275     0073                     Numpad_Read@currentKey:
-   276                           
-   277                           ; 1 bytes @ 0x3
-   278     0073                     	ds	1
-   279     0074                     ??___awdiv:
-   280     0074                     ??___awmod:	
-   281                           ; 1 bytes @ 0x4
-   282                           
-   283     0074                     Numpad_Read@colScan:	
-   284                           ; 1 bytes @ 0x4
+   273     07F9                     __initialization:
+   274                           
+   275                           ; Clear objects allocated to BANK0
+   276     07F9  1283               	bcf	3,5	;RP0=0, select bank0
+   277     07FA  1303               	bcf	3,6	;RP1=0, select bank0
+   278     07FB  01A6               	clrf	__pbssBANK0& (0+127)
+   279     07FC                     end_of_initialization:	
+   280                           ;End of C runtime variable initialization code
+   281                           
+   282     07FC                     __end_of__initialization:
+   283     07FC  0183               	clrf	3
+   284     07FD  120A  118A  2E29   	ljmp	_main	;jump to C main() function
    285                           
-   286                           
-   287                           ; 1 bytes @ 0x4
-   288     0074                     	ds	1
-   289     0075                     Numpad_Read@rowScan:
-   290     0075                     ___awdiv@counter:	
-   291                           ; 1 bytes @ 0x5
-   292                           
-   293     0075                     ___awmod@counter:	
-   294                           ; 1 bytes @ 0x5
-   295                           
+   286                           	psect	bssBANK0
+   287     0026                     __pbssBANK0:
+   288     0026                     Numpad_Read@oldKeyVal:
+   289     0026                     	ds	1
+   290                           
+   291                           	psect	cstackCOMMON
+   292     0070                     __pcstackCOMMON:
+   293     0070                     ?_Numpad_Read:
+   294     0070                     ??_Numpad_Read:	
+   295                           ; 1 bytes @ 0x0
    296                           
-   297                           ; 1 bytes @ 0x5
-   298     0075                     	ds	1
-   299     0076                     ___awdiv@sign:
-   300     0076                     ___awmod@sign:	
-   301                           ; 1 bytes @ 0x6
+   297     0070                     ?_Print_Led:	
+   298                           ; 1 bytes @ 0x0
+   299                           
+   300     0070                     ?_main:	
+   301                           ; 1 bytes @ 0x0
    302                           
-   303                           
-   304                           ; 1 bytes @ 0x6
-   305     0076                     	ds	1
-   306     0077                     ___awdiv@quotient:
-   307                           
-   308                           ; 2 bytes @ 0x7
-   309     0077                     	ds	2
-   310     0079                     ??_Print_Led:
+   303     0070                     ?___awdiv:	
+   304                           ; 1 bytes @ 0x0
+   305                           
+   306     0070                     ?___awmod:	
+   307                           ; 2 bytes @ 0x0
+   308                           
+   309     0070                     ___awdiv@divisor:	
+   310                           ; 2 bytes @ 0x0
    311                           
-   312                           ; 1 bytes @ 0x9
-   313     0079                     	ds	4
-   314     007D                     Print_Led@value:
+   312     0070                     ___awmod@divisor:	
+   313                           ; 2 bytes @ 0x0
+   314                           
    315                           
-   316                           ; 1 bytes @ 0xD
-   317     007D                     	ds	1
-   318                           
-   319                           	psect	cstackBANK0
-   320     0020                     __pcstackBANK0:
-   321     0020                     ??_main:
-   322                           
-   323                           ; 1 bytes @ 0x0
-   324     0020                     	ds	1
-   325     0021                     main@risultato:
-   326                           
-   327                           ; 1 bytes @ 0x1
-   328     0021                     	ds	1
-   329     0022                     main@operatore:
-   330                           
-   331                           ; 2 bytes @ 0x2
-   332     0022                     	ds	2
-   333     0024                     main@selettore:
-   334                           
-   335                           ; 1 bytes @ 0x4
-   336     0024                     	ds	1
-   337     0025                     main@read:
+   316                           ; 2 bytes @ 0x0
+   317     0070                     	ds	2
+   318     0072                     Numpad_Read@currentKey:
+   319     0072                     ___awdiv@dividend:	
+   320                           ; 1 bytes @ 0x2
+   321                           
+   322     0072                     ___awmod@dividend:	
+   323                           ; 2 bytes @ 0x2
+   324                           
+   325                           
+   326                           ; 2 bytes @ 0x2
+   327     0072                     	ds	1
+   328     0073                     Numpad_Read@currentKeyVal:
+   329                           
+   330                           ; 1 bytes @ 0x3
+   331     0073                     	ds	1
+   332     0074                     ??___awdiv:
+   333     0074                     ??___awmod:	
+   334                           ; 1 bytes @ 0x4
+   335                           
+   336     0074                     Numpad_Read@colScan:	
+   337                           ; 1 bytes @ 0x4
    338                           
-   339                           ; 1 bytes @ 0x5
-   340     0025                     	ds	1
-   341                           
-   342                           	psect	maintext
-   343     064A                     __pmaintext:	
-   344 ;;
-   345 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
-   346 ;;
-   347 ;; *************** function _main *****************
-   348 ;; Defined at:
-   349 ;;		line 27 in file "main.c"
-   350 ;; Parameters:    Size  Location     Type
-   351 ;;		None
-   352 ;; Auto vars:     Size  Location     Type
-   353 ;;  operatore       2    2[BANK0 ] unsigned char [2]
-   354 ;;  read            1    5[BANK0 ] unsigned char 
-   355 ;;  selettore       1    4[BANK0 ] unsigned char 
-   356 ;;  risultato       1    1[BANK0 ] unsigned char 
-   357 ;; Return value:  Size  Location     Type
-   358 ;;                  1    wreg      void 
-   359 ;; Registers used:
-   360 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-   361 ;; Tracked objects:
-   362 ;;		On entry : B00/0
-   363 ;;		On exit  : 0/0
-   364 ;;		Unchanged: 0/0
-   365 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   366 ;;      Params:         0       0       0       0       0
-   367 ;;      Locals:         0       5       0       0       0
-   368 ;;      Temps:          0       1       0       0       0
-   369 ;;      Totals:         0       6       0       0       0
-   370 ;;Total ram usage:        6 bytes
-   371 ;; Hardware stack levels required when called: 2
-   372 ;; This function calls:
-   373 ;;		_NumPad_Init
-   374 ;;		_Numpad_Read
-   375 ;;		_Print_Led
-   376 ;; This function is called by:
-   377 ;;		Startup code after reset
-   378 ;; This function uses a non-reentrant model
-   379 ;;
-   380                           
-   381     064A                     _main:	
-   382                           ;psect for function _main
+   339                           
+   340                           ; 1 bytes @ 0x4
+   341     0074                     	ds	1
+   342     0075                     Numpad_Read@rowScan:
+   343     0075                     ___awdiv@counter:	
+   344                           ; 1 bytes @ 0x5
+   345                           
+   346     0075                     ___awmod@counter:	
+   347                           ; 1 bytes @ 0x5
+   348                           
+   349                           
+   350                           ; 1 bytes @ 0x5
+   351     0075                     	ds	1
+   352     0076                     ___awdiv@sign:
+   353     0076                     ___awmod@sign:	
+   354                           ; 1 bytes @ 0x6
+   355                           
+   356                           
+   357                           ; 1 bytes @ 0x6
+   358     0076                     	ds	1
+   359     0077                     ___awdiv@quotient:
+   360                           
+   361                           ; 2 bytes @ 0x7
+   362     0077                     	ds	2
+   363     0079                     ??_Print_Led:
+   364                           
+   365                           ; 1 bytes @ 0x9
+   366     0079                     	ds	4
+   367     007D                     Print_Led@value:
+   368                           
+   369                           ; 1 bytes @ 0xD
+   370     007D                     	ds	1
+   371                           
+   372                           	psect	cstackBANK0
+   373     0020                     __pcstackBANK0:
+   374     0020                     ??_main:
+   375                           
+   376                           ; 1 bytes @ 0x0
+   377     0020                     	ds	1
+   378     0021                     main@risultato:
+   379                           
+   380                           ; 1 bytes @ 0x1
+   381     0021                     	ds	1
+   382     0022                     main@operatore:
    383                           
-   384     064A                     l922:	
-   385                           ;incstack = 0
-   386                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   384                           ; 2 bytes @ 0x2
+   385     0022                     	ds	2
+   386     0024                     main@selettore:
    387                           
-   388                           
-   389                           ;main.c: 28:     NumPad_Init();
-   390     064A  120A  118A  2644  120A  118A  	fcall	_NumPad_Init
-   391     064F                     l924:
-   392     064F                     l926:
-   393                           
-   394                           ;main.c: 34:         read = Numpad_Read();
-   395     064F  120A  118A  272C  120A  118A  	fcall	_Numpad_Read
-   396     0654  1283               	bcf	3,5	;RP0=0, select bank0
-   397     0655  1303               	bcf	3,6	;RP1=0, select bank0
-   398     0656  00A5               	movwf	main@read
-   399     0657                     l928:
-   400                           
-   401                           ;main.c: 36:         if (read >= 0 && read <= 9) {
-   402     0657  300A               	movlw	10
-   403     0658  0225               	subwf	main@read,w
-   404     0659  1803               	skipnc
-   405     065A  2E5C               	goto	u611
-   406     065B  2E5D               	goto	u610
-   407     065C                     u611:
-   408     065C  2E64               	goto	l932
-   409     065D                     u610:
-   410     065D                     l930:
-   411                           
-   412                           ;main.c: 37:             operatore[selettore] = read;
-   413     065D  0824               	movf	main@selettore,w
-   414     065E  3E22               	addlw	(low (main@operatore| 0))& (0+255)
-   415     065F  0084               	movwf	4
-   416     0660  0825               	movf	main@read,w
-   417     0661  1383               	bcf	3,7	;select IRP bank0
-   418     0662  0080               	movwf	0
-   419                           
-   420                           ;main.c: 38:         } else if (read == '*') {
-   421     0663  2E4F               	goto	l926
-   422     0664                     l932:
-   423     0664  302A               	movlw	42
-   424     0665  0625               	xorwf	main@read,w
-   425     0666  1D03               	btfss	3,2
-   426     0667  2E69               	goto	u621
-   427     0668  2E6A               	goto	u620
-   428     0669                     u621:
-   429     0669  2E74               	goto	l938
-   430     066A                     u620:
-   431     066A                     l934:
+   388                           ; 1 bytes @ 0x4
+   389     0024                     	ds	1
+   390     0025                     main@read:
+   391                           
+   392                           ; 1 bytes @ 0x5
+   393     0025                     	ds	1
+   394                           
+   395                           	psect	maintext
+   396     0629                     __pmaintext:	
+   397 ;;
+   398 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   399 ;;
+   400 ;; *************** function _main *****************
+   401 ;; Defined at:
+   402 ;;		line 27 in file "main.c"
+   403 ;; Parameters:    Size  Location     Type
+   404 ;;		None
+   405 ;; Auto vars:     Size  Location     Type
+   406 ;;  operatore       2    2[BANK0 ] unsigned char [2]
+   407 ;;  read            1    5[BANK0 ] unsigned char 
+   408 ;;  selettore       1    4[BANK0 ] unsigned char 
+   409 ;;  risultato       1    1[BANK0 ] unsigned char 
+   410 ;; Return value:  Size  Location     Type
+   411 ;;                  1    wreg      void 
+   412 ;; Registers used:
+   413 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   414 ;; Tracked objects:
+   415 ;;		On entry : B00/0
+   416 ;;		On exit  : 0/0
+   417 ;;		Unchanged: 0/0
+   418 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   419 ;;      Params:         0       0       0       0       0
+   420 ;;      Locals:         0       5       0       0       0
+   421 ;;      Temps:          0       1       0       0       0
+   422 ;;      Totals:         0       6       0       0       0
+   423 ;;Total ram usage:        6 bytes
+   424 ;; Hardware stack levels required when called: 2
+   425 ;; This function calls:
+   426 ;;		_Numpad_Read
+   427 ;;		_Print_Led
+   428 ;; This function is called by:
+   429 ;;		Startup code after reset
+   430 ;; This function uses a non-reentrant model
+   431 ;;
    432                           
-   433                           ;main.c: 39:             if (selettore < 1)selettore++;
-   434     066A  0824               	movf	main@selettore,w
-   435     066B  1D03               	btfss	3,2
-   436     066C  2E6E               	goto	u631
-   437     066D  2E6F               	goto	u630
-   438     066E                     u631:
-   439     066E  2E85               	goto	l35
-   440     066F                     u630:
-   441     066F                     l936:
-   442     066F  3001               	movlw	1
-   443     0670  00A0               	movwf	??_main
-   444     0671  0820               	movf	??_main,w
-   445     0672  07A4               	addwf	main@selettore,f
-   446     0673  2E4F               	goto	l926
-   447     0674                     l938:
-   448     0674  3023               	movlw	35
-   449     0675  0625               	xorwf	main@read,w
-   450     0676  1D03               	btfss	3,2
-   451     0677  2E79               	goto	u641
-   452     0678  2E7A               	goto	u640
-   453     0679                     u641:
-   454     0679  2E85               	goto	l35
-   455     067A                     u640:
-   456     067A                     l940:
-   457                           
-   458                           ;main.c: 41:             risultato = operatore[0] + operatore[1];
-   459     067A  0822               	movf	main@operatore,w
-   460     067B  0723               	addwf	main@operatore+1,w
-   461     067C  00A1               	movwf	main@risultato
-   462     067D                     l942:
-   463                           
-   464                           ;main.c: 42:             selettore = 0;
-   465     067D  01A4               	clrf	main@selettore
-   466     067E                     l944:
+   433     0629                     _main:	
+   434                           ;psect for function _main
+   435                           
+   436     0629                     l934:	
+   437                           ;incstack = 0
+   438                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   439                           
+   440     0629                     l936:
+   441                           
+   442                           ;main.c: 33:         read = Numpad_Read();
+   443     0629  120A  118A  276D  120A  118A  	fcall	_Numpad_Read
+   444     062E  1283               	bcf	3,5	;RP0=0, select bank0
+   445     062F  1303               	bcf	3,6	;RP1=0, select bank0
+   446     0630  00A5               	movwf	main@read
+   447     0631                     l938:
+   448                           
+   449                           ;main.c: 35:         if (read >= 0 && read <= 9) {
+   450     0631  300A               	movlw	10
+   451     0632  0225               	subwf	main@read,w
+   452     0633  1803               	skipnc
+   453     0634  2E36               	goto	u651
+   454     0635  2E37               	goto	u650
+   455     0636                     u651:
+   456     0636  2E3E               	goto	l942
+   457     0637                     u650:
+   458     0637                     l940:
+   459                           
+   460                           ;main.c: 36:             operatore[selettore] = read;
+   461     0637  0824               	movf	main@selettore,w
+   462     0638  3E22               	addlw	(low (main@operatore| 0))& (0+255)
+   463     0639  0084               	movwf	4
+   464     063A  0825               	movf	main@read,w
+   465     063B  1383               	bcf	3,7	;select IRP bank0
+   466     063C  0080               	movwf	0
    467                           
-   468                           ;main.c: 43:             Print_Led(risultato);
-   469     067E  0821               	movf	main@risultato,w
-   470     067F  120A  118A  2689  120A  118A  	fcall	_Print_Led
-   471     0684  2E4F               	goto	l926
-   472     0685                     l35:
-   473     0685  2E4F               	goto	l926
-   474     0686  120A  118A  2800   	ljmp	start
-   475     0689                     __end_of_main:
-   476                           
-   477                           	psect	text1
-   478     0689                     __ptext1:	
-   479 ;; *************** function _Print_Led *****************
-   480 ;; Defined at:
-   481 ;;		line 4 in file "./ledpint.h"
-   482 ;; Parameters:    Size  Location     Type
-   483 ;;  value           1    wreg     unsigned char 
-   484 ;; Auto vars:     Size  Location     Type
-   485 ;;  value           1   13[COMMON] unsigned char 
-   486 ;; Return value:  Size  Location     Type
-   487 ;;                  1    wreg      void 
-   488 ;; Registers used:
-   489 ;;		wreg, status,2, status,0, pclath, cstack
-   490 ;; Tracked objects:
-   491 ;;		On entry : 0/0
-   492 ;;		On exit  : 0/0
-   493 ;;		Unchanged: 0/0
-   494 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   495 ;;      Params:         0       0       0       0       0
-   496 ;;      Locals:         1       0       0       0       0
-   497 ;;      Temps:          4       0       0       0       0
-   498 ;;      Totals:         5       0       0       0       0
-   499 ;;Total ram usage:        5 bytes
-   500 ;; Hardware stack levels used: 1
-   501 ;; Hardware stack levels required when called: 1
-   502 ;; This function calls:
-   503 ;;		___awdiv
-   504 ;;		___awmod
-   505 ;; This function is called by:
-   506 ;;		_main
-   507 ;; This function uses a non-reentrant model
-   508 ;;
-   509                           
-   510     0689                     _Print_Led:	
-   511                           ;psect for function _Print_Led
-   512                           
-   513                           
-   514                           ;incstack = 0
-   515                           ; Regs used in _Print_Led: [wreg+status,2+status,0+pclath+cstack]
-   516                           ;Print_Led@value stored from wreg
-   517     0689  00FD               	movwf	Print_Led@value
-   518     068A                     l916:
-   519                           
-   520                           ;./ledpint.h: 5:     PORTD &= 0x0f;
-   521     068A  300F               	movlw	15
-   522     068B  00F9               	movwf	??_Print_Led
-   523     068C  0879               	movf	??_Print_Led,w
-   524     068D  1283               	bcf	3,5	;RP0=0, select bank0
-   525     068E  1303               	bcf	3,6	;RP1=0, select bank0
-   526     068F  0588               	andwf	8,f	;volatile
-   527                           
-   528                           ;./ledpint.h: 6:     PORTB &= 0x07;
-   529     0690  3007               	movlw	7
-   530     0691  00F9               	movwf	??_Print_Led
-   531     0692  0879               	movf	??_Print_Led,w
-   532     0693  0586               	andwf	6,f	;volatile
-   533     0694                     l918:
-   534                           
-   535                           ;./ledpint.h: 9:     PORTD |= (value/10) <<4;
-   536     0694  300A               	movlw	10
-   537     0695  00F0               	movwf	___awdiv@divisor
-   538     0696  3000               	movlw	0
-   539     0697  00F1               	movwf	___awdiv@divisor+1
-   540     0698  087D               	movf	Print_Led@value,w
-   541     0699  00F9               	movwf	??_Print_Led
-   542     069A  01FA               	clrf	??_Print_Led+1
-   543     069B  0879               	movf	??_Print_Led,w
-   544     069C  00F2               	movwf	___awdiv@dividend
-   545     069D  087A               	movf	??_Print_Led+1,w
-   546     069E  00F3               	movwf	___awdiv@dividend+1
-   547     069F  120A  118A  2792  120A  118A  	fcall	___awdiv
-   548     06A4  0870               	movf	?___awdiv,w
-   549     06A5  00FB               	movwf	??_Print_Led+2
-   550     06A6  3003               	movlw	3
-   551     06A7                     u595:
-   552     06A7  1003               	clrc
-   553     06A8  0DFB               	rlf	??_Print_Led+2,f
-   554     06A9  3EFF               	addlw	-1
-   555     06AA  1D03               	skipz
-   556     06AB  2EA7               	goto	u595
-   557     06AC  1003               	clrc
-   558     06AD  0D7B               	rlf	??_Print_Led+2,w
-   559     06AE  00FC               	movwf	??_Print_Led+3
-   560     06AF  087C               	movf	??_Print_Led+3,w
-   561     06B0  1283               	bcf	3,5	;RP0=0, select bank0
-   562     06B1  1303               	bcf	3,6	;RP1=0, select bank0
-   563     06B2  0488               	iorwf	8,f	;volatile
-   564     06B3                     l920:
-   565                           
-   566                           ;./ledpint.h: 10:     PORTB |= (value%10) <<4;
-   567     06B3  300A               	movlw	10
-   568     06B4  00F0               	movwf	___awmod@divisor
-   569     06B5  3000               	movlw	0
-   570     06B6  00F1               	movwf	___awmod@divisor+1
-   571     06B7  087D               	movf	Print_Led@value,w
-   572     06B8  00F9               	movwf	??_Print_Led
-   573     06B9  01FA               	clrf	??_Print_Led+1
-   574     06BA  0879               	movf	??_Print_Led,w
-   575     06BB  00F2               	movwf	___awmod@dividend
-   576     06BC  087A               	movf	??_Print_Led+1,w
-   577     06BD  00F3               	movwf	___awmod@dividend+1
-   578     06BE  120A  118A  26D3  120A  118A  	fcall	___awmod
-   579     06C3  0870               	movf	?___awmod,w
-   580     06C4  00FB               	movwf	??_Print_Led+2
-   581     06C5  3003               	movlw	3
-   582     06C6                     u605:
-   583     06C6  1003               	clrc
-   584     06C7  0DFB               	rlf	??_Print_Led+2,f
-   585     06C8  3EFF               	addlw	-1
-   586     06C9  1D03               	skipz
-   587     06CA  2EC6               	goto	u605
-   588     06CB  1003               	clrc
-   589     06CC  0D7B               	rlf	??_Print_Led+2,w
-   590     06CD  00FC               	movwf	??_Print_Led+3
-   591     06CE  087C               	movf	??_Print_Led+3,w
-   592     06CF  1283               	bcf	3,5	;RP0=0, select bank0
-   593     06D0  1303               	bcf	3,6	;RP1=0, select bank0
-   594     06D1  0486               	iorwf	6,f	;volatile
-   595     06D2                     l28:
-   596     06D2  0008               	return
-   597     06D3                     __end_of_Print_Led:
-   598                           
-   599                           	psect	text2
-   600     06D3                     __ptext2:	
-   601 ;; *************** function ___awmod *****************
-   602 ;; Defined at:
-   603 ;;		line 5 in file "C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c"
-   604 ;; Parameters:    Size  Location     Type
-   605 ;;  divisor         2    0[COMMON] int 
-   606 ;;  dividend        2    2[COMMON] int 
-   607 ;; Auto vars:     Size  Location     Type
-   608 ;;  sign            1    6[COMMON] unsigned char 
-   609 ;;  counter         1    5[COMMON] unsigned char 
-   610 ;; Return value:  Size  Location     Type
-   611 ;;                  2    0[COMMON] int 
-   612 ;; Registers used:
-   613 ;;		wreg, status,2, status,0
-   614 ;; Tracked objects:
-   615 ;;		On entry : 0/0
-   616 ;;		On exit  : 0/0
-   617 ;;		Unchanged: 0/0
-   618 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   619 ;;      Params:         4       0       0       0       0
-   620 ;;      Locals:         2       0       0       0       0
-   621 ;;      Temps:          1       0       0       0       0
-   622 ;;      Totals:         7       0       0       0       0
-   623 ;;Total ram usage:        7 bytes
-   624 ;; Hardware stack levels used: 1
-   625 ;; This function calls:
-   626 ;;		Nothing
-   627 ;; This function is called by:
-   628 ;;		_Print_Led
-   629 ;; This function uses a non-reentrant model
-   630 ;;
-   631                           
-   632     06D3                     ___awmod:	
-   633                           ;psect for function ___awmod
-   634                           
-   635     06D3                     l834:	
-   636                           ;incstack = 0
-   637                           ; Regs used in ___awmod: [wreg+status,2+status,0]
-   638                           
-   639     06D3  01F6               	clrf	___awmod@sign
-   640     06D4                     l836:
-   641     06D4  1FF3               	btfss	___awmod@dividend+1,7
-   642     06D5  2ED7               	goto	u431
-   643     06D6  2ED8               	goto	u430
-   644     06D7                     u431:
-   645     06D7  2EDF               	goto	l842
-   646     06D8                     u430:
-   647     06D8                     l838:
-   648     06D8  09F2               	comf	___awmod@dividend,f
-   649     06D9  09F3               	comf	___awmod@dividend+1,f
-   650     06DA  0AF2               	incf	___awmod@dividend,f
-   651     06DB  1903               	skipnz
-   652     06DC  0AF3               	incf	___awmod@dividend+1,f
-   653     06DD                     l840:
-   654     06DD  01F6               	clrf	___awmod@sign
-   655     06DE  0AF6               	incf	___awmod@sign,f
-   656     06DF                     l842:
-   657     06DF  1FF1               	btfss	___awmod@divisor+1,7
-   658     06E0  2EE2               	goto	u441
-   659     06E1  2EE3               	goto	u440
-   660     06E2                     u441:
-   661     06E2  2EE8               	goto	l846
-   662     06E3                     u440:
-   663     06E3                     l844:
-   664     06E3  09F0               	comf	___awmod@divisor,f
-   665     06E4  09F1               	comf	___awmod@divisor+1,f
-   666     06E5  0AF0               	incf	___awmod@divisor,f
-   667     06E6  1903               	skipnz
-   668     06E7  0AF1               	incf	___awmod@divisor+1,f
-   669     06E8                     l846:
-   670     06E8  0870               	movf	___awmod@divisor,w
-   671     06E9  0471               	iorwf	___awmod@divisor+1,w
-   672     06EA  1903               	btfsc	3,2
-   673     06EB  2EED               	goto	u451
-   674     06EC  2EEE               	goto	u450
-   675     06ED                     u451:
-   676     06ED  2F1D               	goto	l864
-   677     06EE                     u450:
-   678     06EE                     l848:
-   679     06EE  01F5               	clrf	___awmod@counter
-   680     06EF  0AF5               	incf	___awmod@counter,f
-   681     06F0  2EFC               	goto	l854
-   682     06F1                     l850:
-   683     06F1  3001               	movlw	1
-   684     06F2                     u465:
-   685     06F2  1003               	clrc
-   686     06F3  0DF0               	rlf	___awmod@divisor,f
-   687     06F4  0DF1               	rlf	___awmod@divisor+1,f
-   688     06F5  3EFF               	addlw	-1
-   689     06F6  1D03               	skipz
-   690     06F7  2EF2               	goto	u465
-   691     06F8                     l852:
-   692     06F8  3001               	movlw	1
-   693     06F9  00F4               	movwf	??___awmod
-   694     06FA  0874               	movf	??___awmod,w
-   695     06FB  07F5               	addwf	___awmod@counter,f
-   696     06FC                     l854:
-   697     06FC  1FF1               	btfss	___awmod@divisor+1,7
-   698     06FD  2EFF               	goto	u471
-   699     06FE  2F00               	goto	u470
-   700     06FF                     u471:
-   701     06FF  2EF1               	goto	l850
-   702     0700                     u470:
-   703     0700                     l856:
-   704     0700  0871               	movf	___awmod@divisor+1,w
-   705     0701  0273               	subwf	___awmod@dividend+1,w
-   706     0702  1D03               	skipz
-   707     0703  2F06               	goto	u485
-   708     0704  0870               	movf	___awmod@divisor,w
-   709     0705  0272               	subwf	___awmod@dividend,w
-   710     0706                     u485:
-   711     0706  1C03               	skipc
-   712     0707  2F09               	goto	u481
-   713     0708  2F0A               	goto	u480
-   714     0709                     u481:
-   715     0709  2F10               	goto	l860
-   716     070A                     u480:
-   717     070A                     l858:
-   718     070A  0870               	movf	___awmod@divisor,w
-   719     070B  02F2               	subwf	___awmod@dividend,f
-   720     070C  0871               	movf	___awmod@divisor+1,w
-   721     070D  1C03               	skipc
-   722     070E  03F3               	decf	___awmod@dividend+1,f
-   723     070F  02F3               	subwf	___awmod@dividend+1,f
-   724     0710                     l860:
-   725     0710  3001               	movlw	1
-   726     0711                     u495:
-   727     0711  1003               	clrc
-   728     0712  0CF1               	rrf	___awmod@divisor+1,f
-   729     0713  0CF0               	rrf	___awmod@divisor,f
-   730     0714  3EFF               	addlw	-1
-   731     0715  1D03               	skipz
-   732     0716  2F11               	goto	u495
-   733     0717                     l862:
-   734     0717  3001               	movlw	1
-   735     0718  02F5               	subwf	___awmod@counter,f
-   736     0719  1D03               	btfss	3,2
-   737     071A  2F1C               	goto	u501
-   738     071B  2F1D               	goto	u500
-   739     071C                     u501:
-   740     071C  2F00               	goto	l856
-   741     071D                     u500:
-   742     071D                     l864:
-   743     071D  0876               	movf	___awmod@sign,w
-   744     071E  1903               	btfsc	3,2
-   745     071F  2F21               	goto	u511
-   746     0720  2F22               	goto	u510
-   747     0721                     u511:
-   748     0721  2F27               	goto	l868
-   749     0722                     u510:
-   750     0722                     l866:
-   751     0722  09F2               	comf	___awmod@dividend,f
-   752     0723  09F3               	comf	___awmod@dividend+1,f
-   753     0724  0AF2               	incf	___awmod@dividend,f
-   754     0725  1903               	skipnz
-   755     0726  0AF3               	incf	___awmod@dividend+1,f
-   756     0727                     l868:
-   757     0727  0873               	movf	___awmod@dividend+1,w
-   758     0728  00F1               	movwf	?___awmod+1
-   759     0729  0872               	movf	___awmod@dividend,w
-   760     072A  00F0               	movwf	?___awmod
-   761     072B                     l294:
-   762     072B  0008               	return
-   763     072C                     __end_of___awmod:
-   764                           
-   765                           	psect	text3
-   766     0792                     __ptext3:	
-   767 ;; *************** function ___awdiv *****************
-   768 ;; Defined at:
-   769 ;;		line 5 in file "C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c"
-   770 ;; Parameters:    Size  Location     Type
-   771 ;;  divisor         2    0[COMMON] int 
-   772 ;;  dividend        2    2[COMMON] int 
-   773 ;; Auto vars:     Size  Location     Type
-   774 ;;  quotient        2    7[COMMON] int 
-   775 ;;  sign            1    6[COMMON] unsigned char 
-   776 ;;  counter         1    5[COMMON] unsigned char 
-   777 ;; Return value:  Size  Location     Type
-   778 ;;                  2    0[COMMON] int 
-   779 ;; Registers used:
-   780 ;;		wreg, status,2, status,0
-   781 ;; Tracked objects:
-   782 ;;		On entry : 0/0
-   783 ;;		On exit  : 0/0
-   784 ;;		Unchanged: 0/0
-   785 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   786 ;;      Params:         4       0       0       0       0
-   787 ;;      Locals:         4       0       0       0       0
-   788 ;;      Temps:          1       0       0       0       0
-   789 ;;      Totals:         9       0       0       0       0
-   790 ;;Total ram usage:        9 bytes
-   791 ;; Hardware stack levels used: 1
-   792 ;; This function calls:
-   793 ;;		Nothing
-   794 ;; This function is called by:
-   795 ;;		_Print_Led
-   796 ;; This function uses a non-reentrant model
-   797 ;;
-   798                           
-   799     0792                     ___awdiv:	
-   800                           ;psect for function ___awdiv
-   801                           
-   802     0792                     l790:	
-   803                           ;incstack = 0
-   804                           ; Regs used in ___awdiv: [wreg+status,2+status,0]
-   805                           
-   806     0792  01F6               	clrf	___awdiv@sign
-   807     0793                     l792:
-   808     0793  1FF1               	btfss	___awdiv@divisor+1,7
-   809     0794  2F96               	goto	u331
-   810     0795  2F97               	goto	u330
-   811     0796                     u331:
-   812     0796  2F9E               	goto	l798
-   813     0797                     u330:
-   814     0797                     l794:
-   815     0797  09F0               	comf	___awdiv@divisor,f
-   816     0798  09F1               	comf	___awdiv@divisor+1,f
-   817     0799  0AF0               	incf	___awdiv@divisor,f
-   818     079A  1903               	skipnz
-   819     079B  0AF1               	incf	___awdiv@divisor+1,f
-   820     079C                     l796:
-   821     079C  01F6               	clrf	___awdiv@sign
-   822     079D  0AF6               	incf	___awdiv@sign,f
-   823     079E                     l798:
-   824     079E  1FF3               	btfss	___awdiv@dividend+1,7
-   825     079F  2FA1               	goto	u341
-   826     07A0  2FA2               	goto	u340
-   827     07A1                     u341:
-   828     07A1  2FAB               	goto	l804
-   829     07A2                     u340:
-   830     07A2                     l800:
-   831     07A2  09F2               	comf	___awdiv@dividend,f
-   832     07A3  09F3               	comf	___awdiv@dividend+1,f
-   833     07A4  0AF2               	incf	___awdiv@dividend,f
-   834     07A5  1903               	skipnz
-   835     07A6  0AF3               	incf	___awdiv@dividend+1,f
-   836     07A7                     l802:
-   837     07A7  3001               	movlw	1
-   838     07A8  00F4               	movwf	??___awdiv
-   839     07A9  0874               	movf	??___awdiv,w
-   840     07AA  06F6               	xorwf	___awdiv@sign,f
-   841     07AB                     l804:
-   842     07AB  01F7               	clrf	___awdiv@quotient
-   843     07AC  01F8               	clrf	___awdiv@quotient+1
-   844     07AD                     l806:
-   845     07AD  0870               	movf	___awdiv@divisor,w
-   846     07AE  0471               	iorwf	___awdiv@divisor+1,w
-   847     07AF  1903               	btfsc	3,2
-   848     07B0  2FB2               	goto	u351
-   849     07B1  2FB3               	goto	u350
-   850     07B2                     u351:
-   851     07B2  2FEA               	goto	l826
-   852     07B3                     u350:
-   853     07B3                     l808:
-   854     07B3  01F5               	clrf	___awdiv@counter
-   855     07B4  0AF5               	incf	___awdiv@counter,f
-   856     07B5  2FC1               	goto	l814
-   857     07B6                     l810:
-   858     07B6  3001               	movlw	1
-   859     07B7                     u365:
-   860     07B7  1003               	clrc
-   861     07B8  0DF0               	rlf	___awdiv@divisor,f
-   862     07B9  0DF1               	rlf	___awdiv@divisor+1,f
-   863     07BA  3EFF               	addlw	-1
-   864     07BB  1D03               	skipz
-   865     07BC  2FB7               	goto	u365
-   866     07BD                     l812:
-   867     07BD  3001               	movlw	1
-   868     07BE  00F4               	movwf	??___awdiv
-   869     07BF  0874               	movf	??___awdiv,w
-   870     07C0  07F5               	addwf	___awdiv@counter,f
-   871     07C1                     l814:
-   872     07C1  1FF1               	btfss	___awdiv@divisor+1,7
-   873     07C2  2FC4               	goto	u371
-   874     07C3  2FC5               	goto	u370
-   875     07C4                     u371:
-   876     07C4  2FB6               	goto	l810
-   877     07C5                     u370:
-   878     07C5                     l816:
-   879     07C5  3001               	movlw	1
-   880     07C6                     u385:
-   881     07C6  1003               	clrc
-   882     07C7  0DF7               	rlf	___awdiv@quotient,f
-   883     07C8  0DF8               	rlf	___awdiv@quotient+1,f
-   884     07C9  3EFF               	addlw	-1
-   885     07CA  1D03               	skipz
-   886     07CB  2FC6               	goto	u385
-   887     07CC  0871               	movf	___awdiv@divisor+1,w
-   888     07CD  0273               	subwf	___awdiv@dividend+1,w
-   889     07CE  1D03               	skipz
-   890     07CF  2FD2               	goto	u395
-   891     07D0  0870               	movf	___awdiv@divisor,w
-   892     07D1  0272               	subwf	___awdiv@dividend,w
-   893     07D2                     u395:
-   894     07D2  1C03               	skipc
-   895     07D3  2FD5               	goto	u391
-   896     07D4  2FD6               	goto	u390
-   897     07D5                     u391:
-   898     07D5  2FDD               	goto	l822
-   899     07D6                     u390:
-   900     07D6                     l818:
-   901     07D6  0870               	movf	___awdiv@divisor,w
-   902     07D7  02F2               	subwf	___awdiv@dividend,f
-   903     07D8  0871               	movf	___awdiv@divisor+1,w
-   904     07D9  1C03               	skipc
-   905     07DA  03F3               	decf	___awdiv@dividend+1,f
-   906     07DB  02F3               	subwf	___awdiv@dividend+1,f
-   907     07DC                     l820:
-   908     07DC  1477               	bsf	___awdiv@quotient,0
-   909     07DD                     l822:
-   910     07DD  3001               	movlw	1
-   911     07DE                     u405:
-   912     07DE  1003               	clrc
-   913     07DF  0CF1               	rrf	___awdiv@divisor+1,f
-   914     07E0  0CF0               	rrf	___awdiv@divisor,f
-   915     07E1  3EFF               	addlw	-1
-   916     07E2  1D03               	skipz
-   917     07E3  2FDE               	goto	u405
-   918     07E4                     l824:
-   919     07E4  3001               	movlw	1
-   920     07E5  02F5               	subwf	___awdiv@counter,f
-   921     07E6  1D03               	btfss	3,2
-   922     07E7  2FE9               	goto	u411
-   923     07E8  2FEA               	goto	u410
-   924     07E9                     u411:
-   925     07E9  2FC5               	goto	l816
-   926     07EA                     u410:
-   927     07EA                     l826:
-   928     07EA  0876               	movf	___awdiv@sign,w
-   929     07EB  1903               	btfsc	3,2
-   930     07EC  2FEE               	goto	u421
-   931     07ED  2FEF               	goto	u420
-   932     07EE                     u421:
-   933     07EE  2FF4               	goto	l830
-   934     07EF                     u420:
-   935     07EF                     l828:
-   936     07EF  09F7               	comf	___awdiv@quotient,f
-   937     07F0  09F8               	comf	___awdiv@quotient+1,f
-   938     07F1  0AF7               	incf	___awdiv@quotient,f
-   939     07F2  1903               	skipnz
-   940     07F3  0AF8               	incf	___awdiv@quotient+1,f
-   941     07F4                     l830:
-   942     07F4  0878               	movf	___awdiv@quotient+1,w
-   943     07F5  00F1               	movwf	?___awdiv+1
-   944     07F6  0877               	movf	___awdiv@quotient,w
-   945     07F7  00F0               	movwf	?___awdiv
-   946     07F8                     l281:
-   947     07F8  0008               	return
-   948     07F9                     __end_of___awdiv:
-   949                           
-   950                           	psect	text4
-   951     072C                     __ptext4:	
-   952 ;; *************** function _Numpad_Read *****************
-   953 ;; Defined at:
-   954 ;;		line 21 in file "./numpad.h"
-   955 ;; Parameters:    Size  Location     Type
-   956 ;;		None
-   957 ;; Auto vars:     Size  Location     Type
-   958 ;;  rowScan         1    5[COMMON] unsigned char 
-   959 ;;  colScan         1    4[COMMON] unsigned char 
-   960 ;;  currentKey      1    3[COMMON] unsigned char 
-   961 ;;  currentKeyVa    1    2[COMMON] unsigned char 
-   962 ;; Return value:  Size  Location     Type
-   963 ;;                  1    wreg      unsigned char 
-   964 ;; Registers used:
-   965 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath
-   966 ;; Tracked objects:
-   967 ;;		On entry : 0/0
-   968 ;;		On exit  : 0/0
-   969 ;;		Unchanged: 0/0
-   970 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   971 ;;      Params:         0       0       0       0       0
-   972 ;;      Locals:         4       0       0       0       0
-   973 ;;      Temps:          2       0       0       0       0
-   974 ;;      Totals:         6       0       0       0       0
-   975 ;;Total ram usage:        6 bytes
-   976 ;; Hardware stack levels used: 2
-   977 ;; This function calls:
-   978 ;;		Nothing
-   979 ;; This function is called by:
-   980 ;;		_main
-   981 ;; This function uses a non-reentrant model
-   982 ;;
-   983                           
-   984     072C                     _Numpad_Read:	
-   985                           ;psect for function _Numpad_Read
-   986                           
-   987     072C                     l876:	
-   988                           ;incstack = 0
-   989                           ; Regs used in _Numpad_Read: [wreg-fsr0h+status,2+status,0+pclath]
-   990                           
-   991                           
-   992                           ;./numpad.h: 22:     char colScan, rowScan, currentKeyVal, currentKey;;./numpad.h: 23:  
-      +                             static char oldKeyVal;;./numpad.h: 24:     for (colScan = 0; colScan < 3; colScan++) 
-      +                          {
-   993     072C  01F4               	clrf	Numpad_Read@colScan
-   994     072D                     l882:
-   995                           
-   996                           ;./numpad.h: 25:         PORTB |= 0x07;
-   997     072D  3007               	movlw	7
-   998     072E  00F0               	movwf	??_Numpad_Read
-   999     072F  0870               	movf	??_Numpad_Read,w
-  1000     0730  1283               	bcf	3,5	;RP0=0, select bank0
-  1001     0731  1303               	bcf	3,6	;RP1=0, select bank0
-  1002     0732  0486               	iorwf	6,f	;volatile
-  1003                           
-  1004                           ;./numpad.h: 26:         PORTB &= ~(1UL << colScan);
-  1005     0733  3001               	movlw	1
-  1006     0734  00F0               	movwf	??_Numpad_Read
-  1007     0735  0A74               	incf	Numpad_Read@colScan,w
-  1008     0736  2F39               	goto	u524
-  1009     0737                     u525:
-  1010     0737  1003               	clrc
-  1011     0738  0DF0               	rlf	??_Numpad_Read,f
-  1012     0739                     u524:
-  1013     0739  3EFF               	addlw	-1
-  1014     073A  1D03               	skipz
-  1015     073B  2F37               	goto	u525
-  1016     073C  0870               	movf	??_Numpad_Read,w
-  1017     073D  3AFF               	xorlw	255
-  1018     073E  00F1               	movwf	??_Numpad_Read+1
-  1019     073F  0871               	movf	??_Numpad_Read+1,w
-  1020     0740  0586               	andwf	6,f	;volatile
-  1021     0741                     l884:
-  1022                           
-  1023                           ;./numpad.h: 27:         _delay((unsigned long)((15)*(20*1000000/4000.0)));
-  1024     0741  3062               	movlw	98
-  1025     0742  00F1               	movwf	??_Numpad_Read+1
-  1026     0743  3065               	movlw	101
-  1027     0744  00F0               	movwf	??_Numpad_Read
-  1028     0745                     u657:
-  1029     0745  0BF0               	decfsz	??_Numpad_Read,f
-  1030     0746  2F45               	goto	u657
-  1031     0747  0BF1               	decfsz	??_Numpad_Read+1,f
-  1032     0748  2F45               	goto	u657
-  1033     0749  2F4A               	nop2
-  1034     074A                     l886:
-  1035                           
-  1036                           ;./numpad.h: 28:         for (rowScan = 0; rowScan < 4; rowScan++) {
-  1037     074A  01F5               	clrf	Numpad_Read@rowScan
-  1038     074B                     l892:
+   468                           ;main.c: 37:         } else if (read == '*') {
+   469     063D  2E29               	goto	l936
+   470     063E                     l942:
+   471     063E  302A               	movlw	42
+   472     063F  0625               	xorwf	main@read,w
+   473     0640  1D03               	btfss	3,2
+   474     0641  2E43               	goto	u661
+   475     0642  2E44               	goto	u660
+   476     0643                     u661:
+   477     0643  2E4E               	goto	l948
+   478     0644                     u660:
+   479     0644                     l944:
+   480                           
+   481                           ;main.c: 38:             if (selettore < 1)selettore++;
+   482     0644  0824               	movf	main@selettore,w
+   483     0645  1D03               	btfss	3,2
+   484     0646  2E48               	goto	u671
+   485     0647  2E49               	goto	u670
+   486     0648                     u671:
+   487     0648  2E5F               	goto	l16
+   488     0649                     u670:
+   489     0649                     l946:
+   490     0649  3001               	movlw	1
+   491     064A  00A0               	movwf	??_main
+   492     064B  0820               	movf	??_main,w
+   493     064C  07A4               	addwf	main@selettore,f
+   494     064D  2E29               	goto	l936
+   495     064E                     l948:
+   496     064E  3023               	movlw	35
+   497     064F  0625               	xorwf	main@read,w
+   498     0650  1D03               	btfss	3,2
+   499     0651  2E53               	goto	u681
+   500     0652  2E54               	goto	u680
+   501     0653                     u681:
+   502     0653  2E5F               	goto	l16
+   503     0654                     u680:
+   504     0654                     l950:
+   505                           
+   506                           ;main.c: 40:             risultato = operatore[0] + operatore[1];
+   507     0654  0822               	movf	main@operatore,w
+   508     0655  0723               	addwf	main@operatore+1,w
+   509     0656  00A1               	movwf	main@risultato
+   510     0657                     l952:
+   511                           
+   512                           ;main.c: 41:             selettore = 0;
+   513     0657  01A4               	clrf	main@selettore
+   514     0658                     l954:
+   515                           
+   516                           ;main.c: 42:             Print_Led(risultato);
+   517     0658  0821               	movf	main@risultato,w
+   518     0659  120A  118A  2663  120A  118A  	fcall	_Print_Led
+   519     065E  2E29               	goto	l936
+   520     065F                     l16:
+   521     065F  2E29               	goto	l936
+   522     0660  120A  118A  2800   	ljmp	start
+   523     0663                     __end_of_main:
+   524                           
+   525                           	psect	text1
+   526     0663                     __ptext1:	
+   527 ;; *************** function _Print_Led *****************
+   528 ;; Defined at:
+   529 ;;		line 4 in file "./ledpint.h"
+   530 ;; Parameters:    Size  Location     Type
+   531 ;;  value           1    wreg     unsigned char 
+   532 ;; Auto vars:     Size  Location     Type
+   533 ;;  value           1   13[COMMON] unsigned char 
+   534 ;; Return value:  Size  Location     Type
+   535 ;;                  1    wreg      void 
+   536 ;; Registers used:
+   537 ;;		wreg, status,2, status,0, pclath, cstack
+   538 ;; Tracked objects:
+   539 ;;		On entry : 0/0
+   540 ;;		On exit  : 0/0
+   541 ;;		Unchanged: 0/0
+   542 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   543 ;;      Params:         0       0       0       0       0
+   544 ;;      Locals:         1       0       0       0       0
+   545 ;;      Temps:          4       0       0       0       0
+   546 ;;      Totals:         5       0       0       0       0
+   547 ;;Total ram usage:        5 bytes
+   548 ;; Hardware stack levels used: 1
+   549 ;; Hardware stack levels required when called: 1
+   550 ;; This function calls:
+   551 ;;		___awdiv
+   552 ;;		___awmod
+   553 ;; This function is called by:
+   554 ;;		_main
+   555 ;; This function uses a non-reentrant model
+   556 ;;
+   557                           
+   558     0663                     _Print_Led:	
+   559                           ;psect for function _Print_Led
+   560                           
+   561                           
+   562                           ;incstack = 0
+   563                           ; Regs used in _Print_Led: [wreg+status,2+status,0+pclath+cstack]
+   564                           ;Print_Led@value stored from wreg
+   565     0663  00FD               	movwf	Print_Led@value
+   566     0664                     l880:
+   567                           
+   568                           ;./ledpint.h: 5:     PORTD &= 0x0f;
+   569     0664  300F               	movlw	15
+   570     0665  00F9               	movwf	??_Print_Led
+   571     0666  0879               	movf	??_Print_Led,w
+   572     0667  1283               	bcf	3,5	;RP0=0, select bank0
+   573     0668  1303               	bcf	3,6	;RP1=0, select bank0
+   574     0669  0588               	andwf	8,f	;volatile
+   575                           
+   576                           ;./ledpint.h: 6:     PORTB &= 0x07;
+   577     066A  3007               	movlw	7
+   578     066B  00F9               	movwf	??_Print_Led
+   579     066C  0879               	movf	??_Print_Led,w
+   580     066D  0586               	andwf	6,f	;volatile
+   581     066E                     l882:
+   582                           
+   583                           ;./ledpint.h: 9:     PORTD |= (value/10) <<4;
+   584     066E  300A               	movlw	10
+   585     066F  00F0               	movwf	___awdiv@divisor
+   586     0670  3000               	movlw	0
+   587     0671  00F1               	movwf	___awdiv@divisor+1
+   588     0672  087D               	movf	Print_Led@value,w
+   589     0673  00F9               	movwf	??_Print_Led
+   590     0674  01FA               	clrf	??_Print_Led+1
+   591     0675  0879               	movf	??_Print_Led,w
+   592     0676  00F2               	movwf	___awdiv@dividend
+   593     0677  087A               	movf	??_Print_Led+1,w
+   594     0678  00F3               	movwf	___awdiv@dividend+1
+   595     0679  120A  118A  2706  120A  118A  	fcall	___awdiv
+   596     067E  0870               	movf	?___awdiv,w
+   597     067F  00FB               	movwf	??_Print_Led+2
+   598     0680  3003               	movlw	3
+   599     0681                     u545:
+   600     0681  1003               	clrc
+   601     0682  0DFB               	rlf	??_Print_Led+2,f
+   602     0683  3EFF               	addlw	-1
+   603     0684  1D03               	skipz
+   604     0685  2E81               	goto	u545
+   605     0686  1003               	clrc
+   606     0687  0D7B               	rlf	??_Print_Led+2,w
+   607     0688  00FC               	movwf	??_Print_Led+3
+   608     0689  087C               	movf	??_Print_Led+3,w
+   609     068A  1283               	bcf	3,5	;RP0=0, select bank0
+   610     068B  1303               	bcf	3,6	;RP1=0, select bank0
+   611     068C  0488               	iorwf	8,f	;volatile
+   612     068D                     l884:
+   613                           
+   614                           ;./ledpint.h: 10:     PORTB |= (value%10) <<4;
+   615     068D  300A               	movlw	10
+   616     068E  00F0               	movwf	___awmod@divisor
+   617     068F  3000               	movlw	0
+   618     0690  00F1               	movwf	___awmod@divisor+1
+   619     0691  087D               	movf	Print_Led@value,w
+   620     0692  00F9               	movwf	??_Print_Led
+   621     0693  01FA               	clrf	??_Print_Led+1
+   622     0694  0879               	movf	??_Print_Led,w
+   623     0695  00F2               	movwf	___awmod@dividend
+   624     0696  087A               	movf	??_Print_Led+1,w
+   625     0697  00F3               	movwf	___awmod@dividend+1
+   626     0698  120A  118A  26AD  120A  118A  	fcall	___awmod
+   627     069D  0870               	movf	?___awmod,w
+   628     069E  00FB               	movwf	??_Print_Led+2
+   629     069F  3003               	movlw	3
+   630     06A0                     u555:
+   631     06A0  1003               	clrc
+   632     06A1  0DFB               	rlf	??_Print_Led+2,f
+   633     06A2  3EFF               	addlw	-1
+   634     06A3  1D03               	skipz
+   635     06A4  2EA0               	goto	u555
+   636     06A5  1003               	clrc
+   637     06A6  0D7B               	rlf	??_Print_Led+2,w
+   638     06A7  00FC               	movwf	??_Print_Led+3
+   639     06A8  087C               	movf	??_Print_Led+3,w
+   640     06A9  1283               	bcf	3,5	;RP0=0, select bank0
+   641     06AA  1303               	bcf	3,6	;RP1=0, select bank0
+   642     06AB  0486               	iorwf	6,f	;volatile
+   643     06AC                     l9:
+   644     06AC  0008               	return
+   645     06AD                     __end_of_Print_Led:
+   646                           
+   647                           	psect	text2
+   648     06AD                     __ptext2:	
+   649 ;; *************** function ___awmod *****************
+   650 ;; Defined at:
+   651 ;;		line 5 in file "C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c"
+   652 ;; Parameters:    Size  Location     Type
+   653 ;;  divisor         2    0[COMMON] int 
+   654 ;;  dividend        2    2[COMMON] int 
+   655 ;; Auto vars:     Size  Location     Type
+   656 ;;  sign            1    6[COMMON] unsigned char 
+   657 ;;  counter         1    5[COMMON] unsigned char 
+   658 ;; Return value:  Size  Location     Type
+   659 ;;                  2    0[COMMON] int 
+   660 ;; Registers used:
+   661 ;;		wreg, status,2, status,0
+   662 ;; Tracked objects:
+   663 ;;		On entry : 0/0
+   664 ;;		On exit  : 0/0
+   665 ;;		Unchanged: 0/0
+   666 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   667 ;;      Params:         4       0       0       0       0
+   668 ;;      Locals:         2       0       0       0       0
+   669 ;;      Temps:          1       0       0       0       0
+   670 ;;      Totals:         7       0       0       0       0
+   671 ;;Total ram usage:        7 bytes
+   672 ;; Hardware stack levels used: 1
+   673 ;; This function calls:
+   674 ;;		Nothing
+   675 ;; This function is called by:
+   676 ;;		_Print_Led
+   677 ;; This function uses a non-reentrant model
+   678 ;;
+   679                           
+   680     06AD                     ___awmod:	
+   681                           ;psect for function ___awmod
+   682                           
+   683     06AD                     l842:	
+   684                           ;incstack = 0
+   685                           ; Regs used in ___awmod: [wreg+status,2+status,0]
+   686                           
+   687     06AD  01F6               	clrf	___awmod@sign
+   688     06AE                     l844:
+   689     06AE  1FF3               	btfss	___awmod@dividend+1,7
+   690     06AF  2EB1               	goto	u451
+   691     06B0  2EB2               	goto	u450
+   692     06B1                     u451:
+   693     06B1  2EB9               	goto	l850
+   694     06B2                     u450:
+   695     06B2                     l846:
+   696     06B2  09F2               	comf	___awmod@dividend,f
+   697     06B3  09F3               	comf	___awmod@dividend+1,f
+   698     06B4  0AF2               	incf	___awmod@dividend,f
+   699     06B5  1903               	skipnz
+   700     06B6  0AF3               	incf	___awmod@dividend+1,f
+   701     06B7                     l848:
+   702     06B7  01F6               	clrf	___awmod@sign
+   703     06B8  0AF6               	incf	___awmod@sign,f
+   704     06B9                     l850:
+   705     06B9  1FF1               	btfss	___awmod@divisor+1,7
+   706     06BA  2EBC               	goto	u461
+   707     06BB  2EBD               	goto	u460
+   708     06BC                     u461:
+   709     06BC  2EC2               	goto	l854
+   710     06BD                     u460:
+   711     06BD                     l852:
+   712     06BD  09F0               	comf	___awmod@divisor,f
+   713     06BE  09F1               	comf	___awmod@divisor+1,f
+   714     06BF  0AF0               	incf	___awmod@divisor,f
+   715     06C0  1903               	skipnz
+   716     06C1  0AF1               	incf	___awmod@divisor+1,f
+   717     06C2                     l854:
+   718     06C2  0870               	movf	___awmod@divisor,w
+   719     06C3  0471               	iorwf	___awmod@divisor+1,w
+   720     06C4  1903               	btfsc	3,2
+   721     06C5  2EC7               	goto	u471
+   722     06C6  2EC8               	goto	u470
+   723     06C7                     u471:
+   724     06C7  2EF7               	goto	l872
+   725     06C8                     u470:
+   726     06C8                     l856:
+   727     06C8  01F5               	clrf	___awmod@counter
+   728     06C9  0AF5               	incf	___awmod@counter,f
+   729     06CA  2ED6               	goto	l862
+   730     06CB                     l858:
+   731     06CB  3001               	movlw	1
+   732     06CC                     u485:
+   733     06CC  1003               	clrc
+   734     06CD  0DF0               	rlf	___awmod@divisor,f
+   735     06CE  0DF1               	rlf	___awmod@divisor+1,f
+   736     06CF  3EFF               	addlw	-1
+   737     06D0  1D03               	skipz
+   738     06D1  2ECC               	goto	u485
+   739     06D2                     l860:
+   740     06D2  3001               	movlw	1
+   741     06D3  00F4               	movwf	??___awmod
+   742     06D4  0874               	movf	??___awmod,w
+   743     06D5  07F5               	addwf	___awmod@counter,f
+   744     06D6                     l862:
+   745     06D6  1FF1               	btfss	___awmod@divisor+1,7
+   746     06D7  2ED9               	goto	u491
+   747     06D8  2EDA               	goto	u490
+   748     06D9                     u491:
+   749     06D9  2ECB               	goto	l858
+   750     06DA                     u490:
+   751     06DA                     l864:
+   752     06DA  0871               	movf	___awmod@divisor+1,w
+   753     06DB  0273               	subwf	___awmod@dividend+1,w
+   754     06DC  1D03               	skipz
+   755     06DD  2EE0               	goto	u505
+   756     06DE  0870               	movf	___awmod@divisor,w
+   757     06DF  0272               	subwf	___awmod@dividend,w
+   758     06E0                     u505:
+   759     06E0  1C03               	skipc
+   760     06E1  2EE3               	goto	u501
+   761     06E2  2EE4               	goto	u500
+   762     06E3                     u501:
+   763     06E3  2EEA               	goto	l868
+   764     06E4                     u500:
+   765     06E4                     l866:
+   766     06E4  0870               	movf	___awmod@divisor,w
+   767     06E5  02F2               	subwf	___awmod@dividend,f
+   768     06E6  0871               	movf	___awmod@divisor+1,w
+   769     06E7  1C03               	skipc
+   770     06E8  03F3               	decf	___awmod@dividend+1,f
+   771     06E9  02F3               	subwf	___awmod@dividend+1,f
+   772     06EA                     l868:
+   773     06EA  3001               	movlw	1
+   774     06EB                     u515:
+   775     06EB  1003               	clrc
+   776     06EC  0CF1               	rrf	___awmod@divisor+1,f
+   777     06ED  0CF0               	rrf	___awmod@divisor,f
+   778     06EE  3EFF               	addlw	-1
+   779     06EF  1D03               	skipz
+   780     06F0  2EEB               	goto	u515
+   781     06F1                     l870:
+   782     06F1  3001               	movlw	1
+   783     06F2  02F5               	subwf	___awmod@counter,f
+   784     06F3  1D03               	btfss	3,2
+   785     06F4  2EF6               	goto	u521
+   786     06F5  2EF7               	goto	u520
+   787     06F6                     u521:
+   788     06F6  2EDA               	goto	l864
+   789     06F7                     u520:
+   790     06F7                     l872:
+   791     06F7  0876               	movf	___awmod@sign,w
+   792     06F8  1903               	btfsc	3,2
+   793     06F9  2EFB               	goto	u531
+   794     06FA  2EFC               	goto	u530
+   795     06FB                     u531:
+   796     06FB  2F01               	goto	l876
+   797     06FC                     u530:
+   798     06FC                     l874:
+   799     06FC  09F2               	comf	___awmod@dividend,f
+   800     06FD  09F3               	comf	___awmod@dividend+1,f
+   801     06FE  0AF2               	incf	___awmod@dividend,f
+   802     06FF  1903               	skipnz
+   803     0700  0AF3               	incf	___awmod@dividend+1,f
+   804     0701                     l876:
+   805     0701  0873               	movf	___awmod@dividend+1,w
+   806     0702  00F1               	movwf	?___awmod+1
+   807     0703  0872               	movf	___awmod@dividend,w
+   808     0704  00F0               	movwf	?___awmod
+   809     0705                     l300:
+   810     0705  0008               	return
+   811     0706                     __end_of___awmod:
+   812                           
+   813                           	psect	text3
+   814     0706                     __ptext3:	
+   815 ;; *************** function ___awdiv *****************
+   816 ;; Defined at:
+   817 ;;		line 5 in file "C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c"
+   818 ;; Parameters:    Size  Location     Type
+   819 ;;  divisor         2    0[COMMON] int 
+   820 ;;  dividend        2    2[COMMON] int 
+   821 ;; Auto vars:     Size  Location     Type
+   822 ;;  quotient        2    7[COMMON] int 
+   823 ;;  sign            1    6[COMMON] unsigned char 
+   824 ;;  counter         1    5[COMMON] unsigned char 
+   825 ;; Return value:  Size  Location     Type
+   826 ;;                  2    0[COMMON] int 
+   827 ;; Registers used:
+   828 ;;		wreg, status,2, status,0
+   829 ;; Tracked objects:
+   830 ;;		On entry : 0/0
+   831 ;;		On exit  : 0/0
+   832 ;;		Unchanged: 0/0
+   833 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   834 ;;      Params:         4       0       0       0       0
+   835 ;;      Locals:         4       0       0       0       0
+   836 ;;      Temps:          1       0       0       0       0
+   837 ;;      Totals:         9       0       0       0       0
+   838 ;;Total ram usage:        9 bytes
+   839 ;; Hardware stack levels used: 1
+   840 ;; This function calls:
+   841 ;;		Nothing
+   842 ;; This function is called by:
+   843 ;;		_Print_Led
+   844 ;; This function uses a non-reentrant model
+   845 ;;
+   846                           
+   847     0706                     ___awdiv:	
+   848                           ;psect for function ___awdiv
+   849                           
+   850     0706                     l798:	
+   851                           ;incstack = 0
+   852                           ; Regs used in ___awdiv: [wreg+status,2+status,0]
+   853                           
+   854     0706  01F6               	clrf	___awdiv@sign
+   855     0707                     l800:
+   856     0707  1FF1               	btfss	___awdiv@divisor+1,7
+   857     0708  2F0A               	goto	u351
+   858     0709  2F0B               	goto	u350
+   859     070A                     u351:
+   860     070A  2F12               	goto	l806
+   861     070B                     u350:
+   862     070B                     l802:
+   863     070B  09F0               	comf	___awdiv@divisor,f
+   864     070C  09F1               	comf	___awdiv@divisor+1,f
+   865     070D  0AF0               	incf	___awdiv@divisor,f
+   866     070E  1903               	skipnz
+   867     070F  0AF1               	incf	___awdiv@divisor+1,f
+   868     0710                     l804:
+   869     0710  01F6               	clrf	___awdiv@sign
+   870     0711  0AF6               	incf	___awdiv@sign,f
+   871     0712                     l806:
+   872     0712  1FF3               	btfss	___awdiv@dividend+1,7
+   873     0713  2F15               	goto	u361
+   874     0714  2F16               	goto	u360
+   875     0715                     u361:
+   876     0715  2F1F               	goto	l812
+   877     0716                     u360:
+   878     0716                     l808:
+   879     0716  09F2               	comf	___awdiv@dividend,f
+   880     0717  09F3               	comf	___awdiv@dividend+1,f
+   881     0718  0AF2               	incf	___awdiv@dividend,f
+   882     0719  1903               	skipnz
+   883     071A  0AF3               	incf	___awdiv@dividend+1,f
+   884     071B                     l810:
+   885     071B  3001               	movlw	1
+   886     071C  00F4               	movwf	??___awdiv
+   887     071D  0874               	movf	??___awdiv,w
+   888     071E  06F6               	xorwf	___awdiv@sign,f
+   889     071F                     l812:
+   890     071F  01F7               	clrf	___awdiv@quotient
+   891     0720  01F8               	clrf	___awdiv@quotient+1
+   892     0721                     l814:
+   893     0721  0870               	movf	___awdiv@divisor,w
+   894     0722  0471               	iorwf	___awdiv@divisor+1,w
+   895     0723  1903               	btfsc	3,2
+   896     0724  2F26               	goto	u371
+   897     0725  2F27               	goto	u370
+   898     0726                     u371:
+   899     0726  2F5E               	goto	l834
+   900     0727                     u370:
+   901     0727                     l816:
+   902     0727  01F5               	clrf	___awdiv@counter
+   903     0728  0AF5               	incf	___awdiv@counter,f
+   904     0729  2F35               	goto	l822
+   905     072A                     l818:
+   906     072A  3001               	movlw	1
+   907     072B                     u385:
+   908     072B  1003               	clrc
+   909     072C  0DF0               	rlf	___awdiv@divisor,f
+   910     072D  0DF1               	rlf	___awdiv@divisor+1,f
+   911     072E  3EFF               	addlw	-1
+   912     072F  1D03               	skipz
+   913     0730  2F2B               	goto	u385
+   914     0731                     l820:
+   915     0731  3001               	movlw	1
+   916     0732  00F4               	movwf	??___awdiv
+   917     0733  0874               	movf	??___awdiv,w
+   918     0734  07F5               	addwf	___awdiv@counter,f
+   919     0735                     l822:
+   920     0735  1FF1               	btfss	___awdiv@divisor+1,7
+   921     0736  2F38               	goto	u391
+   922     0737  2F39               	goto	u390
+   923     0738                     u391:
+   924     0738  2F2A               	goto	l818
+   925     0739                     u390:
+   926     0739                     l824:
+   927     0739  3001               	movlw	1
+   928     073A                     u405:
+   929     073A  1003               	clrc
+   930     073B  0DF7               	rlf	___awdiv@quotient,f
+   931     073C  0DF8               	rlf	___awdiv@quotient+1,f
+   932     073D  3EFF               	addlw	-1
+   933     073E  1D03               	skipz
+   934     073F  2F3A               	goto	u405
+   935     0740  0871               	movf	___awdiv@divisor+1,w
+   936     0741  0273               	subwf	___awdiv@dividend+1,w
+   937     0742  1D03               	skipz
+   938     0743  2F46               	goto	u415
+   939     0744  0870               	movf	___awdiv@divisor,w
+   940     0745  0272               	subwf	___awdiv@dividend,w
+   941     0746                     u415:
+   942     0746  1C03               	skipc
+   943     0747  2F49               	goto	u411
+   944     0748  2F4A               	goto	u410
+   945     0749                     u411:
+   946     0749  2F51               	goto	l830
+   947     074A                     u410:
+   948     074A                     l826:
+   949     074A  0870               	movf	___awdiv@divisor,w
+   950     074B  02F2               	subwf	___awdiv@dividend,f
+   951     074C  0871               	movf	___awdiv@divisor+1,w
+   952     074D  1C03               	skipc
+   953     074E  03F3               	decf	___awdiv@dividend+1,f
+   954     074F  02F3               	subwf	___awdiv@dividend+1,f
+   955     0750                     l828:
+   956     0750  1477               	bsf	___awdiv@quotient,0
+   957     0751                     l830:
+   958     0751  3001               	movlw	1
+   959     0752                     u425:
+   960     0752  1003               	clrc
+   961     0753  0CF1               	rrf	___awdiv@divisor+1,f
+   962     0754  0CF0               	rrf	___awdiv@divisor,f
+   963     0755  3EFF               	addlw	-1
+   964     0756  1D03               	skipz
+   965     0757  2F52               	goto	u425
+   966     0758                     l832:
+   967     0758  3001               	movlw	1
+   968     0759  02F5               	subwf	___awdiv@counter,f
+   969     075A  1D03               	btfss	3,2
+   970     075B  2F5D               	goto	u431
+   971     075C  2F5E               	goto	u430
+   972     075D                     u431:
+   973     075D  2F39               	goto	l824
+   974     075E                     u430:
+   975     075E                     l834:
+   976     075E  0876               	movf	___awdiv@sign,w
+   977     075F  1903               	btfsc	3,2
+   978     0760  2F62               	goto	u441
+   979     0761  2F63               	goto	u440
+   980     0762                     u441:
+   981     0762  2F68               	goto	l838
+   982     0763                     u440:
+   983     0763                     l836:
+   984     0763  09F7               	comf	___awdiv@quotient,f
+   985     0764  09F8               	comf	___awdiv@quotient+1,f
+   986     0765  0AF7               	incf	___awdiv@quotient,f
+   987     0766  1903               	skipnz
+   988     0767  0AF8               	incf	___awdiv@quotient+1,f
+   989     0768                     l838:
+   990     0768  0878               	movf	___awdiv@quotient+1,w
+   991     0769  00F1               	movwf	?___awdiv+1
+   992     076A  0877               	movf	___awdiv@quotient,w
+   993     076B  00F0               	movwf	?___awdiv
+   994     076C                     l287:
+   995     076C  0008               	return
+   996     076D                     __end_of___awdiv:
+   997                           
+   998                           	psect	text4
+   999     076D                     __ptext4:	
+  1000 ;; *************** function _Numpad_Read *****************
+  1001 ;; Defined at:
+  1002 ;;		line 21 in file "numpad.c"
+  1003 ;; Parameters:    Size  Location     Type
+  1004 ;;		None
+  1005 ;; Auto vars:     Size  Location     Type
+  1006 ;;  rowScan         1    5[COMMON] unsigned char 
+  1007 ;;  colScan         1    4[COMMON] unsigned char 
+  1008 ;;  currentKeyVa    1    3[COMMON] unsigned char 
+  1009 ;;  currentKey      1    2[COMMON] unsigned char 
+  1010 ;; Return value:  Size  Location     Type
+  1011 ;;                  1    wreg      unsigned char 
+  1012 ;; Registers used:
+  1013 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath
+  1014 ;; Tracked objects:
+  1015 ;;		On entry : 0/0
+  1016 ;;		On exit  : 0/0
+  1017 ;;		Unchanged: 0/0
+  1018 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1019 ;;      Params:         0       0       0       0       0
+  1020 ;;      Locals:         4       0       0       0       0
+  1021 ;;      Temps:          2       0       0       0       0
+  1022 ;;      Totals:         6       0       0       0       0
+  1023 ;;Total ram usage:        6 bytes
+  1024 ;; Hardware stack levels used: 2
+  1025 ;; This function calls:
+  1026 ;;		Nothing
+  1027 ;; This function is called by:
+  1028 ;;		_main
+  1029 ;; This function uses a non-reentrant model
+  1030 ;;
+  1031                           
+  1032     076D                     _Numpad_Read:	
+  1033                           ;psect for function _Numpad_Read
+  1034                           
+  1035     076D                     l886:	
+  1036                           ;incstack = 0
+  1037                           ; Regs used in _Numpad_Read: [wreg-fsr0h+status,2+status,0+pclath]
+  1038                           
   1039                           
-  1040                           ;./numpad.h: 29:             currentKeyVal = (PORTD & (1 << rowScan));
-  1041     074B  3001               	movlw	1
-  1042     074C  00F0               	movwf	??_Numpad_Read
-  1043     074D  0A75               	incf	Numpad_Read@rowScan,w
-  1044     074E  2F51               	goto	u534
-  1045     074F                     u535:
-  1046     074F  1003               	clrc
-  1047     0750  0DF0               	rlf	??_Numpad_Read,f
-  1048     0751                     u534:
-  1049     0751  3EFF               	addlw	-1
-  1050     0752  1D03               	skipz
-  1051     0753  2F4F               	goto	u535
-  1052     0754  0870               	movf	??_Numpad_Read,w
-  1053     0755  1283               	bcf	3,5	;RP0=0, select bank0
-  1054     0756  1303               	bcf	3,6	;RP1=0, select bank0
-  1055     0757  0508               	andwf	8,w	;volatile
-  1056     0758  00F2               	movwf	Numpad_Read@currentKeyVal
-  1057                           
-  1058                           ;./numpad.h: 31:             if (!currentKeyVal && oldKeyVal) {
-  1059     0759  0872               	movf	Numpad_Read@currentKeyVal,w
-  1060     075A  1D03               	btfss	3,2
-  1061     075B  2F5D               	goto	u541
-  1062     075C  2F5E               	goto	u540
-  1063     075D                     u541:
-  1064     075D  2F7A               	goto	l24
-  1065     075E                     u540:
-  1066     075E                     l894:
-  1067     075E  0826               	movf	Numpad_Read@oldKeyVal,w
-  1068     075F  1903               	btfsc	3,2
-  1069     0760  2F62               	goto	u551
-  1070     0761  2F63               	goto	u550
-  1071     0762                     u551:
-  1072     0762  2F7A               	goto	l24
-  1073     0763                     u550:
-  1074     0763                     l896:
-  1075                           
-  1076                           ;./numpad.h: 32:                 currentKey = keypad[rowScan + (4 * colScan)];
-  1077     0763  0874               	movf	Numpad_Read@colScan,w
-  1078     0764  00F0               	movwf	??_Numpad_Read
-  1079     0765  3002               	movlw	2
-  1080     0766                     u565:
-  1081     0766  1003               	clrc
-  1082     0767  0DF0               	rlf	??_Numpad_Read,f
-  1083     0768  3EFF               	addlw	-1
-  1084     0769  1D03               	skipz
-  1085     076A  2F66               	goto	u565
-  1086     076B  3001               	movlw	(low ((_keypad-__stringbase)| (0+32768)))& (0+255)
-  1087     076C  0770               	addwf	??_Numpad_Read,w
-  1088     076D  00F1               	movwf	??_Numpad_Read+1
-  1089     076E  0875               	movf	Numpad_Read@rowScan,w
-  1090     076F  0771               	addwf	??_Numpad_Read+1,w
-  1091     0770  0084               	movwf	4
-  1092     0771  120A  118A  2003  120A  118A  	fcall	stringdir
-  1093     0776  00F3               	movwf	Numpad_Read@currentKey
-  1094     0777                     l898:
-  1095                           
-  1096                           ;./numpad.h: 33:                 oldKeyVal = 0;
-  1097     0777  01A6               	clrf	Numpad_Read@oldKeyVal
-  1098     0778                     l900:
-  1099                           
-  1100                           ;./numpad.h: 34:                 return currentKey;
-  1101     0778  0873               	movf	Numpad_Read@currentKey,w
-  1102     0779  2F91               	goto	l25
-  1103     077A                     l24:	
-  1104                           ;./numpad.h: 35:             }
-  1105                           
-  1106                           
-  1107                           ;./numpad.h: 37:             oldKeyVal = 1;
-  1108     077A  01A6               	clrf	Numpad_Read@oldKeyVal
-  1109     077B  0AA6               	incf	Numpad_Read@oldKeyVal,f
-  1110     077C                     l904:
-  1111                           
-  1112                           ;./numpad.h: 38:         }
-  1113     077C  3001               	movlw	1
-  1114     077D  00F0               	movwf	??_Numpad_Read
-  1115     077E  0870               	movf	??_Numpad_Read,w
-  1116     077F  07F5               	addwf	Numpad_Read@rowScan,f
-  1117     0780                     l906:
-  1118     0780  3004               	movlw	4
-  1119     0781  0275               	subwf	Numpad_Read@rowScan,w
-  1120     0782  1C03               	skipc
-  1121     0783  2F85               	goto	u571
-  1122     0784  2F86               	goto	u570
-  1123     0785                     u571:
-  1124     0785  2F4B               	goto	l892
-  1125     0786                     u570:
-  1126     0786                     l908:
-  1127                           
-  1128                           ;./numpad.h: 39:     }
-  1129     0786  3001               	movlw	1
-  1130     0787  00F0               	movwf	??_Numpad_Read
-  1131     0788  0870               	movf	??_Numpad_Read,w
-  1132     0789  07F4               	addwf	Numpad_Read@colScan,f
-  1133     078A                     l910:
-  1134     078A  3003               	movlw	3
-  1135     078B  0274               	subwf	Numpad_Read@colScan,w
-  1136     078C  1C03               	skipc
-  1137     078D  2F8F               	goto	u581
-  1138     078E  2F90               	goto	u580
-  1139     078F                     u581:
-  1140     078F  2F2D               	goto	l882
-  1141     0790                     u580:
-  1142     0790                     l912:
-  1143                           
-  1144                           ;./numpad.h: 40:     return 0xff;
-  1145     0790  30FF               	movlw	255
-  1146     0791                     l25:
-  1147     0791  0008               	return
-  1148     0792                     __end_of_Numpad_Read:
-  1149                           
-  1150                           	psect	text5
-  1151     0644                     __ptext5:	
-  1152 ;; *************** function _NumPad_Init *****************
-  1153 ;; Defined at:
-  1154 ;;		line 14 in file "./numpad.h"
-  1155 ;; Parameters:    Size  Location     Type
-  1156 ;;		None
-  1157 ;; Auto vars:     Size  Location     Type
-  1158 ;;		None
-  1159 ;; Return value:  Size  Location     Type
-  1160 ;;                  1    wreg      void 
-  1161 ;; Registers used:
-  1162 ;;		wreg, status,2
-  1163 ;; Tracked objects:
-  1164 ;;		On entry : 0/0
-  1165 ;;		On exit  : 0/0
-  1166 ;;		Unchanged: 0/0
-  1167 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1168 ;;      Params:         0       0       0       0       0
-  1169 ;;      Locals:         0       0       0       0       0
-  1170 ;;      Temps:          0       0       0       0       0
-  1171 ;;      Totals:         0       0       0       0       0
-  1172 ;;Total ram usage:        0 bytes
-  1173 ;; Hardware stack levels used: 1
-  1174 ;; This function calls:
-  1175 ;;		Nothing
-  1176 ;; This function is called by:
-  1177 ;;		_main
-  1178 ;; This function uses a non-reentrant model
-  1179 ;;
-  1180                           
-  1181     0644                     _NumPad_Init:	
-  1182                           ;psect for function _NumPad_Init
+  1040                           ;numpad.c: 23:     TRISD |= 0x0f;
+  1041     076D  300F               	movlw	15
+  1042     076E  00F0               	movwf	??_Numpad_Read
+  1043     076F  0870               	movf	??_Numpad_Read,w
+  1044     0770  1683               	bsf	3,5	;RP0=1, select bank1
+  1045     0771  1303               	bcf	3,6	;RP1=0, select bank1
+  1046     0772  0488               	iorwf	8,f	;volatile
+  1047                           
+  1048                           ;numpad.c: 24:     TRISB &= ~0x07;
+  1049     0773  30F8               	movlw	248
+  1050     0774  00F0               	movwf	??_Numpad_Read
+  1051     0775  0870               	movf	??_Numpad_Read,w
+  1052     0776  0586               	andwf	6,f	;volatile
+  1053     0777                     l888:
+  1054                           
+  1055                           ;numpad.c: 25:     char colScan, rowScan, currentKeyVal, currentKey;;numpad.c: 26:     s
+      +                          tatic char oldKeyVal;;numpad.c: 27:     for (colScan = 0; colScan < 3; colScan++) {
+  1056     0777  01F4               	clrf	Numpad_Read@colScan
+  1057     0778                     l894:
+  1058                           
+  1059                           ;numpad.c: 28:         PORTB |= 0x07;
+  1060     0778  3007               	movlw	7
+  1061     0779  00F0               	movwf	??_Numpad_Read
+  1062     077A  0870               	movf	??_Numpad_Read,w
+  1063     077B  1283               	bcf	3,5	;RP0=0, select bank0
+  1064     077C  0486               	iorwf	6,f	;volatile
+  1065                           
+  1066                           ;numpad.c: 29:         PORTB &= ~(1 << colScan);
+  1067     077D  3001               	movlw	1
+  1068     077E  00F0               	movwf	??_Numpad_Read
+  1069     077F  0A74               	incf	Numpad_Read@colScan,w
+  1070     0780  2F83               	goto	u564
+  1071     0781                     u565:
+  1072     0781  1003               	clrc
+  1073     0782  0DF0               	rlf	??_Numpad_Read,f
+  1074     0783                     u564:
+  1075     0783  3EFF               	addlw	-1
+  1076     0784  1D03               	skipz
+  1077     0785  2F81               	goto	u565
+  1078     0786  0870               	movf	??_Numpad_Read,w
+  1079     0787  3AFF               	xorlw	255
+  1080     0788  00F1               	movwf	??_Numpad_Read+1
+  1081     0789  0871               	movf	??_Numpad_Read+1,w
+  1082     078A  0586               	andwf	6,f	;volatile
+  1083     078B                     l896:
+  1084                           
+  1085                           ;numpad.c: 30:         _delay((unsigned long)((15)*(20*1000000/4000.0)));
+  1086     078B  3062               	movlw	98
+  1087     078C  00F1               	movwf	??_Numpad_Read+1
+  1088     078D  3065               	movlw	101
+  1089     078E  00F0               	movwf	??_Numpad_Read
+  1090     078F                     u697:
+  1091     078F  0BF0               	decfsz	??_Numpad_Read,f
+  1092     0790  2F8F               	goto	u697
+  1093     0791  0BF1               	decfsz	??_Numpad_Read+1,f
+  1094     0792  2F8F               	goto	u697
+  1095     0793  2F94               	nop2
+  1096     0794                     l898:
+  1097                           
+  1098                           ;numpad.c: 31:         for (rowScan = 0; rowScan < 4; rowScan++) {
+  1099     0794  01F5               	clrf	Numpad_Read@rowScan
+  1100     0795                     l904:
+  1101                           
+  1102                           ;numpad.c: 32:             currentKeyVal = (PORTD & (1 << rowScan));
+  1103     0795  3001               	movlw	1
+  1104     0796  00F0               	movwf	??_Numpad_Read
+  1105     0797  0A75               	incf	Numpad_Read@rowScan,w
+  1106     0798  2F9B               	goto	u574
+  1107     0799                     u575:
+  1108     0799  1003               	clrc
+  1109     079A  0DF0               	rlf	??_Numpad_Read,f
+  1110     079B                     u574:
+  1111     079B  3EFF               	addlw	-1
+  1112     079C  1D03               	skipz
+  1113     079D  2F99               	goto	u575
+  1114     079E  0870               	movf	??_Numpad_Read,w
+  1115     079F  1283               	bcf	3,5	;RP0=0, select bank0
+  1116     07A0  1303               	bcf	3,6	;RP1=0, select bank0
+  1117     07A1  0508               	andwf	8,w	;volatile
+  1118     07A2  00F3               	movwf	Numpad_Read@currentKeyVal
+  1119                           
+  1120                           ;numpad.c: 34:             if (!currentKeyVal && oldKeyVal) {
+  1121     07A3  0873               	movf	Numpad_Read@currentKeyVal,w
+  1122     07A4  1D03               	btfss	3,2
+  1123     07A5  2FA7               	goto	u581
+  1124     07A6  2FA8               	goto	u580
+  1125     07A7                     u581:
+  1126     07A7  2FE1               	goto	l126
+  1127     07A8                     u580:
+  1128     07A8                     l906:
+  1129     07A8  0826               	movf	Numpad_Read@oldKeyVal,w
+  1130     07A9  1903               	btfsc	3,2
+  1131     07AA  2FAC               	goto	u591
+  1132     07AB  2FAD               	goto	u590
+  1133     07AC                     u591:
+  1134     07AC  2FE1               	goto	l126
+  1135     07AD                     u590:
+  1136     07AD                     l908:
+  1137                           
+  1138                           ;numpad.c: 35:                 currentKey = keypad[rowScan + (4 * colScan)];
+  1139     07AD  0874               	movf	Numpad_Read@colScan,w
+  1140     07AE  00F0               	movwf	??_Numpad_Read
+  1141     07AF  3002               	movlw	2
+  1142     07B0                     u605:
+  1143     07B0  1003               	clrc
+  1144     07B1  0DF0               	rlf	??_Numpad_Read,f
+  1145     07B2  3EFF               	addlw	-1
+  1146     07B3  1D03               	skipz
+  1147     07B4  2FB0               	goto	u605
+  1148     07B5  3001               	movlw	(low ((_keypad-__stringbase)| (0+32768)))& (0+255)
+  1149     07B6  0770               	addwf	??_Numpad_Read,w
+  1150     07B7  00F1               	movwf	??_Numpad_Read+1
+  1151     07B8  0875               	movf	Numpad_Read@rowScan,w
+  1152     07B9  0771               	addwf	??_Numpad_Read+1,w
+  1153     07BA  0084               	movwf	4
+  1154     07BB  120A  118A  2003  120A  118A  	fcall	stringdir
+  1155     07C0  00F2               	movwf	Numpad_Read@currentKey
+  1156     07C1                     l910:
+  1157                           
+  1158                           ;numpad.c: 36:                 oldKeyVal = 0;
+  1159     07C1  01A6               	clrf	Numpad_Read@oldKeyVal
+  1160                           
+  1161                           ;numpad.c: 37:                 while (!currentKeyVal) {
+  1162     07C2  2FDA               	goto	l916
+  1163     07C3                     l912:
+  1164                           
+  1165                           ;numpad.c: 38:                     currentKeyVal = (PORTD & (1 << rowScan));
+  1166     07C3  3001               	movlw	1
+  1167     07C4  00F0               	movwf	??_Numpad_Read
+  1168     07C5  0A75               	incf	Numpad_Read@rowScan,w
+  1169     07C6  2FC9               	goto	u614
+  1170     07C7                     u615:
+  1171     07C7  1003               	clrc
+  1172     07C8  0DF0               	rlf	??_Numpad_Read,f
+  1173     07C9                     u614:
+  1174     07C9  3EFF               	addlw	-1
+  1175     07CA  1D03               	skipz
+  1176     07CB  2FC7               	goto	u615
+  1177     07CC  0870               	movf	??_Numpad_Read,w
+  1178     07CD  1283               	bcf	3,5	;RP0=0, select bank0
+  1179     07CE  1303               	bcf	3,6	;RP1=0, select bank0
+  1180     07CF  0508               	andwf	8,w	;volatile
+  1181     07D0  00F3               	movwf	Numpad_Read@currentKeyVal
+  1182     07D1                     l914:
   1183                           
-  1184     0644                     l872:	
-  1185                           ;incstack = 0
-  1186                           ; Regs used in _NumPad_Init: [wreg+status,2]
-  1187                           
-  1188                           
-  1189                           ;./numpad.h: 15:     TRISD = 0x0f;
-  1190     0644  300F               	movlw	15
-  1191     0645  1683               	bsf	3,5	;RP0=1, select bank1
-  1192     0646  1303               	bcf	3,6	;RP1=0, select bank1
-  1193     0647  0088               	movwf	8	;volatile
-  1194     0648                     l874:
-  1195                           
-  1196                           ;./numpad.h: 16:     TRISB = 0x00;
-  1197     0648  0186               	clrf	6	;volatile
-  1198     0649                     l13:
-  1199     0649  0008               	return
-  1200     064A                     __end_of_NumPad_Init:
-  1201     007E                     btemp	set	126	;btemp
-  1202     007E                     wtemp0	set	126
-  1203                           
-  1204                           	psect	idloc
-  1205                           
-  1206                           ;Config register IDLOC0 @ 0x2000
-  1207                           ;	unspecified, using default values
-  1208     2000                     	org	8192
-  1209     2000  3FFF               	dw	16383
-  1210                           
-  1211                           ;Config register IDLOC1 @ 0x2001
-  1212                           ;	unspecified, using default values
-  1213     2001                     	org	8193
-  1214     2001  3FFF               	dw	16383
-  1215                           
-  1216                           ;Config register IDLOC2 @ 0x2002
-  1217                           ;	unspecified, using default values
-  1218     2002                     	org	8194
-  1219     2002  3FFF               	dw	16383
-  1220                           
-  1221                           ;Config register IDLOC3 @ 0x2003
-  1222                           ;	unspecified, using default values
-  1223     2003                     	org	8195
-  1224     2003  3FFF               	dw	16383
-  1225                           
-  1226                           	psect	config
-  1227                           
-  1228                           ;Config register CONFIG @ 0x2007
-  1229                           ;	Oscillator Selection bits
-  1230                           ;	FOSC = HS, HS oscillator
-  1231                           ;	Watchdog Timer Enable bit
-  1232                           ;	WDTE = OFF, WDT disabled
-  1233                           ;	Power-up Timer Enable bit
-  1234                           ;	PWRTE = ON, PWRT enabled
-  1235                           ;	Brown-out Reset Enable bit
-  1236                           ;	BOREN = ON, BOR enabled
-  1237                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
-  1238                           ;	LVP = ON, RB3/PGM pin has PGM function; low-voltage programming enabled
-  1239                           ;	Data EEPROM Memory Code Protection bit
-  1240                           ;	CPD = OFF, Data EEPROM code protection off
-  1241                           ;	Flash Program Memory Write Enable bits
-  1242                           ;	WRT = OFF, Write protection off; all program memory may be written to by EECON control
-  1243                           ;	In-Circuit Debugger Mode bit
-  1244                           ;	DEBUG = 0x1, unprogrammed default
-  1245                           ;	Flash Program Memory Code Protection bit
-  1246                           ;	CP = OFF, Code protection off
-  1247     2007                     	org	8199
-  1248     2007  3FF2               	dw	16370
+  1184                           ;numpad.c: 39:                     _delay((unsigned long)((20)*(20*1000000/4000.0)));
+  1185     07D1  3082               	movlw	130
+  1186     07D2  00F1               	movwf	??_Numpad_Read+1
+  1187     07D3  30DD               	movlw	221
+  1188     07D4  00F0               	movwf	??_Numpad_Read
+  1189     07D5                     u707:
+  1190     07D5  0BF0               	decfsz	??_Numpad_Read,f
+  1191     07D6  2FD5               	goto	u707
+  1192     07D7  0BF1               	decfsz	??_Numpad_Read+1,f
+  1193     07D8  2FD5               	goto	u707
+  1194     07D9  2FDA               	nop2
+  1195     07DA                     l916:
+  1196                           
+  1197                           ;numpad.c: 37:                 while (!currentKeyVal) {
+  1198     07DA  0873               	movf	Numpad_Read@currentKeyVal,w
+  1199     07DB  1903               	btfsc	3,2
+  1200     07DC  2FDE               	goto	u621
+  1201     07DD  2FDF               	goto	u620
+  1202     07DE                     u621:
+  1203     07DE  2FC3               	goto	l912
+  1204     07DF                     u620:
+  1205     07DF                     l918:
+  1206                           
+  1207                           ;numpad.c: 41:                 return currentKey;
+  1208     07DF  0872               	movf	Numpad_Read@currentKey,w
+  1209     07E0  2FF8               	goto	l130
+  1210     07E1                     l126:	
+  1211                           ;numpad.c: 42:             }
+  1212                           
+  1213                           
+  1214                           ;numpad.c: 44:             oldKeyVal = 1;
+  1215     07E1  01A6               	clrf	Numpad_Read@oldKeyVal
+  1216     07E2  0AA6               	incf	Numpad_Read@oldKeyVal,f
+  1217     07E3                     l922:
+  1218                           
+  1219                           ;numpad.c: 45:         }
+  1220     07E3  3001               	movlw	1
+  1221     07E4  00F0               	movwf	??_Numpad_Read
+  1222     07E5  0870               	movf	??_Numpad_Read,w
+  1223     07E6  07F5               	addwf	Numpad_Read@rowScan,f
+  1224     07E7                     l924:
+  1225     07E7  3004               	movlw	4
+  1226     07E8  0275               	subwf	Numpad_Read@rowScan,w
+  1227     07E9  1C03               	skipc
+  1228     07EA  2FEC               	goto	u631
+  1229     07EB  2FED               	goto	u630
+  1230     07EC                     u631:
+  1231     07EC  2F95               	goto	l904
+  1232     07ED                     u630:
+  1233     07ED                     l926:
+  1234                           
+  1235                           ;numpad.c: 46:     }
+  1236     07ED  3001               	movlw	1
+  1237     07EE  00F0               	movwf	??_Numpad_Read
+  1238     07EF  0870               	movf	??_Numpad_Read,w
+  1239     07F0  07F4               	addwf	Numpad_Read@colScan,f
+  1240     07F1                     l928:
+  1241     07F1  3003               	movlw	3
+  1242     07F2  0274               	subwf	Numpad_Read@colScan,w
+  1243     07F3  1C03               	skipc
+  1244     07F4  2FF6               	goto	u641
+  1245     07F5  2FF7               	goto	u640
+  1246     07F6                     u641:
+  1247     07F6  2F78               	goto	l894
+  1248     07F7                     u640:
+  1249     07F7                     l930:
+  1250                           
+  1251                           ;numpad.c: 47:     return 0xff;
+  1252     07F7  30FF               	movlw	255
+  1253     07F8                     l130:
+  1254     07F8  0008               	return
+  1255     07F9                     __end_of_Numpad_Read:
+  1256     007E                     btemp	set	126	;btemp
+  1257     007E                     wtemp0	set	126
+  1258                           
+  1259                           	psect	idloc
+  1260                           
+  1261                           ;Config register IDLOC0 @ 0x2000
+  1262                           ;	unspecified, using default values
+  1263     2000                     	org	8192
+  1264     2000  3FFF               	dw	16383
+  1265                           
+  1266                           ;Config register IDLOC1 @ 0x2001
+  1267                           ;	unspecified, using default values
+  1268     2001                     	org	8193
+  1269     2001  3FFF               	dw	16383
+  1270                           
+  1271                           ;Config register IDLOC2 @ 0x2002
+  1272                           ;	unspecified, using default values
+  1273     2002                     	org	8194
+  1274     2002  3FFF               	dw	16383
+  1275                           
+  1276                           ;Config register IDLOC3 @ 0x2003
+  1277                           ;	unspecified, using default values
+  1278     2003                     	org	8195
+  1279     2003  3FFF               	dw	16383
+  1280                           
+  1281                           	psect	config
+  1282                           
+  1283                           ;Config register CONFIG @ 0x2007
+  1284                           ;	Oscillator Selection bits
+  1285                           ;	FOSC = HS, HS oscillator
+  1286                           ;	Watchdog Timer Enable bit
+  1287                           ;	WDTE = OFF, WDT disabled
+  1288                           ;	Power-up Timer Enable bit
+  1289                           ;	PWRTE = ON, PWRT enabled
+  1290                           ;	Brown-out Reset Enable bit
+  1291                           ;	BOREN = ON, BOR enabled
+  1292                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+  1293                           ;	LVP = ON, RB3/PGM pin has PGM function; low-voltage programming enabled
+  1294                           ;	Data EEPROM Memory Code Protection bit
+  1295                           ;	CPD = OFF, Data EEPROM code protection off
+  1296                           ;	Flash Program Memory Write Enable bits
+  1297                           ;	WRT = OFF, Write protection off; all program memory may be written to by EECON control
+  1298                           ;	In-Circuit Debugger Mode bit
+  1299                           ;	DEBUG = 0x1, unprogrammed default
+  1300                           ;	Flash Program Memory Code Protection bit
+  1301                           ;	CP = OFF, Code protection off
+  1302     2007                     	org	8199
+  1303     2007  3FF2               	dw	16370
 
 Data Sizes:
     Strings     0
@@ -1309,9 +1363,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 6     6      0    1398
+ (0) _main                                                 6     6      0    1443
                                               0 BANK0      6     6      0
-                        _NumPad_Init
                         _Numpad_Read
                           _Print_Led
  ---------------------------------------------------------------------------------
@@ -1326,10 +1379,8 @@ Call Graph Tables:
  (2) ___awdiv                                              9     5      4     452
                                               0 COMMON     9     5      4
  ---------------------------------------------------------------------------------
- (2) _Numpad_Read                                          6     6      0     226
+ (2) _Numpad_Read                                          6     6      0     271
                                               0 COMMON     6     6      0
- ---------------------------------------------------------------------------------
- (1) _NumPad_Init                                          0     0      0       0
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 2
  ---------------------------------------------------------------------------------
@@ -1337,7 +1388,6 @@ Call Graph Tables:
  Call Graph Graphs:
 
  _main (ROOT)
-   _NumPad_Init
    _Numpad_Read
    _Print_Led
      ___awdiv
@@ -1372,77 +1422,77 @@ DATA                 0      0      15      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.40 build 20220703182018 
-Symbol Table                                                                                   Mon Dec 19 13:06:13 2022
+Symbol Table                                                                                   Wed Jan 18 21:58:53 2023
 
-                       pc 0002                        l13 0649                        l24 077A  
-                      l25 0791                        l35 0685                        l28 06D2  
-            ___awdiv@sign 0076                        fsr 0004  Numpad_Read@currentKeyVal 0072  
-                     l281 07F8                       l294 072B                       l800 07A2  
-                     l810 07B6                       l802 07A7                       l900 0778  
-                     l820 07DC                       l812 07BD                       l804 07AB  
-                     l910 078A                       l830 07F4                       l822 07DD  
-                     l814 07C1                       l806 07AD                       l912 0790  
-                     l904 077C                       l824 07E4                       l816 07C5  
-                     l808 07B3                       l840 06DD                       l920 06B3  
-                     l906 0780                       l818 07D6                       l826 07EA  
-                     l850 06F1                       l842 06DF                       l834 06D3  
-                     l930 065D                       l922 064A                       l908 0786  
-                     l828 07EF                       l860 0710                       l852 06F8  
-                     l844 06E3                       l836 06D4                       l916 068A  
-                     l940 067A                       l932 0664                       l924 064F  
-                     l790 0792                       l862 0717                       l854 06FC  
-                     l846 06E8                       l838 06D8                       l918 0694  
-                     l942 067D                       l934 066A                       l926 064F  
-                     l872 0644                       l792 0793                       l856 0700  
-                     l848 06EE                       l864 071D                       l944 067E  
-                     l936 066F                       l928 0657                       l874 0648  
-                     l882 072D                       l794 0797                       l866 0722  
-                     l858 070A                       l938 0674                       l892 074B  
-                     l884 0741                       l876 072C                       l796 079C  
-                     l868 0727                       l894 075E                       l886 074A  
-                     l798 079E                       l896 0763                       l898 0777  
-                     u410 07EA                       u330 0797                       u411 07E9  
-                     u331 0796                       u420 07EF                       u340 07A2  
-                     u500 071D                       u421 07EE                       u405 07DE  
-                     u341 07A1                       u501 071C                       u350 07B3  
-                     u510 0722                       u430 06D8                       u351 07B2  
-                     u511 0721                       u431 06D7                       u440 06E3  
-                     u441 06E2                       u370 07C5                       u450 06EE  
-                     u610 065D                       u371 07C4                       u451 06ED  
-                     u611 065C                       u540 075E                       u524 0739  
-                     u620 066A                       u541 075D                       u525 0737  
-                     u365 07B7                       u605 06C6                       u621 0669  
-                     u550 0763                       u534 0751                       u390 07D6  
-                     u470 0700                       u630 066F                       u551 0762  
-                     u535 074F                       u391 07D5                       u471 06FF  
-                     u631 066E                       u480 070A                       u640 067A  
-                     u385 07C6                       u481 0709                       u465 06F2  
-                     u641 0679                       u570 0786                       u571 0785  
-                     u395 07D2                       u580 0790                       u581 078F  
-                     u565 0766                       u485 0706                       u495 0711  
-                     u657 0745                       u595 06A7                       fsr0 0004  
-                     indf 0000              ___awmod@sign 0076                      _main 064A  
-                    btemp 007E                      start 0000                     ?_main 0070  
-         __end_of___awdiv 07F9           __end_of___awmod 072C           ___awdiv@divisor 0070  
-         ___awdiv@counter 0075                     _PORTB 0006                     _PORTD 0008  
-                   _TRISB 0086                     _TRISD 0088                     pclath 000A  
-                   status 0003                     wtemp0 007E           __initialization 07F9  
-            __end_of_main 0689                    ??_main 0020             ??_NumPad_Init 0070  
-        ___awdiv@dividend 0072                 ??___awdiv 0074                 ??___awmod 0074  
-                  _keypad 0009          ___awdiv@quotient 0077             main@selettore 0024  
-         ___awmod@divisor 0070             main@operatore 0022           ___awmod@counter 0075  
-           ??_Numpad_Read 0070             main@risultato 0021       __end_of_NumPad_Init 064A  
- __end_of__initialization 07FC            __pcstackCOMMON 0070       __end_of_Numpad_Read 0792  
-              __pbssBANK0 0026         __end_of_Print_Led 06D3                __pmaintext 064A  
-             _NumPad_Init 0644                __stringtab 0003                   ___awdiv 0792  
-                 ___awmod 06D3                   __ptext1 0689                   __ptext2 06D3  
-                 __ptext3 0792                   __ptext4 072C                   __ptext5 0644  
-        ___awmod@dividend 0072               _Numpad_Read 072C      Numpad_Read@oldKeyVal 0026  
-          Print_Led@value 007D      end_of_initialization 07FC            __end_of_keypad 0015  
-     start_initialization 07F9        Numpad_Read@colScan 0074                 _Print_Led 0689  
-      Numpad_Read@rowScan 0075              ?_NumPad_Init 0070                 ___latbits 0002  
+                       l9 06AC                         pc 0002                        l16 065F  
+            ___awdiv@sign 0076                        fsr 0004  Numpad_Read@currentKeyVal 0073  
+                     l130 07F8                       l300 0705                       l126 07E1  
+                     l287 076C                       l800 0707                       l810 071B  
+                     l802 070B                       l820 0731                       l812 071F  
+                     l804 0710                       l910 07C1                       l830 0751  
+                     l822 0735                       l814 0721                       l806 0712  
+                     l912 07C3                       l904 0795                       l832 0758  
+                     l824 0739                       l816 0727                       l808 0716  
+                     l930 07F7                       l922 07E3                       l914 07D1  
+                     l906 07A8                       l826 074A                       l818 072A  
+                     l834 075E                       l850 06B9                       l842 06AD  
+                     l924 07E7                       l916 07DA                       l908 07AD  
+                     l836 0763                       l828 0750                       l860 06D2  
+                     l852 06BD                       l844 06AE                       l940 0637  
+                     l926 07ED                       l918 07DF                       l838 0768  
+                     l870 06F1                       l862 06D6                       l854 06C2  
+                     l846 06B2                       l950 0654                       l942 063E  
+                     l934 0629                       l928 07F1                       l864 06DA  
+                     l856 06C8                       l872 06F7                       l848 06B7  
+                     l880 0664                       l952 0657                       l944 0644  
+                     l936 0629                       l874 06FC                       l866 06E4  
+                     l858 06CB                       l882 066E                       l954 0658  
+                     l946 0649                       l938 0631                       l876 0701  
+                     l868 06EA                       l884 068D                       l948 064E  
+                     l894 0778                       l886 076D                       l798 0706  
+                     l896 078B                       l888 0777                       l898 0794  
+                     u410 074A                       u411 0749                       u500 06E4  
+                     u405 073A                       u501 06E3                       u430 075E  
+                     u350 070B                       u431 075D                       u415 0746  
+                     u351 070A                       u440 0763                       u360 0716  
+                     u520 06F7                       u441 0762                       u425 0752  
+                     u361 0715                       u521 06F6                       u505 06E0  
+                     u370 0727                       u530 06FC                       u450 06B2  
+                     u371 0726                       u531 06FB                       u515 06EB  
+                     u451 06B1                       u620 07DF                       u460 06BD  
+                     u621 07DE                       u605 07B0                       u461 06BC  
+                     u630 07ED                       u614 07C9                       u390 0739  
+                     u470 06C8                       u631 07EC                       u615 07C7  
+                     u391 0738                       u471 06C7                       u640 07F7  
+                     u641 07F6                       u385 072B                       u545 0681  
+                     u490 06DA                       u650 0637                       u707 07D5  
+                     u491 06D9                       u555 06A0                       u651 0636  
+                     u580 07A8                       u564 0783                       u660 0644  
+                     u581 07A7                       u565 0781                       u485 06CC  
+                     u661 0643                       u590 07AD                       u574 079B  
+                     u670 0649                       u591 07AC                       u575 0799  
+                     u671 0648                       u680 0654                       u681 0653  
+                     u697 078F                       fsr0 0004                       indf 0000  
+            ___awmod@sign 0076                      _main 0629                      btemp 007E  
+                    start 0000                     ?_main 0070           __end_of___awdiv 076D  
+         __end_of___awmod 0706           ___awdiv@divisor 0070           ___awdiv@counter 0075  
+                   _PORTB 0006                     _PORTD 0008                     _TRISB 0086  
+                   _TRISD 0088                     pclath 000A                     status 0003  
+                   wtemp0 007E           __initialization 07F9              __end_of_main 0663  
+                  ??_main 0020          ___awdiv@dividend 0072                 ??___awdiv 0074  
+               ??___awmod 0074                    _keypad 0009          ___awdiv@quotient 0077  
+           main@selettore 0024           ___awmod@divisor 0070             main@operatore 0022  
+         ___awmod@counter 0075             ??_Numpad_Read 0070             main@risultato 0021  
+ __end_of__initialization 07FC            __pcstackCOMMON 0070       __end_of_Numpad_Read 07F9  
+              __pbssBANK0 0026         __end_of_Print_Led 06AD                __pmaintext 0629  
+              __stringtab 0003                   ___awdiv 0706                   ___awmod 06AD  
+                 __ptext1 0663                   __ptext2 06AD                   __ptext3 0706  
+                 __ptext4 076D          ___awmod@dividend 0072               _Numpad_Read 076D  
+    Numpad_Read@oldKeyVal 0026            Print_Led@value 007D      end_of_initialization 07FC  
+          __end_of_keypad 0015       start_initialization 07F9        Numpad_Read@colScan 0074  
+               _Print_Led 0663        Numpad_Read@rowScan 0075                 ___latbits 0002  
            __pcstackBANK0 0020                  ?___awdiv 0070                  ?___awmod 0070  
               ?_Print_Led 0070                 __pstrings 0003              ?_Numpad_Read 0070  
              __stringbase 0008               ??_Print_Led 0079        __end_of__stringtab 0009  
-   Numpad_Read@currentKey 0073                  main@read 0025                 stringcode 0003  
+   Numpad_Read@currentKey 0072                  main@read 0025                 stringcode 0003  
                 stringdir 0003                  stringtab 0003  

@@ -16,12 +16,12 @@
 
 
 #include <xc.h>
-#include "7seg.h"
+#include "./../00-Librerie.X/7seg.h"
 
 #define _XTAL_FREQ 8000000
 
 char conteggio = 99;
-char display, statoConteggio,conteggioFinito = 0;
+char display, statoConteggio, conteggioFinito = 0;
 
 void main(void) {
     INTCON = 0xA0; // GIE = 1; T0IE = 1;
@@ -33,13 +33,13 @@ void main(void) {
     while (1) {
 
         if (!display) {
-            writeDisplay(conteggio / 10, 0);
+            SevenSeg_Write(conteggio / 10, 0);
 
         } else {
-            writeDisplay(conteggio % 10, 1);
+            SevenSeg_Write(conteggio % 10, 1);
 
         }
-        if(conteggioFinito) continue; //Durante il ciclo di conteggio finito i pulsanti sono inibiti;
+        if (conteggioFinito) continue; //Durante il ciclo di conteggio finito i pulsanti sono inibiti;
 
         button = PORTA & 0x02;
         if (!button) {

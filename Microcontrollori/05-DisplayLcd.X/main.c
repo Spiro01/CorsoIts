@@ -17,8 +17,8 @@
 
 #define _XTAL_FREQ 20*1000000
 #include <xc.h>
-#include "lcd.h"
-#include "numpad.h"
+#include "./../00-Librerie.X/lcd.h"
+#include "./../00-Librerie.X/numpad.h"
 
 void main(void) {
 
