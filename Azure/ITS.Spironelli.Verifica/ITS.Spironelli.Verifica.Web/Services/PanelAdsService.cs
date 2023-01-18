@@ -1,7 +1,8 @@
 ﻿using System.Text;
 using System.Text.Json;
+using ITS.Spironelli.Verifica.Domain.Entities;
 using ITS.Spironelli.Verifica.Web.Interfaces;
-using ITS.Spironelli.Verifica.Web.Models;
+
 using Microsoft.Azure.Devices;
 
 namespace ITS.Spironelli.Verifica.Web.Services;

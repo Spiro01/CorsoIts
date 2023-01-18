@@ -19,4 +19,8 @@
     <Folder Include="Repository\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ITS.Spironelli.Verifica.Domain\ITS.Spironelli.Verifica.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

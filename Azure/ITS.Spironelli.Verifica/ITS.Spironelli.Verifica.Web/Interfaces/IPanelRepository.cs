@@ -1,4 +1,5 @@
-﻿using ITS.Spironelli.Verifica.Web.Models;
+﻿using ITS.Spironelli.Verifica.Domain.Entities;
+
 
 namespace ITS.Spironelli.Verifica.Web.Interfaces;
 

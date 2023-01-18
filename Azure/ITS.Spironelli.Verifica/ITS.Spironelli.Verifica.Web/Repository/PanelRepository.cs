@@ -1,7 +1,8 @@
 ﻿using System.Data.SqlClient;
 using Dapper;
+using ITS.Spironelli.Verifica.Domain.Entities;
 using ITS.Spironelli.Verifica.Web.Interfaces;
-using ITS.Spironelli.Verifica.Web.Models;
+
 
 namespace ITS.Spironelli.Verifica.Web.Repository;
 

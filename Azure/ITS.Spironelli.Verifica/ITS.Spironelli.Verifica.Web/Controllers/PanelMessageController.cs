@@ -1,5 +1,5 @@
 ﻿using ITS.Spironelli.Verifica.Web.Interfaces;
-using ITS.Spironelli.Verifica.Web.Models;
+using ITS.Spironelli.Verifica.Domain.Entities;
 using ITS.Spironelli.Verifica.Web.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

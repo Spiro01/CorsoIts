@@ -1,4 +1,4 @@
-﻿namespace ITS.Spironelli.Verifica.Web.Models;
+﻿namespace ITS.Spironelli.Verifica.Domain.Entities;
 
 public class PanelMessage
 {
