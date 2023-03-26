@@ -1,0 +1,150 @@
+﻿//x^2 + y^2 + ax + by + c = 0;
+//y^2= -x^2 -ax-by-c;
+//y= -sqrt(r^2-x^2)
+//y= sqrt(r^2-x^2)
+
+
+using System;
+
+
+namespace es2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //******Dichiarazione variabili************
+            float r = 0f;
+            float[] x = new float[100000];
+            float[] y = new float[100000];
+
+            //Chiedo il raggio della circonferenza in input
+            Console.Clear();
+            Console.WriteLine("Inserisci il raggio della circonferenza:");
+            r = getint();
+
+
+            x = fill_array(x, r); //Riempo un array di x valori con numeri da -r a r
+
+            y = calc_form(r, x); //Estraggo i punti della semicirconferenza
+
+
+
+
+            float c =  calc_circ(x, y); //calcolo la circonferenza con la formula della distanza tra due punti
+
+            //Stampo a video il risulatato
+            Console.Clear();
+            Console.WriteLine("La circ calcolata senza PI vale : " + c);
+            trova_errore(c,r);
+            
+            //stampa_punti(x,y);
+
+            
+
+
+        }
+
+        
+        public static float getint()
+        {
+
+            return Convert.ToSingle(Console.ReadLine());
+
+        }
+
+        public static float[] calc_form(float r, float[] x)
+        {
+
+            float[] y = new float[x.Length];
+
+            for (int i = 0; i < y.Length; i++)
+            {
+                y[i] = Convert.ToSingle(Math.Sqrt(Math.Pow(r, 2) - Math.Pow(x[i], 2)));
+
+            }
+
+
+            return y;
+        }
+
+
+        public static float[] fill_array(float[] x, float r)
+        {
+            int cont = x.Length / 2;
+
+            for (int i = 0; i < x.Length / 2; i++)
+            {
+
+                x[i] = -(float)2 * cont * r / x.Length;
+                cont--;
+            }
+
+            cont = 0;
+            for (int i = x.Length / 2; i < x.Length; i++)
+            {
+
+
+
+                x[i] = (float)2 * cont * r / x.Length;
+
+                cont++;
+
+            }
+            x[x.Length-1] = r;
+
+            return x;
+        }
+
+
+        public static float calc_circ(float[] x, float[] y)
+        {
+
+            double sum = 0;
+            for (int i = 0; i < x.Length - 1; i++)
+            {
+
+                sum = Math.Sqrt(Math.Pow((x[i + 1] - x[i]), 2) + Math.Pow((y[i + 1] - y[i]), 2)) + sum;
+            }
+
+
+
+            return Convert.ToSingle(sum * 2f);
+        
+
+
+
+        }
+
+        public static void stampa_punti(float[] x, float[] y)
+        {
+                Console.Clear();
+                Console.WriteLine("x y");
+
+            for (int i = 0; i < y.Length; i++)
+            {
+                
+                Console.Write(x[i] + " ");
+                Console.WriteLine(y[i]);
+
+            }
+
+        }
+        public static void trova_errore (float c, float r){
+
+            float circ = 0f;
+            float err = 0f;
+        circ = Convert.ToSingle(2*Math.PI*r);
+
+            err= Math.Abs((c-circ)/circ)*100;
+ 
+        Console.WriteLine("La circ calcolata con PI vale:    "+circ);
+        Console.WriteLine("L'errore di questo calolo è stato del :" +err+"%");
+        
+
+        }
+
+    }
+
+}
+

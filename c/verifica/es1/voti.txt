@@ -1,0 +1,6 @@
+riccardo 100
+giovanni 60
+riccardo 70
+gianni 60
+claudio 60
+gianni 35

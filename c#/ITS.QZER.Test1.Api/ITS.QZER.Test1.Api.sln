@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32317.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITS.QZER.Test1.Api", "ITS.QZER.Test1.Api\ITS.QZER.Test1.Api.csproj", "{0F8C0CA3-5990-4C4B-8EB2-36549AB3CF4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F8C0CA3-5990-4C4B-8EB2-36549AB3CF4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F8C0CA3-5990-4C4B-8EB2-36549AB3CF4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F8C0CA3-5990-4C4B-8EB2-36549AB3CF4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F8C0CA3-5990-4C4B-8EB2-36549AB3CF4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {757D0F17-39BD-4079-87A8-0B1D614E1693}
+	EndGlobalSection
+EndGlobal
