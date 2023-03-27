@@ -18,41 +18,55 @@
 
 #define TARGET_TEMP 40*0.488
 
+
+
 #include <xc.h>
 
 #include "./../00-Librerie.X/Adc.h"
 #include "./../00-Librerie.X/lcd.h"
 #include "./../00-Librerie.X/PID.h"
 
+unsigned char duty, high_time, low_time;
+
 void main(void) {
-    // Set Timer0 to 8-bit mode
-    T1CON = 0b10000001;
-    // Set the period register to 249 (1kHz)
-    PR2 = 249;
-    // Set the compare register to 125 (50% duty cycle)
-    CCPR1L = 125;
-    // Enable the compare module
-    CCP1CON = 0x09;
-    // Start the Timer0
-    TMR1 = 0;
 
     Adc_Init();
     Lcd_Init();
+
     TRISC = 0x00;
     PORTC |= 0x20;
+    INTCON = 0xA0;
+    OPTION_REG = 0x84;
+
     int old_val;
-    char err;
+    int err;
+
+    duty = 45; // Desired duty cycle of the square wave in percentage
+    TMR0 = high_time;
 
     while (1) {
         int val = 0;
         val = Adc_Read(2);
         if (val == old_val) continue;
-        pid_controller(TARGET_TEMP, val, 1, 0, 0.1, 0, 255);
+        duty = pid_controller(TARGET_TEMP, val, 1, 0, 0, 0, 255);
+        high_time = 255 - duty;
+        low_time = duty;
         Lcd_Clear();
         old_val = val;
-        Lcd_Write_Int(val * 0.488);
-        if (!(val & 0x01)) Lcd_Write_String(".5");
+        //Lcd_Write_Int(val * 0.488);
+        Lcd_Write_Int(duty);
+        //if (!(val & 0x01)) Lcd_Write_String(".5");
     }
 
+
+}
+
+void __interrupt() ISR(void) {
+    if (T0IF) { // Check for TMR0 overflow
+        PORTCbits.RC5 = ~PORTCbits.RC5; // Invert RC0
+        T0IF = 0; // Clear TMR0 overflow flag
+        if (PORTCbits.RC5) TMR0 = high_time;
+        else TMR0 = low_time;
+    }
 
 }
