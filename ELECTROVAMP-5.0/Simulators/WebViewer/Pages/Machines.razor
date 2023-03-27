@@ -1,0 +1,150 @@
+﻿@page "/"
+
+
+<PageTitle>Monitor</PageTitle>
+
+
+@using WebViewer.Data
+@inject KepServerAPIService KepAPI
+
+<div class ="container-fluid">
+<h3 class="row">Production Monitor</h3>
+<div class="row">
+<div class="btn-group container-fluid" role="group" aria-label="Basic example">
+@if(machineslist == null)
+{
+    <p>Loading...</p>
+}
+else{
+    
+    foreach (var machine in machineslist)
+    {
+        <button type="button" @onclick="@((args)=>changegraph(machine))"changegraph class="btn btn-outline-primary">@machine</button>   
+    }
+}
+</Div>
+<div class="row">
+  <LineChart @ref="horizontalLineChart" TItem="LiveDataPoint" OptionsObject="@horizontalLineChartOptions">
+    <ChartStreaming TItem="LiveDataPoint"
+                    Options="new ChartStreamingOptions { Delay = 1000, Duration = 60000, Refresh = 2000}"
+                    Refreshed="@OnHorizontalLineRefreshed" />
+
+</LineChart>
+<p>@selected</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+@code {
+    private bool loaded = false;
+    private string[] machineslist;
+    private string[] alldata;
+    private string selected = "QZER.Midage1.CycleTime";
+    protected override async Task OnInitializedAsync()
+    {
+        var machines = await KepAPI.GetNodes();
+        machineslist = machines.browseResults.Select(x=>x.id.Split('.')[1]).Distinct().ToArray();
+        Update();
+    }
+
+    private async void changegraph(string id)
+    {
+        await Task.WhenAll(
+                HandleRedraw(horizontalLineChart, GetLineChartDataset1));
+        selected = $"QZER.{id}.CycleTime";
+
+    }
+
+
+
+
+
+
+
+
+
+    LineChart<LiveDataPoint> horizontalLineChart;
+    string[] Labels = { "Red", "Blue", "Yellow", "Green", "Purple", "Orange" };
+    List<string> backgroundColors = new List<string> { ChartColor.FromRgba(255, 99, 132, 0.2f), ChartColor.FromRgba(54, 162, 235, 0.2f), ChartColor.FromRgba(255, 206, 86, 0.2f), ChartColor.FromRgba(75, 192, 192, 0.2f), ChartColor.FromRgba(153, 102, 255, 0.2f), ChartColor.FromRgba(255, 159, 64, 0.2f) };
+    List<string> borderColors = new List<string> { ChartColor.FromRgba(255, 99, 132, 1f), ChartColor.FromRgba(54, 162, 235, 1f), ChartColor.FromRgba(255, 206, 86, 1f), ChartColor.FromRgba(75, 192, 192, 1f), ChartColor.FromRgba(153, 102, 255, 1f), ChartColor.FromRgba(255, 159, 64, 1f) };
+    public struct LiveDataPoint
+    {
+        public object X { get; set; }
+
+        public object Y { get; set; }
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Task.WhenAll(
+                HandleRedraw(horizontalLineChart, GetLineChartDataset1));
+        }
+
+    }
+
+    async Task HandleRedraw<TDataSet, TItem, TOptions, TModel>(BaseChart<TDataSet, TItem, TOptions, TModel> chart, params Func<TDataSet>[] getDataSets)
+        where TDataSet : ChartDataset<TItem>
+        where TOptions : ChartOptions
+        where TModel : ChartModel
+    {
+
+        await chart.Clear();
+
+        await chart.AddLabelsDatasetsAndUpdate(Labels, getDataSets.Select(x => x.Invoke()).ToArray());
+    }
+
+    LineChartDataset<LiveDataPoint> GetLineChartDataset1()
+    {
+        return new LineChartDataset<LiveDataPoint>
+            {
+                Data = new List<LiveDataPoint>(),
+                 Label = "Dataset 1 (linear interpolation)",
+                  BackgroundColor = backgroundColors[0],
+                   BorderColor = borderColors[0],
+                    Fill = false,
+                     Tension = 0,
+                      BorderDash = new List<int> {8,4}
+            };
+    }
+    Task OnHorizontalLineRefreshed(ChartStreamingData<LiveDataPoint> data)
+    {
+        Update();
+        data.Value = new LiveDataPoint
+            {
+                X = DateTime.Now,
+                Y = double.Parse(alldata.First()),
+            };
+
+        return Task.CompletedTask;
+    }
+
+    public async void Update()
+    {
+        var values =  await KepAPI.GetValues();
+        alldata = values.readResults.Where(x=>x.id == selected).Select(x => x.v.ToString()).ToArray();
+    }
+     object horizontalLineChartOptions = new
+    {
+        Scales = new
+        {
+            Y = new
+            {
+                Title = new
+                {
+                    Display = true,
+                    Text = "Value"
+                }
+            }
+        },
+        Interaction = new
+        {
+            intersect = false
+        }
+    };
+}
+
