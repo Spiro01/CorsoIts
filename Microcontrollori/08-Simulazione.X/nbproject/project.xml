@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>08-Simulazione</name>
+            <creation-uuid>62b324e3-e6e0-4c76-abbc-9f883106dcb5</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <c-extensions>c</c-extensions>
+            <cpp-extensions/>
+            <header-extensions/>
+            <asminc-extensions/>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects>
+                <make-dep-project>../00-Librerie.X</make-dep-project>
+            </make-dep-projects>
+            <sourceRootList>
+                <sourceRootElem>../00-Librerie.X</sourceRootElem>
+                <sourceRootElem>.</sourceRootElem>
+            </sourceRootList>
+            <confList>
+                <confElem>
+                    <name>default</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>
