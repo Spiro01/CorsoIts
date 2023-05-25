@@ -1,0 +1,33 @@
+###########################
+# UaModeler Project File  #
+# Generated at 25.05.2023 #
+###########################
+
+PROJECTNAME = esercizio1
+
+TEMPLATESET = ($TEMPLATES)/net/v3_3/t0/net_server.tt2set
+
+MODELS += ($MODELS)/Opc.Ua.NodeSet2.ua \
+    persona.ua
+
+VARIABLES+= persona.ua: Namespace=PersonObject; Organization=ITSERICK; 
+
+COLORS = ($MODELS)/Opc.Ua.NodeSet2.ua: #0000ff\
+    persona.ua: #008000
+
+PROJECTVARIABLES += GenerateDefaultApplication = false \
+    GeneratePackagesConfig = false \
+    NetFramework = net6 \
+    ProjectNamespace = esercizio1 \
+    ProjectOrganization = ERICKITS
+
+OUTPUTPATH = 
+
+GENERATE += persona.ua
+
+NODEACCESSINFOROLES += Administrator \
+    SecurityAdmin \
+    ConfigurationAdmin \
+    Operator \
+    Observer
+
