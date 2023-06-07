@@ -1,0 +1,321 @@
+[
+    {
+        "id": "adac53cb47e87acf",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e99219a4.839ca8",
+        "type": "mqtt-broker",
+        "name": "Broker MQTT",
+        "broker": "local-mosquitto",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "compatmode": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c67b3b8c.c3d648",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "93ab97b3.8dcff",
+        "type": "ui_group",
+        "name": "Chat",
+        "tab": "c67b3b8c.c3d648",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "44d01cc74c2346f6",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "4c4f457f2f9d0794",
+        "type": "mqtt-broker",
+        "name": "mosquitto_public",
+        "broker": "mqtt://broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c9a0f288.4781a",
+        "type": "mqtt in",
+        "z": "adac53cb47e87acf",
+        "name": "Ricezione MQTT",
+        "topic": "/qzer2021pn/chat",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "e99219a4.839ca8",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "9c5c5b4f.2e362"
+            ]
+        ]
+    },
+    {
+        "id": "9c5c5b4f.2e362",
+        "type": "function",
+        "z": "adac53cb47e87acf",
+        "name": "Formato Messaggio",
+        "func": "const timestamp = new Date().toLocaleTimeString();\n\nif (flow.get(\"history\") === undefined) {\n    flow.set(\"history\", [])\n}\nconst history = flow.get(\"history\");\ntry{\nconst data = JSON.parse(msg.payload);\ndata.timestamp = timestamp;\nhistory.push(data);\n}\ncatch(e){\nconsole.warn(\"Json parsing error\")\n}\nmsg.payload = history;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nconst history = [];",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 220,
+        "wires": [
+            [
+                "f152df85.24e6b"
+            ]
+        ]
+    },
+    {
+        "id": "f152df85.24e6b",
+        "type": "ui_template",
+        "z": "adac53cb47e87acf",
+        "group": "93ab97b3.8dcff",
+        "name": "Aggiorna Tabella",
+        "order": 1,
+        "width": "12",
+        "height": "5",
+        "format": "<style>\n\n        table {\n            width: 100%;\n            height:50vh;\n        }\n\n        th,\n        td {\n           \n           \n\n        }\n</style>\n\n<div style=\"overflow-x: auto;\">\n    <table>\n        <thead>\n            <tr>\n                <th>Ora</th>\n                <th>Utente</th>\n                <th>Messaggio</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr ng-repeat=\"row in msg.payload\">\n                <td>{{row.timestamp}}</td>\n                <td>{{row.from}}</td>\n                <td>{{row.msg}}</td>\n            </tr>\n        </tbody>\n    </table>\n</div>\n\n\n",
+        "storeOutMessages": true,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 650,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd8bd636431c377d",
+        "type": "mqtt in",
+        "z": "adac53cb47e87acf",
+        "name": "Ricezione MQTT",
+        "topic": "/qzer2021pn/chat",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "4c4f457f2f9d0794",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "9c5c5b4f.2e362"
+            ]
+        ]
+    },
+    {
+        "id": "5e6f7g8h",
+        "type": "function",
+        "z": "adac53cb47e87acf",
+        "name": "Process Input",
+        "func": "\nif (flow.get(\"username\") === undefined) {\n    flow.set(\"username\", msg.payload);\n    return;\n}\nconst username = flow.get(\"username\");\n\nmsg.payload = JSON.stringify({ from: username, msg: msg.payload });\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 380,
+        "wires": [
+            [
+                "1fe4f798d6f35ef5"
+            ]
+        ]
+    },
+    {
+        "id": "1fe4f798d6f35ef5",
+        "type": "mqtt out",
+        "z": "adac53cb47e87acf",
+        "name": "send message",
+        "topic": "/qzer2021pn/chat",
+        "qos": "1",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4c4f457f2f9d0794",
+        "x": 820,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "a01396164bf59bb0",
+        "type": "ui_template",
+        "z": "adac53cb47e87acf",
+        "group": "93ab97b3.8dcff",
+        "name": "User Input Template",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "format": "<input type=\"text\" ng-keyup=\"checkEnter($event)\" ng-model=\"userInput\"/>\n\n<script>\n(function(scope) {\n    scope.checkEnter = function(event) {\n        if (event.keyCode === 13) { // Enter key\n            scope.send({ payload: scope.userInput });\n        }\n    }\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 220,
+        "y": 380,
+        "wires": [
+            [
+                "5e6f7g8h"
+            ]
+        ]
+    }
+]

@@ -1,0 +1,29 @@
+version: "3.5"
+
+services:
+  
+  node-red:
+    image: nodered/node-red:latest
+    environment:
+      - TZ=Europe/Amsterdam
+    ports:
+      - "1880:1880"
+    
+    networks:
+      - verifica
+    volumes:
+      - ./node-red:/data
+    restart: always 
+  mosquitto:
+    image: eclipse-mosquitto:2
+    hostname: local-mosquitto
+    volumes:
+      - ./mosquitto/config/:/mosquitto/config/:ro
+    restart: unless-stopped
+    ports:
+      - 1883:1883
+    networks:
+      - verifica
+networks:
+  verifica:
+    driver: bridge

@@ -7,13 +7,11 @@ PROJECTNAME = temperature_controller
 
 TEMPLATESET = ($TEMPLATES)/net/v3_3/t0/net_server.tt2set
 
-MODELS += ($MODELS)/Opc.Ua.NodeSet2.ua \
-    temperatura/temperature.ua
+MODELS += ($MODELS)/Opc.Ua.NodeSet2.ua
 
-VARIABLES+= temperatura/temperature.ua: Namespace=temperature; Organization=itserick; 
+VARIABLES+= 
 
-COLORS = ($MODELS)/Opc.Ua.NodeSet2.ua: #0000ff\
-    temperatura/temperature.ua: #008000
+COLORS = ($MODELS)/Opc.Ua.NodeSet2.ua: #0000ff
 
 PROJECTVARIABLES += GenerateDefaultApplication = false \
     GeneratePackagesConfig = false \
@@ -22,8 +20,6 @@ PROJECTVARIABLES += GenerateDefaultApplication = false \
     ProjectOrganization = 
 
 OUTPUTPATH = 
-
-GENERATE += temperatura/temperature.ua
 
 NODEACCESSINFOROLES += Administrator \
     SecurityAdmin \
