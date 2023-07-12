@@ -1,0 +1,66 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Room Number</th>
+        <th scope="col">Floor Number</th>
+            <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Board.Select((board, i) => new { i, board }))
+    {
+        <tr>
+            <th scope="row">@item.i</th>
+            <td>@item.board.RoomNumber</td>
+            <td>@item.board.Gateway.FloorNumber</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="setDeviceAddress(@item.board.Address)" data-bs-target="#exampleModal">
+                Set welcome message
+            </button></td>
+        </tr>
+    }
+    </tbody>
+</table>
+<div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="myform" method="post">
+                    
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <input type="text" name="message" class="form-control" id="message">
+                        <label for="expire" class="form-label">Expiration</label>
+                        <input type="datetime" name="expire" class="form-control" id="expire">
+                       
+                    </div>
+                    <input type="text" id="deviceAddress" name="deviceAddress" style="display:none">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<script>
+
+    function setDeviceAddress(deviceAddress) {
+        document.getElementById("deviceAddress").value = deviceAddress;
+    }
+</script>

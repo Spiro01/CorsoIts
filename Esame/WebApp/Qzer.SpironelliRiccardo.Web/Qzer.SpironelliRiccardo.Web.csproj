@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QZER.SpironelliRiccardo.ApplicationCore\QZER.SpironelliRiccardo.ApplicationCore.csproj" />
+    <ProjectReference Include="..\QZER.SpironelliRiccardo.Data\QZER.SpironelliRiccardo.Data.csproj" />
+    <ProjectReference Include="..\QZER.SpironelliRiccardo.Domain\QZER.SpironelliRiccardo.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
