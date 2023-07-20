@@ -1,0 +1,35 @@
+**Da amministratore**
+bcdedit /set hypervisorlaunchtype off
+bcdedit /set hypervisorlaunchtype auto
+slmgr /rearm
+**Per fare un backup del domain controller**
+ntdsutil
+activate instance ntds
+ifm
+create full [percorso]
+
+Activedirecory users and computer\Users\
+{
+**creare un template:
+profile -> profile path \\DC\profilizer\%username%
+**Per limitare l'orario di logon
+account -> logon hours
+}
+
+***Forzare l'aggiornamento delle regole dal client
+gpupdate /force
+gpresult /r
+
+***Per impostare l'accesso remoto da client
+winrm get winrm/config **Controllare la configurazione
+winrm quickconfig
+winrs -r:[nome macchina] [comando]
+Enter-PSSession -ComputerName [nome macchina]
+
+***Hyper-V
+get-vm
+get-vm [nome macchina] | format-list -Property *
+get-vm [nome macchina| Enable-VMResourceMetering
+get-vm -name Macchina1 | Measure-VM
+get-vm -name Macchina1 | Measure-VM | Format-List *
+get-vm -name Macchina1 | Disable-VMResourceMetering

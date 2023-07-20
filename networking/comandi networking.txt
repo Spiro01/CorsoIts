@@ -1,0 +1,132 @@
+ena
+configure terminal
+do [comando]
+hostname [nome]
+show star
+show run
+write
+show flash
+enable secret [password] (class) (cisco)
+line con 0
+password [password]
+login
+show vlan
+------Impostare la connessione remota---------------
+line vty 0 15
+password [password]
+login
+interface vlan1
+ip address [ip] [subnet]
+no shutdown
+***Attivo la crittografia passowrd
+service password-encryption
+--------------------Configurazione ssh -------------------
+ena
+conf t
+***Impostare un nome
+hostname [nome]
+***Impostare un dominio
+ip domain-name [nome]
+***generare le chiavi di crittazione ssh
+crypto key generate RSA
+***Definire un database di utenti e password autorizzati all'accesso
+username [nome] password [password]
+*** (opzionale) Impostare ssh come unico protocollo di accesso remoto
+line vty 0 15
+transport input ssh
+***Fondamentale:
+login local
+
+-----------COMANDI VARI------------
+***Controllare stato porte
+sh ip int brief
+***Controllare stato reti
+show ip route
+***Togliere la ricerca di hostname
+no ip domain-lookup
+****Static routing
+ip route [ip] [submask] [ip destinazione]
+****Configurazione del RIP
+conf t
+router rip
+version 2
+***Per mettere inserire tutte le reti con subnet
+network [ip]
+****Inserire l'helper address
+ip helper-address 192.168.1.254
+
+
+***Creare una vlan
+show vlan (brief)
+conf t
+vlan [numero vlan 0-99]
+name [nome vlan]
+exit
+interface range [porte] (FA0/1-8)
+switchport mode [access/trunk]
+switchport access vlan [numero vlan]
+interface [interfaccia]
+switchport trunk native vlan 99
+
+***intervlan routing (stick mode)
+interface [interfaccia].[num interfaccia virutale]
+encapsulation dot1Q [n subnet] ***NON INVERTIRE QUESTO CON QUELLO DOPO***
+ip address [ip] [subnet]
+
+***conf layer 3 router
+ip routing
+no switchport
+ip address [ip][subnet]
+
+***conf ipv6
+ipv6 unicast-routing
+interface (interfaccia)
+ipv6 address FE[ip] link-local 
+ipv6 address [ip]/[subnet]
+
+**** configurazione vtp server con ether channel
+show vtp status
+vtp domain [nome]
+//creare le vlan
+Interface range
+channel-group [numero] mode [modalità] (on/auto/desirable...)
+interface port-channel [numero] 
+switchport mode trunk
+show etherchannel summary
+
+****configurazione vtp client con ether channel
+vtp mode client
+Interface range
+channel-group [numero] mode [modalità] (on/auto/desirable...)
+interface port-channel [numero] 
+switchport mode trunk
+
+****Tunneling ipv4 ipv6
+//configura ipv6 e ipv4
+interface tunnel 0
+ipv6 address [ip][subnet]
+ipv6 rip [hostname] enable
+tunnel source [interfaccia]
+tunnel destination [ip]
+tunnel mode ipv6ip
+
+*****Configurazione hsrp
+interface [interfaccia della lan]
+standby [numero] ip [gateway virtuale] 
+standby [numero] priority [priorità]
+standby [numero] preempt **Solo per il router principale**
+
+***Configura nat
+
+Interface
+ip nat inside
+Interface
+ip nat outside
+ip nat pool [nome] [primo ip] [ultimo ip] netmask [subnet]
+access-list [numero] permit any
+****access-list [numero] deny host [ip]
+****access-list [numero] allow [ip] [inverso subnet]
+ip nat inside source list [numero] pool [nome] overload 
+ip route 0.0.0.0 0.0.0.0 [ip default]
+***port forwarding
+ip nat inside source static tcp [ip] [ip default gateway pubblico] [port] 
