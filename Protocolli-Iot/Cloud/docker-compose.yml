@@ -1,0 +1,87 @@
+version: '3.4'
+
+services:
+  
+  influxdb:
+    image: influxdb:latest
+    
+    container_name: influxdb2
+    volumes:
+      - ./volume/influxdb/data:/var/lib/influxdb2:rw
+    ports:
+      - 8086:8086
+    networks:
+        private:
+         aliases:
+          - influxdb
+    restart: unless-stopped
+  
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ./volume/rabbitmq/data/:/var/lib/rabbitmq/
+        - ./volume/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        private:
+         aliases:
+          - rabbitmq
+        
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-spiro}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-Vmware1!}
+      PGDATA: /data/postgres
+    volumes:
+      - ./volume/postgres/data:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      private:
+       aliases:
+        - postgres
+       
+    restart: unless-stopped
+
+  mosquitto:
+    image: eclipse-mosquitto:2
+    volumes:
+      - ./mosquitto/config/:/mosquitto/config/:ro
+      - ./mosquitto/log/:/mosquitto/log/
+      - ./volume/mosquitto/data:/mosquitto/data/
+    ports:
+      - 1883:1883
+      - 9001:9001
+    networks:
+      private:
+        aliases:
+        - mosquitto
+  
+
+  cloud:
+    image: ${DOCKER_REGISTRY-}cloud
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    networks:
+        private:
+    depends_on:
+        - mosquitto
+        - postgres
+        - influxdb
+        - rabbitmq
+
+volumes:
+  data: ~
+  postgres:
+
+
+networks:
+  private:
+    driver: bridge
+    

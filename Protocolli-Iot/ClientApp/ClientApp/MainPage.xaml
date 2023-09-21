@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClientApp.MainPage">
+    <ScrollView>
+
+        <VerticalStackLayout>
+
+            <Grid Margin="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label
+                Text="Stato"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" 
+                VerticalOptions="Center"
+                
+                />
+                <Label
+                Grid.Column="1"
+                x:Name="StatusLabel"
+                Text="OFF"
+                SemanticProperties.HeadingLevel="Level2"
+                FontSize="18"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
+
+
+                <!--Seconda riga-->
+
+                <Label
+                Grid.Row="1"
+                Text="Longitudine"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+            />
+                <Label
+                    x:Name="LongitudeLabel"
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="0"
+                SemanticProperties.HeadingLevel="Level2"
+                FontSize="18"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
+
+
+                <!--Terza riga-->
+
+                <Label
+                Grid.Row="2"
+                Text="Latitudine"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+            />
+                <Label
+                    x:Name="LatitudeLabel"
+                Grid.Row="2"
+                Grid.Column="1"
+                Text="0"
+                SemanticProperties.HeadingLevel="Level2"
+                FontSize="18"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
+
+                <!--Quarta riga-->
+
+                <Label
+                    Grid.Row="3"
+                    Text="Accuratezza"
+                    SemanticProperties.HeadingLevel="Level1"
+                    FontSize="32"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                />
+                <Label
+                    x:Name="AccuracyLabel"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Text="0"
+                    SemanticProperties.HeadingLevel="Level2"
+                    FontSize="18"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+
+                <!--Quinta riga-->
+
+                <Label
+                    Grid.Row="4"
+                    Text="Ultimo comando"
+                    SemanticProperties.HeadingLevel="Level1"
+                    FontSize="32"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                />
+                <Label
+                    x:Name="LastCommandLabel"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Text="null"
+                    SemanticProperties.HeadingLevel="Level2"
+                    FontSize="18"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+            </Grid>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+            x:Name="PowerOnBtn"
+            Text="Toggle Power"
+            Clicked="PowerOnBtn_OnClicked"
+            HorizontalOptions="Center" />
+                <Button
+            Grid.Column="1"
+            IsEnabled="False"
+            x:Name="StartBtn"
+            Text="Toggle FlightMode"
+            Clicked="StartBtn_OnClicked"
+            HorizontalOptions="Center" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
