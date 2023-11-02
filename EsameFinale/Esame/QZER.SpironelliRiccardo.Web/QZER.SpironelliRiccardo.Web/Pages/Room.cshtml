@@ -1,0 +1,11 @@
+﻿@page "{searchString?}"
+@model RoomModel
+
+<h1>@Model.SelectedRoom.Name</h1>
+
+<form method="post">
+    <input type="text" name="roomId" id="roomId" value="@Model.SelectedRoom.Id" style="display:none">
+    <button type="submit" class="btn btn-primary">Reset</button>
+</form>
+
+

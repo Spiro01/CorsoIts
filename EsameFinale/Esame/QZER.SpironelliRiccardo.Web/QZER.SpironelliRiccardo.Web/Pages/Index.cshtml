@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Room Name</th>
+            <th scope="col">Current Timeout</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Room.Select((room, i) => new { i, room }))
+        {
+            <tr>
+                <th scope="row"><a href="/Room?id=@item.room.Id">@item.i</a></th>
+                <td>@item.room.Name</td>
+                <td>@item.room.Timeout</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
